@@ -1,0 +1,63 @@
+{
+  "name": "InPwr.Bill.BillingForecast",
+  "projectId": "f58aa860-4813-4607-8ad0-146d96b101e5",
+  "description": "InPwr.Bill.BillingForecast-24114 ",
+  "main": "Main.xaml",
+  "dependencies": {
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.37]",
+    "InPwr.CoE.CustomComponent.Utility": "[1.0.17]",
+    "UiPath.DocumentUnderstanding.Activities": "[3.0.0-preview]",
+    "UiPath.PDF.Activities": "[3.25.2]",
+    "UiPath.System.Activities": "[26.2.4]",
+    "UiPath.UIAutomation.Activities": "[24.10.10]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "24.10.1.0",
+  "projectVersion": "1.0.1",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "e9eb7476-a00b-425f-8f3a-c8ec71a34d08",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

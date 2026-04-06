@@ -1,0 +1,510 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Spec_JobOveriewReportToBillingForecast" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_JORfilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_BFRfilepath" Type="InArgument(x:String)" />
+    <x:Property Name="in_JORTextfilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_jobNumber" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Spec_JobOveriewReportToBillingForecast.in_jobNumber>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_JobOveriewReportToBillingForecast.in_jobNumber>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1300,1230</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SpectrumJobOveriewReport_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.ExtractPDFText</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Spec_JobOveriewReportToBillingForecast" sap:VirtualizedContainerService.HintSize="603,1165" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="ls_VendorType" />
+      <Variable x:TypeArguments="x:Boolean" Name="bol_JORTextFile" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dic_JORProjectedCost" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="541,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Started&quot;]" />
+    <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="541,290" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="scg:List(x:String)">[ls_VendorType]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="scg:List(x:String)">[New System.Collections.Generic.List(Of System.String) From {"E Equipment", "L Labor", "M Material","O Other Direct", "S Subcontract"}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_JORProjectedCost]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String)]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+    </Sequence>
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="541,450" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="str_JORtext" />
+        <Variable x:TypeArguments="x:String" Name="str_contAmt" />
+        <Variable x:TypeArguments="x:String" Name="str_reprtGProfit" />
+        <Variable x:TypeArguments="x:String" Name="str_reprtGPercentage" />
+        <Variable x:TypeArguments="x:String" Name="str_grossProfit" />
+        <Variable x:TypeArguments="x:String" Name="str_grossPercentage" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Sequence - Parse PDF File to Text" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_28">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : Reading JOR PDF file. | &quot; + in_JORfilePath" sap:VirtualizedContainerService.HintSize="388,173" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Reading JOR PDF file. | &quot; + in_JORfilePath]" />
+        <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read JOR PDF Text" FileName="[in_JORfilePath]" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORtext]" />
+        <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File - JOR PDF to Text" FileName="[in_JORTextfilePath]" sap:VirtualizedContainerService.HintSize="388,166" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str_JORtext]" />
+      </Sequence>
+      <Sequence DisplayName="Read Billing Forcast Report - Data Scraping" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="str_subTotallLines" />
+          <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="allCost" />
+          <Variable x:TypeArguments="x:String" Name="str_Profit" />
+          <Variable x:TypeArguments="x:String" Name="str_Amount" />
+          <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="allProfit" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each  Vendor Type to get the Projected Value" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ls_VendorType]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:String">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,896" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Matches BuilderPattern="Subtotal for: L Labor\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[str_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : &quot; +str_SubTotalLine.ToString()" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot; +str_subTotallLines.ToString()]" />
+                <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]" />
+                <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : &quot; + String.Join(&quot; | &quot;, Allcosts.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]" />
+                <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+Allcosts(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]" />
+                <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ForEach>
+        <ui:Matches BuilderPattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" DisplayName="Get Contract Value" FirstMatch="[str_contAmt]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[str_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Revised\\s+Contract:\\s*(?&lt;Revised&gt;\\d{1,3}(?:,\\d{3})*\\.\\d{2})&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
+        <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : &quot;+str_contractAmount" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+str_contAmt]" />
+        <Assign DisplayName="Assign -str_contractAmount" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[str_contAmt]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(str_contAmt, "\d{1,3}(?:,\d{3})*(?:\.\d+)?").Value]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" DisplayName="Get Gross Profit &amp; Percentage" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[str_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gross Profit:\\r?\\nGross Profit %:\\r?\\n\\d{1,3}(?:,\\d{3})*\\.\\d+\\r?\\n\\d+(?:\\.\\d+)?%\\r?\\n(?&lt;SecondAmount&gt;\\d{1,3}(?:,\\d{3})*\\.\\d+)\\r?\\n(?&lt;SecondPercent&gt;\\d+(?:\\.\\d+)?%)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
+        <ui:MultipleAssign DisplayName="Multiple Assign - Gross Profit/Percentage - Second Part" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondAmount").Value]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondPercent").Value]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <ui:LogMessage DisplayName="Log Message -  &quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;]&quot;]" />
+      </Sequence>
+      <Sequence DisplayName="Sequence - Excel sheet filling/Validation" sap:VirtualizedContainerService.HintSize="450,216" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+          <ueab:ExcelProcessScopeX.Body>
+            <ActivityAction x:TypeArguments="ui:IExcelProcess">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="602,1381" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="540,1293" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" TemplatePath="C:\Users\Dev2Mercury\Documents\Projects\BillingForecast\24114_BillingForecast.xlsx" WorkbookPath="[in_BFRfilepath]">
+                  <ueab:ExcelApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="506,1001" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ueab:DeleteSheetX DisplayName="Delete Sheet" sap:VirtualizedContainerService.HintSize="444,122" sap2010:WorkflowViewState.IdRef="DeleteSheetX_2" Sheet="[If(Excel.Sheet(in_jobNumber) IsNot Nothing, Excel.Sheet(in_jobNumber), Excel.Sheet(in_jobNumber + &quot;_Example&quot;))]" />
+                        <ueab:DuplicateSheetX DisplayName="Duplicate Sheet" sap:VirtualizedContainerService.HintSize="444,170" sap2010:WorkflowViewState.IdRef="DuplicateSheetX_2" NewSheetName="[in_jobNumber]" SheetToDuplicate="[Excel.Sheet(&quot;Template&quot;)]" />
+                        <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Projected Cost and Fill the Vendor Type Column values" sap:VirtualizedContainerService.HintSize="444,57" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dic_JORProjectedCost]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="currentKeyValuePairOfTextAndText" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="593,645" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="str_CellValue" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:IfElseIfV2 Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Equipment&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="531,557" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                                  <ui:IfElseIfV2.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </ui:IfElseIfV2.Else>
+                                  <ui:IfElseIfV2.ElseIfs>
+                                    <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Labor&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,443" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C5&quot;)]" DisplayName="Write Cell - JOR Labor" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Material&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,443" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C6&quot;)]" DisplayName="Write Cell - JOR Material" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Other&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_3">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,443" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C7&quot;)]" DisplayName="Write Cell - Other" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Subcontract&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,443" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C8&quot;)]" DisplayName="Write Cell - Subcontract" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_7" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                    </sc:BindingList>
+                                  </ui:IfElseIfV2.ElseIfs>
+                                  <ui:IfElseIfV2.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message -&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                      <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C4&quot;)]" DisplayName="Write Cell - JOR Equipment" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                    </Sequence>
+                                  </ui:IfElseIfV2.Then>
+                                </ui:IfElseIfV2>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                        <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C14&quot;)]" DisplayName="Write Cell - Fill in the Contract Amount" sap:VirtualizedContainerService.HintSize="444,191" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[str_contAmt]" />
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;C15&quot;)]" DisplayName="Read Cell Value - Report Gross Profit for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="444,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
+                          <ueab:ReadCellValueX.SaveTo>
+                            <OutArgument x:TypeArguments="x:String">[str_reprtGProfit]</OutArgument>
+                          </ueab:ReadCellValueX.SaveTo>
+                        </ueab:ReadCellValueX>
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(&quot;D15&quot;)]" DisplayName="Read Cell Value - Report Gross Percentage for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="444,182" sap2010:WorkflowViewState.IdRef="ReadCellValueX_3">
+                          <ueab:ReadCellValueX.SaveTo>
+                            <OutArgument x:TypeArguments="x:String">[str_reprtGPercentage]</OutArgument>
+                          </ueab:ReadCellValueX.SaveTo>
+                        </ueab:ReadCellValueX>
+                      </Sequence>
+                    </ActivityAction>
+                  </ueab:ExcelApplicationCard.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ueab:ExcelApplicationCard>
+              </Sequence>
+            </ActivityAction>
+          </ueab:ExcelProcessScopeX.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ueab:ExcelProcessScopeX>
+        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+          <ui:CommentOut.Body>
+            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_27">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[CInt(str_grossProfit) = CInt(str_reprtGProfit)]" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message -  &quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] and Report Gross Profit [&quot;+str_ReportGProfit+&quot;] are matching.&quot;" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] and Report Gross Profit [&quot;+str_reprtGProfit+&quot;] are matching.&quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message -  &quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] and Report Gross Profit [&quot;+str_ReportGProfit+&quot;] are Not matching.&quot;" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Gross Profit [&quot;+str_grossProfit + &quot;] and Report Gross Profit [&quot;+str_reprtGProfit+&quot;] are Not matching.&quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ui:CommentOut.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:CommentOut>
+      </Sequence>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message - &quot;Spec_JobOveriewReportToBillingForecast : Ended&quot;" sap:VirtualizedContainerService.HintSize="541,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Spec_JobOveriewReportToBillingForecast : Ended&quot;]" />
+  </Sequence>
+</Activity>
