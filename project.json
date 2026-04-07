@@ -4,7 +4,7 @@
   "description": "InPwr.Bill.BillingForecast-24114 ",
   "main": "Main.xaml",
   "dependencies": {
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.37]",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.38]",
     "InPwr.CoE.CustomComponent.Utility": "[1.0.17]",
     "UiPath.DocumentUnderstanding.Activities": "[3.0.0-preview]",
     "UiPath.PDF.Activities": "[3.25.2]",

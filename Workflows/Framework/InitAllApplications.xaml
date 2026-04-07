@@ -1,12 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:is="clr-namespace:InPwr_CoE_CustomComponent_SpectrumWebUIApp.Spectrum;assembly=InPwr.CoE.CustomComponent.SpectrumWebUIApp" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:is="clr-namespace:InPwr_CoE_CustomComponent_SpectrumWebUIApp.Spectrum;assembly=InPwr.CoE.CustomComponent.SpectrumWebUIApp" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_spectrumBrowser" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="out_JORText" Type="OutArgument(x:String)" />
+    <x:Property Name="out_CTSRText" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BHRText" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1098,3421</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1201,1460</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -69,6 +72,23 @@
       <x:String>System.Net</x:String>
       <x:String>UiPath.Constants</x:String>
       <x:String>UiPath</x:String>
+      <x:String>InPwr_CoE_CustomComponent_SpectrumWebUIApp.Spectrum.Billing</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>InPwr_CoE_CustomComponent_DataServices.Data_Services</x:String>
+      <x:String>InPwr_CoE_CustomComponent</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+      <x:String>UiPath.DataService.Core.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -150,14 +170,35 @@
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Testing.Activities.Api</AssemblyReference>
       <AssemblyReference>InPwr.CoE.CustomComponent.Utility</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>InPwr.CoE.CustomComponent.DataServices</AssemblyReference>
+      <AssemblyReference>DataService.InPwr_CoE_CustomComponent</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="682,3356" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="512,1395" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_O365AClientId" />
       <Variable x:TypeArguments="ss:SecureString" Name="sec_O365ClientSecretId" />
       <Variable x:TypeArguments="ss:SecureString" Name="sec_SpectrumPassword" />
       <Variable x:TypeArguments="x:String" Name="str_SpectrumUserName" />
+      <Variable x:TypeArguments="upr:ILocalResource" Name="outputFile">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">CreateFile_1</x:String>
+            <x:String x:Key="SourcePropertyName">Output</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="str_dsClientId" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sec_dsClientSecVal" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -165,15 +206,15 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="620,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="620,2069" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
+    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try - Get AP_O365_Application from Asset" sap:VirtualizedContainerService.HintSize="558,800" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch DisplayName="Try - Get AP_O365_Application from Asset" sap:VirtualizedContainerService.HintSize="558,826" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -181,14 +222,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <TryCatch.Try>
-          <Sequence DisplayName="Get AP_O365_Application from Asset" sap:VirtualizedContainerService.HintSize="520,540" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Get AP_O365_Application from Asset" sap:VirtualizedContainerService.HintSize="512,566" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,452" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+            <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,478" sap2010:WorkflowViewState.IdRef="RetryScope_2">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
                   <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,254" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -208,7 +249,7 @@
           </Sequence>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="524,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -219,7 +260,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Catch - Get O365_Application from Asset" sap:VirtualizedContainerService.HintSize="416,376" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence DisplayName="Catch - Get O365_Application from Asset" sap:VirtualizedContainerService.HintSize="416,374" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -281,7 +322,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,452" sap2010:WorkflowViewState.IdRef="RetryScope_3">
+            <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,452" sap2010:WorkflowViewState.IdRef="RetryScope_3">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
                   <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,254" sap2010:WorkflowViewState.IdRef="Sequence_14">
@@ -353,7 +394,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
     </Sequence>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Replace Dynamic value" sap:VirtualizedContainerService.HintSize="620,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Replace Dynamic value" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -369,18 +410,61 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <is:Spec_Login ChangeToEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" DisplayName="Spectum Login" EmailCount="1" EmailFolder="[in_Config(&quot;Spectrum_MailFolder_MFA&quot;).ToString]" sap:VirtualizedContainerService.HintSize="620,683" sap2010:WorkflowViewState.IdRef="Spec_Login_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString()]" O365ApplicationSecret="[sec_O365ClientSecretId]" O365MailAccount="[str_SpectrumUserName]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" RetryInterval="[CInt(in_Config(&quot;O365_RetryInterval&quot;))]" SpectrumLoginMail="[in_Config(&quot;Spectrum_ApplicationUserName&quot;).ToString]" SpectrumLoginPwd="[sec_SpectrumPassword]" SpectrumURL="[in_Config(&quot;Spectrum_URL&quot;).ToString]" out_spectrumBrowser="[out_spectrumBrowser]">
+    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="RetryScope_4">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,254" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;AP_DataService_API&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential - DS ClientID/Secret" FolderPath="[in_Config(&quot;DataService_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="354,166" sap2010:WorkflowViewState.IdRef="GetRobotCredential_5" Password="[sec_dsClientSecVal]" Username="[str_dsClientId]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RetryScope>
+    <is:Spec_Login ChangeToEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" DisplayName="Spectum Login" EmailCount="1" EmailFolder="[in_Config(&quot;Spectrum_MailFolder_MFA&quot;).ToString]" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Spec_Login_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString()]" O365ApplicationSecret="[sec_O365ClientSecretId]" O365MailAccount="[str_SpectrumUserName]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" RetryInterval="[CInt(in_Config(&quot;O365_RetryInterval&quot;))]" SpectrumLoginMail="[in_Config(&quot;Spectrum_ApplicationUserName&quot;).ToString]" SpectrumLoginPwd="[sec_SpectrumPassword]" SpectrumURL="[in_Config(&quot;Spectrum_URL&quot;).ToString]" out_spectrumBrowser="[out_spectrumBrowser]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </is:Spec_Login>
-    <ui:LogMessage DisplayName="Log Message - &quot;Opening applications : Ended&quot;" sap:VirtualizedContainerService.HintSize="620,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening applications : Ended&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_CTSR_Download - Invoke Workflow File (Workflows\Spectrum\Spec_CTSR_Download.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_CTSR_Download.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
+        <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_CTSR_Text">[out_CTSRText]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[out_CTSRText]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JOR_ReportDownload - Invoke Workflow File (Workflows\Spectrum\Spec_JOR_ReportDownload.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_JOR_Download.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
+        <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_JORText">[out_JORText]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[out_JORText]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;Opening applications : Ended&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening applications : Ended&quot;]" />
   </Sequence>
 </Activity>
