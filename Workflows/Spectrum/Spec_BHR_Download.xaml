@@ -1,17 +1,9 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Spec_JOR_ReportDownload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:is="clr-namespace:InPwr_CoE_CustomComponent_SpectrumWebUIApp.Spectrum;assembly=InPwr.CoE.CustomComponent.SpectrumWebUIApp" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Spec_JOR_ReportDownload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:is="clr-namespace:InPwr_CoE_CustomComponent_SpectrumWebUIApp.Spectrum;assembly=InPwr.CoE.CustomComponent.SpectrumWebUIApp" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_dsClientSecVal" Type="InArgument(ss:SecureString)" />
-    <x:Property Name="in_dsClientID" Type="InArgument(x:String)" />
     <x:Property Name="in_spectrumBrowser" Type="InArgument(ui:UiElement)" />
-    <x:Property Name="out_JORText" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BHRText" Type="OutArgument(x:String)" />
   </x:Members>
-  <this:Spec_JOR_ReportDownload.in_dsClientSecVal>
-    <InArgument x:TypeArguments="ss:SecureString" />
-  </this:Spec_JOR_ReportDownload.in_dsClientSecVal>
-  <this:Spec_JOR_ReportDownload.in_dsClientID>
-    <InArgument x:TypeArguments="x:String" />
-  </this:Spec_JOR_ReportDownload.in_dsClientID>
   <this:Spec_JOR_ReportDownload.in_spectrumBrowser>
     <InArgument x:TypeArguments="ui:UiElement" />
   </this:Spec_JOR_ReportDownload.in_spectrumBrowser>
@@ -184,10 +176,9 @@
       <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Spec_JOR_Download" sap:VirtualizedContainerService.HintSize="1244,2365" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Spec_JOR_Download" sap:VirtualizedContainerService.HintSize="1244,2542" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_downloadedFilePath" />
-      <Variable x:TypeArguments="x:Boolean" Name="bol_JOR_ReadyToExport" />
       <Variable x:TypeArguments="upr:ILocalResource" Name="outputFile" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -196,17 +187,29 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - &quot;Spec_JOR_Download : Started&quot;" sap:VirtualizedContainerService.HintSize="512,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Spec_JOR_Download : Started&quot;]" />
-    <Sequence DisplayName="Sequence to Download JOR" sap:VirtualizedContainerService.HintSize="512,1460" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message - &quot;Spec_BHR_Download : Started&quot;" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Spec_BHR_Download : Started&quot;]" />
+    <Sequence DisplayName="Sequence to Download BHR" sap:VirtualizedContainerService.HintSize="450,1637" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <is:Spec_Navigation DisplayName="Spectrum Navigation" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Spec_Navigation_1" NavToFolder="[in_Config(&quot;Spectrum_NavToJOR&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
-      <is:Spec_JobOverviewReport sap:VirtualizedContainerService.HintSize="416,479" sap2010:WorkflowViewState.IdRef="Spec_JobOverviewReport_1" in_EndDate="[in_Config(&quot;CurrentMonth_EndDate&quot;).ToString]" in_EntityFieldName="[in_Config(&quot;DataService_FieldName&quot;).ToString]" in_EntityName="[in_Config(&quot;DS_JOR_EntityName&quot;).ToString]" in_EntitySearchValue="[in_Config(&quot;Job_Number&quot;).ToString]" in_SpectrumBrowser="[in_spectrumBrowser]" in_dsClientId="[in_dsClientID]" in_dsClientSecret="[New System.Net.NetworkCredential(String.Empty, in_dsClientSecVal).Password]" in_dsRefToken="[in_Config(&quot;DataService_RefreshToken&quot;).ToString]" />
-      <is:Spec_Export_Report DownloadFileType="[in_Config(&quot;Report_Format&quot;).ToString]" DownloadedFilePath="[str_downloadedFilePath]" sap:VirtualizedContainerService.HintSize="416,326" sap2010:WorkflowViewState.IdRef="Spec_Export_Report_1" MoveToFolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" ReportFileName="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;JOR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;ddMMyy&quot;)]" in_spectrumBrowser="[in_spectrumBrowser]">
+      <is:Spec_Navigation DisplayName="Spectrum Navigation" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Spec_Navigation_1" NavToFolder="[in_Config(&quot;Spectrum_NavToBHR&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_BillingHistory - Invoke Workflow File (Workflows\Spectrum\Spec_BillingHistory.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_BillingHistory.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_SpectrumBrowser">[in_spectrumBrowser]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Invoice">[in_Config("BHR_Invoice").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Division">[in_Config("BHR_Division").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_FromGLDate">[in_Config("BHR_From_GL_Date").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ToGLDate">[in_Config("CurrentMonth_EndDate").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ToInvoiceDate">[in_Config("CurrentMonth_EndDate").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_FromInvoiceDate">[in_Config("BHR_From_Invoice_Date").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <is:Spec_BillingHistoryReport sap:VirtualizedContainerService.HintSize="416,479" sap2010:WorkflowViewState.IdRef="Spec_BillingHistoryReport_1" in_Division="[in_Config(&quot;BHR_Division&quot;).ToString]" in_FromGLDate="[in_Config(&quot;BHR_From_GL_Date&quot;).ToString]" in_FromInvoiceDate="[in_Config(&quot;BHR_From_Invoice_Date&quot;).ToString]" in_Invoice="[in_Config(&quot;BHR_Invoice&quot;).ToString]" in_JobNumber="[in_Config(&quot;Job_Number&quot;).ToString]" in_SpectrumBrowser="[in_spectrumBrowser]" in_ToGLDate="[in_Config(&quot;CurrentMonth_EndDate&quot;).ToString]" in_ToInvoiceDate="[in_Config(&quot;CurrentMonth_EndDate&quot;).ToString]" />
+      <is:Spec_Export_Report DownloadFileType="[in_Config(&quot;Report_Format&quot;).ToString]" DownloadedFilePath="[str_downloadedFilePath]" sap:VirtualizedContainerService.HintSize="416,326" sap2010:WorkflowViewState.IdRef="Spec_Export_Report_1" MoveToFolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" ReportFileName="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;BHR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;ddmmyyy&quot;)]" in_spectrumBrowser="[in_spectrumBrowser]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,20 +217,20 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </is:Spec_Export_Report>
-      <ui:CreateFile PathResource="{x:Null}" DisplayName="Create File - Empty Text file for JOR PDF" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;JOR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;ddMMyy&quot;)+&quot;.txt&quot;]" Output="[outputFile]" Path="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" />
-      <is:Spec_Close_Tab DisplayName="Spectrum Close Tab" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Spec_Close_Tab_1" NavToFolder="[in_Config(&quot;Spectrum_NavToJOR&quot;).ToString]" SpecEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
+      <ui:CreateFile PathResource="{x:Null}" DisplayName="Create File - Empty Text file for BHRPDF" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;BHR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;ddmmyyy&quot;)+&quot;.txt&quot;]" Output="[outputFile]" Path="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" />
+      <is:Spec_Close_Tab DisplayName="Spectrum Close Tab" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Spec_Close_Tab_1" NavToFolder="[in_Config(&quot;Spectrum_NavToBHR&quot;).ToString]" SpecEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
     </Sequence>
-    <Sequence DisplayName="Sequence - Parse PDF File to Text" sap:VirtualizedContainerService.HintSize="512,545" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Sequence - Parse PDF File to Text" sap:VirtualizedContainerService.HintSize="450,545" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message - &quot;Spec_JOR_Download : JOR File [&quot;+str_downloadedFilePath+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Spec_JOR_Download : JOR File [&quot;+str_downloadedFilePath+&quot;]&quot;]" />
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read JOR PDF Text" FileName="[str_downloadedFilePath]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[out_JORText]" />
-      <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File - JOR PDF to Text" FileName="[outputFile.LocalPath]" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[out_JORText]" />
+      <ui:LogMessage DisplayName="Log Message - &quot;Spec_BHR_Download : BHR File [&quot;+str_downloadedFilePath+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Spec_BHR_Download : BHR File [&quot;+str_downloadedFilePath+&quot;]&quot;]" />
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read BHR PDF Text" FileName="[str_downloadedFilePath]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[out_BHRText]" />
+      <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File - BHR PDF to Text" FileName="[outputFile.LocalPath]" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[out_BHRText]" />
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;Spec_JOR_Download : Ended&quot;" sap:VirtualizedContainerService.HintSize="512,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Spec_JOR_Download : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;Spec_BHR_Download : Ended&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Spec_BHR_Download : Ended&quot;]" />
   </Sequence>
 </Activity>

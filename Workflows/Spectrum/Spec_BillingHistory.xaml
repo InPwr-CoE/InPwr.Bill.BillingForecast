@@ -1,0 +1,450 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Spec_Billing_BillingHistory" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SpectrumBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="in_JobNumber" Type="InArgument(x:String)" />
+    <x:Property Name="in_Invoice" Type="InArgument(x:String)" />
+    <x:Property Name="in_Division" Type="InArgument(x:String)" />
+    <x:Property Name="in_FromGLDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_ToGLDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_ToInvoiceDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_FromInvoiceDate" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Spec_Billing_BillingHistory.in_SpectrumBrowser>
+    <InArgument x:TypeArguments="ui:UiElement" />
+  </this:Spec_Billing_BillingHistory.in_SpectrumBrowser>
+  <this:Spec_Billing_BillingHistory.in_JobNumber>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_JobNumber>
+  <this:Spec_Billing_BillingHistory.in_Invoice>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_Invoice>
+  <this:Spec_Billing_BillingHistory.in_Division>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_Division>
+  <this:Spec_Billing_BillingHistory.in_FromGLDate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_FromGLDate>
+  <this:Spec_Billing_BillingHistory.in_ToGLDate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_ToGLDate>
+  <this:Spec_Billing_BillingHistory.in_ToInvoiceDate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_ToInvoiceDate>
+  <this:Spec_Billing_BillingHistory.in_FromInvoiceDate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Spec_Billing_BillingHistory.in_FromInvoiceDate>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1792.8,6004.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Spec_Billing_BillingHistory_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Spec_Billing_BillingHistory" sap:VirtualizedContainerService.HintSize="1244,5068" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="513,725" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome Viewpoint Spectrum(1)" sap:VirtualizedContainerService.HintSize="479,340" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[in_SpectrumBrowser]" ScopeGuid="e974f051-8f98-44b0-adec-aad10e83ab4b" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,91" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="006da1b5519fd5fd3ef119c8026e1af0.jpg" Selector="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" Title="Viewpoint Spectrum" Url="https://inpwr.dexterchaney.com/pages/index.jsp" Version="V1" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,325" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_JobNumber]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">24114</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_Invoice]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">ALL</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_Division]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">ALL</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_FromGLDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_ToGLDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">03/31/26</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_FromInvoiceDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_ToInvoiceDate]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">03/31/26</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingHistory Report : Started&quot;" sap:VirtualizedContainerService.HintSize="518,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Billing History Report : Started&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,4651" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_SpectrumBrowser]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,4482" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_outerhtml" />
+              <Variable x:TypeArguments="x:Boolean" Name="bol_condition" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering Job Number [&quot; + in_JobNumber + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Entering Job Number [&quot; + in_JobNumber + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Job Number'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_JobNumber]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" CVScreenId="e9f65ea9-f9fd-4af1-9240-096a948c32fb" ContentHash="WfYbZ6sJHEeQpZCAvEhdxQ" DesignTimeRectangle="512, 346, 308, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com11Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com11Input' type='text' /&gt;" Guid="a7da7cfe-baf0-4b6a-aab0-4484a1e344a6" InformativeScreenshot="718362dda53f948c5b895fa2593574aa.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/QssZioWMMUuWBqVd686mIQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering Invoice [&quot;+ in_Invoice +&quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Entering Invoice [&quot;+ in_Invoice +&quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Invoice'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_Invoice]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="MeMBdXoVOECBx2qEbNDdcA" DesignTimeRectangle="512, 368, 308, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com51Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com51Text' type='text' /&gt;" Guid="3fe61eb9-2390-49f3-85b3-a43a0cd8c190" ImageBase64="" InformativeScreenshot="1e21f7bb344b01bd8a7c7c07f71beb3d.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/3S6xG5NxR028x-ZeU4RD6w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering Division [&quot; + in_Division + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Entering Division [&quot; + in_Division + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Division'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_Division]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="Hzw9jJKOkkiiAxqn-rCv-w" DesignTimeRectangle="512, 393, 308, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com71Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com71Input' type='text' /&gt;" Guid="763bbdb7-e748-47fb-ae1b-569ea88b480f" ImageBase64="" InformativeScreenshot="48e346f0447661c764a9ea5218b9b687.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/lx3gINZA8UCsJXCQxIDaPg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering From GL Date [&quot; + in_FromGLDate + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Entering From GL Date [&quot; + in_FromGLDate + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'From GL date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_FromGLDate]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="aPoasOY76Ua8vx3-68Y2tA" DesignTimeRectangle="512, 417, 88, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com12Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com12Input' type='text' /&gt;" Guid="0973c4d3-a8a0-4367-99fe-1b2eef281aa0" ImageBase64="" InformativeScreenshot="d62ce714256fb1c33f280fbb8e5e08d7.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/ZGURFoc25UGKNwAYVubQjw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering To GL Date [&quot; + in_ToGLDate + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Entering To GL Date [&quot; + in_ToGLDate + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'To GL Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_ToGLDate]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="8cxmi3u53k6QgdVT2E-GDw" DesignTimeRectangle="512, 441, 88, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com21Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com21Input' type='text' /&gt;" Guid="559f909a-dcbf-4b82-b434-966881fb2b88" ImageBase64="" InformativeScreenshot="ad18f301bbaaf4ecec21d7547e07a3c1.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/5VQYgM0dnESHl3-J2hqnfA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering From Invoice Date [&quot; + in_FromInvoiceDate + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Entering From Invoice Date [&quot; + in_FromInvoiceDate + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'From Invoice Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_FromInvoiceDate]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="lgKk0RzJwEG1MDWxzwDAxQ" DesignTimeRectangle="512, 465, 88, 20" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com31Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com31Input' type='text' /&gt;" Guid="7f2c53f5-c2af-4286-972c-ee8b96344ee9" ImageBase64="" InformativeScreenshot="591c892f02b877aef53ae43a28db1d3a.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/9F8v-ct_f068aX-I63wKnQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - &quot;Entering To Invoice Date [&quot; + in_ToInvoiceDate + &quot;] value&quot;" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="[&quot;Entering To Invoice Date [&quot; + in_ToInvoiceDate + &quot;] value&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'To Invoice Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Text="[in_ToInvoiceDate]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="nF-UF7lpeUyn6dKQJUrn5w" DesignTimeRectangle="512, 488, 88, 21" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-Com41Node' tag='DIV' /&gt;&lt;webctrl tag='INPUT' id='proiv_JC.BH1-Com41Input' type='text' /&gt;" Guid="c8213c16-1fbb-4e5d-83c0-4e20b8bb9495" ImageBase64="" InformativeScreenshot="b0f945b1273d9eb2b75bfdba780ae184.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/6iuwOrpsqEycOTSdZ04dWA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="outerhtml" DisplayName="Get Attribute 'DIV proiv_JC.BH1-chkMas…'" sap:VirtualizedContainerService.HintSize="450,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[str_outerhtml]" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Version="V4">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="TigluC_Am0SnwusBZAV4Kg" DesignTimeRectangle="293, 513, 16, 17" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-chkMasterFocus' tag='DIV' /&gt;&lt;webctrl tag='DIV' id='proiv_JC.BH1-chkMasterBox' /&gt;" Guid="553f1ec2-e09e-49a0-b2f8-919004840bd8" ImageBase64="" InformativeScreenshot="8fd702af6346e4449e85c54ccde39e3c.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/Bw_Fw333kk2Rw2IYhq7arw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <Assign DisplayName="Assign - Bol Condition" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[bol_condition]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">[if(str_outerHtml.Contains("img=checkbox-checked.png"),True,False)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[bol_condition]" DisplayName="If - bol_condition" sap:VirtualizedContainerService.HintSize="450,840" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,451" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - &quot;[Combine sub-job activity into master job?] is Checked | Unchecking now.&quot;" sap:VirtualizedContainerService.HintSize="382,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[Combine sub-job activity into master job?] is Checked | Unchecking now.&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="382,216" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="224f8d7b-86c5-436d-bc8a-a3f21b2981cb" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="inpwr.dexterchaney.com/pages/index.jsp" ContentHash="tCAsTEPzJ0Wa28gFvqGsLw" DesignTimeRectangle="293, 513, 16, 17" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='proiv_JC.BH1-chkMasterFocus' tag='DIV' /&gt;&lt;webctrl tag='DIV' id='proiv_JC.BH1-chkMasterBox' /&gt;" Guid="4977a887-f786-483a-943a-1d161ce4e9bd" ImageBase64="" InformativeScreenshot="2a251e5fea1b5dd752af75f9980982f0.png" Reference="DlDsP-zmwU-8NzMoH1WiBg/2hnmyBvMhk-UgHZArQOzJA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Viewpoint Spectrum' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - &quot;[Combine sub-job activity into master job?] is already Unchecked | No action required.&quot;" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;[Combine sub-job activity into master job?] is already Unchecked | No action required.&quot;]" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" Version="V1" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingHistory Report : Ended&quot;" sap:VirtualizedContainerService.HintSize="518,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Billing History Report : Ended&quot;]" />
+  </Sequence>
+</Activity>
