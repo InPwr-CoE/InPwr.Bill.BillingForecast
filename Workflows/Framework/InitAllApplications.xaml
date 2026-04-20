@@ -183,7 +183,7 @@
       <AssemblyReference>UiPath.DataService.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1194,778.04" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="851,684" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_O365AClientId" />
       <Variable x:TypeArguments="ss:SecureString" Name="sec_O365ClientSecretId" />
@@ -498,24 +498,7 @@
       <ui:LogMessage DisplayName="Log Message -&quot;CTSR --&gt; &quot; + out_CTSRText" sap:VirtualizedContainerService.HintSize="518,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;CTSR --&gt; &quot; + out_CTSRText]" />
       <ui:LogMessage DisplayName="Log Message - &quot;BHR--&gt;&quot; + out_BHRText" sap:VirtualizedContainerService.HintSize="518,164" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;BHR--&gt;&quot; + out_BHRText]" />
     </Sequence>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_25">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <is:Spec_Logout DisplayName="Spectrum Logout" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Spec_Logout_1" in_spectrumBrowser="[out_spectrumBrowser]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
+    <is:Spec_Logout DisplayName="Spectrum Logout" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Spec_Logout_2" in_spectrumBrowser="[out_spectrumBrowser]" />
     <ui:LogMessage DisplayName="Log Message - &quot;Opening applications : Ended&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening applications : Ended&quot;]" />
   </Sequence>
 </Activity>
