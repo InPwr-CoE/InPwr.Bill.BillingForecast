@@ -13,17 +13,10 @@
     "UiPath.UIAutomation.Activities": "[24.10.10]"
   },
   "webServices": [],
-  "entitiesStores": [
-    {
-      "serviceDocument": ".entities/EntitiesStore.json",
-      "tenantName": "Dev",
-      "namespace": "InPwr_Bill_BillingForecast",
-      "uniqueReference": "2lTfpA6/C5SrT2VjztJRcRVHzya72c4zLPBupg/zrWw="
-    }
-  ],
+  "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.2",
+  "projectVersion": "1.0.4",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
