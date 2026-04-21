@@ -1,9 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Spec_JobOveriewReportToBillingForecast" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:i="clr-namespace:InPwr_Bill_BillingForecast;assembly=DataService.InPwr_Bill_BillingForecast" xmlns:id="clr-namespace:InPwr_CoE_CustomComponent_DataServices.Data_Services;assembly=InPwr.CoE.CustomComponent.DataServices" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Spec_JobOveriewReportToBillingForecast" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:i="clr-namespace:InPwr_Bill_BillingForecast;assembly=DataService.InPwr_Bill_BillingForecast" xmlns:id="clr-namespace:InPwr_CoE_CustomComponent_DataServices.Data_Services;assembly=InPwr.CoE.CustomComponent.DataServices" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_BFRfilepath" Type="InArgument(x:String)" />
     <x:Property Name="in_JobNumber" Type="InArgument(x:String)" />
     <x:Property Name="in_CTSRText" Type="InArgument(x:String)" />
     <x:Property Name="io_listBRE" Type="InOutArgument(scg:List(x:String))" />
+    <x:Property Name="in_dtBFTemplate" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <this:Spec_JobOveriewReportToBillingForecast.in_JobNumber>
     <InArgument x:TypeArguments="x:String" />
@@ -207,9 +208,8 @@
       <AssemblyReference>DataService.InPwr_Bill_BillingForecast</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Spec_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="1153,3989" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Spec_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="866.4,5361.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_BFTemplate" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_TemplateMonths" />
       <Variable x:TypeArguments="scg:IList(i:BillingForecastTemplateMap)" Name="BFRTemplateMap" />
       <Variable x:TypeArguments="x:String" Name="str_qMonth" />
@@ -222,7 +222,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="870,57" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="866.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_12">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="513,538" sap2010:WorkflowViewState.IdRef="Sequence_92">
           <sap:WorkflowViewStateService.ViewState>
@@ -279,14 +279,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="870,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;CTSRToBillingForecast : Started&quot;]" />
-    <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="870,231" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="866.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;CTSRToBillingForecast : Started&quot;]" />
+    <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="866.4,232.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -301,7 +301,7 @@
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
     </Sequence>
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="870,3341" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="866.4,4708.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Object" Name="str_BRE" />
       </Sequence.Variables>
@@ -311,32 +311,49 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Sequence - Get all Entity values" sap:VirtualizedContainerService.HintSize="836,489" sap2010:WorkflowViewState.IdRef="Sequence_83">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="832.8,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="516.8,540.8" sap2010:WorkflowViewState.IdRef="Sequence_97">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Sequence - Get all Entity values" sap:VirtualizedContainerService.HintSize="483.2,480.8" sap2010:WorkflowViewState.IdRef="Sequence_83">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="449.6,397.6" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,173.6" sap2010:WorkflowViewState.IdRef="Sequence_84">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[in_dtBFTemplate]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.E43316A056FB7A1C44E88D24F4BAE2BBDF7C62E025752BA0FD12B6BA02D8768D" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+              </ui:RetryScope>
+            </Sequence>
+          </Sequence>
+        </ui:CommentOut.Body>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,397" sap2010:WorkflowViewState.IdRef="RetryScope_2">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_84">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_BFTemplate]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.E43316A056FB7A1C44E88D24F4BAE2BBDF7C62E025752BA0FD12B6BA02D8768D" />
-              </Sequence>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-        </ui:RetryScope>
-      </Sequence>
-      <Sequence DisplayName="Sequence - CTSR  Data Scrapping from Text File" sap:VirtualizedContainerService.HintSize="836,2760" sap2010:WorkflowViewState.IdRef="Sequence_44">
+      </ui:CommentOut>
+      <Sequence DisplayName="Sequence - CTSR  Data Scrapping from Text File" sap:VirtualizedContainerService.HintSize="832.8,4560" sap2010:WorkflowViewState.IdRef="Sequence_44">
         <Sequence.Variables>
           <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="AllMatches" />
           <Variable x:TypeArguments="x:String" Name="str_CTSRText" />
@@ -352,33 +369,33 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(YEAR:\s\d{2}\s{2}Period:\s\d{2})[\w\s.,]*(Totals:\s[\d.,\s]*)" DisplayName="Period Year - Totals  portion" sap:VirtualizedContainerService.HintSize="802,92" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[in_CTSRText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(YEAR:\\s\\d{2}\\s{2}Period:\\s\\d{2})[\\w\\s.,]*(Totals:\\s[\\d.,\\s]*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(YEAR:\s\d{2}\s{2}Period:\s\d{2})[\w\s.,]*(Totals:\s[\d.,\s]*)" RegexOption="IgnoreCase, Compiled" Result="[AllMatches]" />
-        <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="802,2537" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_5">
+        <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(YEAR:\s\d{2}\s{2}Period:\s\d{2})[\w\s.,]*(Totals:\s[\d.,\s]*)" DisplayName="Period Year - Totals  portion" sap:VirtualizedContainerService.HintSize="799.2,92" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[in_CTSRText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(YEAR:\\s\\d{2}\\s{2}Period:\\s\\d{2})[\\w\\s.,]*(Totals:\\s[\\d.,\\s]*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(YEAR:\s\d{2}\s{2}Period:\s\d{2})[\w\s.,]*(Totals:\s[\d.,\s]*)" RegexOption="IgnoreCase, Compiled" Result="[AllMatches]" />
+        <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="799.2,4384.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_5">
           <ueab:ExcelProcessScopeX.Body>
             <ActivityAction x:TypeArguments="ui:IExcelProcess">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768,2418" sap2010:WorkflowViewState.IdRef="Sequence_73">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="765.6,4275.2" sap2010:WorkflowViewState.IdRef="Sequence_73">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each Currentmatch" sap:VirtualizedContainerService.HintSize="734,2358" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[AllMatches]">
+                <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each Currentmatch" sap:VirtualizedContainerService.HintSize="732,4215.2" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[AllMatches]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="str:Match">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="str:Match" Name="Currentmatch" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="700,2221" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="698.4,4077.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Fetch Actual Cost " sap:VirtualizedContainerService.HintSize="666,2161" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <Sequence DisplayName="Fetch and Fill the Data in BFR" sap:VirtualizedContainerService.HintSize="664.8,4017.6" sap2010:WorkflowViewState.IdRef="Sequence_46">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="str_month" />
                             <Variable x:TypeArguments="scg:IList(i:BillingForecastTemplateMap)" Name="dt_EntityResponse" />
@@ -393,8 +410,8 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="YEAR:\s*(\d+)" DisplayName="Find Matching Patterns - Year" sap:VirtualizedContainerService.HintSize="632,92" sap2010:WorkflowViewState.IdRef="Matches_18" Input="[Currentmatch.Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;YEAR:\\s*(\\d+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="YEAR:\s*(\d+)" RegexOption="IgnoreCase, Compiled" Result="[yearMatches]" />
-                          <Assign DisplayName="Assign - &quot;Y20&quot;+ CStr(yearMatches(0).Groups(1).Value)" sap:VirtualizedContainerService.HintSize="632,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="YEAR:\s*(\d+)" DisplayName="Find Matching Patterns - Year" sap:VirtualizedContainerService.HintSize="631.2,92" sap2010:WorkflowViewState.IdRef="Matches_18" Input="[Currentmatch.Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;YEAR:\\s*(\\d+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="YEAR:\s*(\d+)" RegexOption="IgnoreCase, Compiled" Result="[yearMatches]" />
+                          <Assign DisplayName="Assign - &quot;Y20&quot;+ CStr(yearMatches(0).Groups(1).Value)" sap:VirtualizedContainerService.HintSize="631.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_11">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[str_year]</OutArgument>
                             </Assign.To>
@@ -402,8 +419,8 @@
                               <InArgument x:TypeArguments="x:String">[If( IsNothing (yearMatches(0).Groups(1).Value), "", "Y20"+ CStr(yearMatches(0).Groups(1).Value))]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Period:\s*(\d+)" DisplayName="Find Matching Patterns - Month" sap:VirtualizedContainerService.HintSize="632,92" sap2010:WorkflowViewState.IdRef="Matches_19" Input="[Currentmatch.Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Period:\\s*(\\d+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Period:\s*(\d+)" RegexOption="IgnoreCase, Compiled" Result="[monthmatches]" />
-                          <Assign DisplayName="Assign - monthmatches(0).Groups(1).Value" sap:VirtualizedContainerService.HintSize="632,114" sap2010:WorkflowViewState.IdRef="Assign_12">
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Period:\s*(\d+)" DisplayName="Find Matching Patterns - Month" sap:VirtualizedContainerService.HintSize="631.2,92" sap2010:WorkflowViewState.IdRef="Matches_19" Input="[Currentmatch.Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Period:\\s*(\\d+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Period:\s*(\d+)" RegexOption="IgnoreCase, Compiled" Result="[monthmatches]" />
+                          <Assign DisplayName="Assign - monthmatches(0).Groups(1).Value" sap:VirtualizedContainerService.HintSize="631.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_12">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[str_month]</OutArgument>
                             </Assign.To>
@@ -411,321 +428,248 @@
                               <InArgument x:TypeArguments="x:String">[if( IsNothing (monthmatches(0).Groups(1).Value), "", monthmatches(0).Groups(1).Value)]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Switch x:TypeArguments="x:String" DisplayName="Switch - Year to Schema NumberId Mapping" Expression="[str_year]" sap:VirtualizedContainerService.HintSize="632,57" sap2010:WorkflowViewState.IdRef="Switch`1_5">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Assign x:Key="Y2025" DisplayName="Assign - Y2025=2" sap:VirtualizedContainerService.HintSize="456,81" sap2010:WorkflowViewState.IdRef="Assign_13">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">2</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="Y2026" DisplayName="Assign - Y2025=4" sap:VirtualizedContainerService.HintSize="456,81" sap2010:WorkflowViewState.IdRef="Assign_14">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">4</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="Y2027" DisplayName="Assign - Y2027=5" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_15">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">5</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="Y2028" DisplayName="Assign - Y2028=1" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_16">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">1</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="Y2029" DisplayName="Assign - Y2029=3" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_17">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">3</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="Y2030" DisplayName="Assign - Y2029=0" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_18">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">0</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </Switch>
-                          <Switch x:TypeArguments="x:String" DisplayName="Switch - Month to Schema NumberId Mapping" Expression="[str_month]" sap:VirtualizedContainerService.HintSize="632,57" sap2010:WorkflowViewState.IdRef="Switch`1_3">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Assign x:Key="01" DisplayName="Assign - January = 8" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_9">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">8</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="02" DisplayName="Assign - February = 3" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_10">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">3</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="03" DisplayName="Assign - March = 5" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_19">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">5</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="04" DisplayName="Assign - April  = 1" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_20">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">1</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="05" DisplayName="Assign - May = 9" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_21">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">9</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="06" DisplayName="Assign - June = 4" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_22">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">4</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="07" DisplayName="Assign - July = 0" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_23">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">0</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="08" DisplayName="Assign - August = 7" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_24">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">7</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="09" DisplayName="Assign - September = 10" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_25">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">10</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="10" DisplayName="Assign - October = 11" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_26">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">11</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="11" DisplayName="Assign - November = 2" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_27">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">2</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <Assign x:Key="12" DisplayName="Assign - December = 6" sap:VirtualizedContainerService.HintSize="456,82" sap2010:WorkflowViewState.IdRef="Assign_28">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">6</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </Switch>
-                          <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="632,173" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Trace" Message="[&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;]&quot;]" />
-                          <If Condition="[string.IsNullOrEmpty(str_qYear) = false AND string.IsNullOrEmpty(str_qMonth) = false]" DisplayName="Check If - Year and Months is not empty or null" sap:VirtualizedContainerService.HintSize="632,57" sap2010:WorkflowViewState.IdRef="If_10">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,585" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="YearAndMonthMapping - Invoke Workflow File (Workflows\BillingForecast\YearAndMonthMapping.xaml)" sap:VirtualizedContainerService.HintSize="631.2,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\YearAndMonthMapping.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_year">[str_year]</InArgument>
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_qYear">[str_qYear]</OutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_month">[str_month]</InArgument>
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_qMonth">[str_qMonth]</OutArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="631.2,275.2" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_96">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,525" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
-                                  <ui:RetryScope.ActivityBody>
-                                    <ActivityAction>
-                                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,301" sap2010:WorkflowViewState.IdRef="Sequence_79">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:FilterDataTable DataTable="[dt_BFTemplate]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="382,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_FilteredBFTemplate]" SelectColumnsMode="Remove">
-                                          <ui:FilterDataTable.Filters>
-                                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["MonthName"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:Int32">[CInt(str_qMonth)]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                                                <ui:FilterOperationArgument.Column>
-                                                  <InArgument x:TypeArguments="x:String">["Year"]</InArgument>
-                                                </ui:FilterOperationArgument.Column>
-                                                <ui:FilterOperationArgument.Operand>
-                                                  <InArgument x:TypeArguments="x:Int32">[CInt(str_qYear)]</InArgument>
-                                                </ui:FilterOperationArgument.Operand>
-                                              </ui:FilterOperationArgument>
-                                            </scg:List>
-                                          </ui:FilterDataTable.Filters>
-                                          <ui:FilterDataTable.SelectColumns>
-                                            <scg:List x:TypeArguments="InArgument" Capacity="4">
-                                              <x:Null />
-                                            </scg:List>
-                                          </ui:FilterDataTable.SelectColumns>
-                                        </ui:FilterDataTable>
-                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="CommentOut_13">
-                                          <ui:CommentOut.Body>
-                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,223" sap2010:WorkflowViewState.IdRef="Sequence_93">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <uda:QueryEntityRecords x:TypeArguments="i:BillingForecastTemplateMap" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records" EntityId="6b329289-6f32-f111-8ef3-7c1e521935ca" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="382,163" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_2" OutputRecords="[dt_EntityResponse]" QueriedEntityId="6b329289-6f32-f111-8ef3-7c1e521935ca" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100">
-                                                <uda:QueryEntityRecords.FilterArguments>
-                                                  <uda:FilterArgument FilterActivityType="{x:Null}">
-                                                    <uda:FilterArgument.Filter>
-                                                      <uda:GroupFilter Index="0" Operator="AND">
-                                                        <uda:GroupFilter.Filters>
-                                                          <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="0" />
-                                                        </uda:GroupFilter.Filters>
-                                                        <uda:GroupFilter.Groups>
-                                                          <scg:List x:TypeArguments="uda:GroupFilter" Capacity="4">
-                                                            <uda:GroupFilter Index="0" Operator="AND">
-                                                              <uda:GroupFilter.Filters>
-                                                                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
-                                                                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="Year" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="=" ValueIndex="0" />
-                                                                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="MonthName" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="=" ValueIndex="1" />
-                                                                </scg:List>
-                                                              </uda:GroupFilter.Filters>
-                                                              <uda:GroupFilter.Groups>
-                                                                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
-                                                              </uda:GroupFilter.Groups>
-                                                            </uda:GroupFilter>
-                                                          </scg:List>
-                                                        </uda:GroupFilter.Groups>
-                                                      </uda:GroupFilter>
-                                                    </uda:FilterArgument.Filter>
-                                                  </uda:FilterArgument>
-                                                </uda:QueryEntityRecords.FilterArguments>
-                                                <uda:QueryEntityRecords.FilterValues>
-                                                  <scg:List x:TypeArguments="InArgument" Capacity="4">
-                                                    <InArgument x:TypeArguments="x:String">[str_qYear]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String">[str_qMonth]</InArgument>
-                                                  </scg:List>
-                                                </uda:QueryEntityRecords.FilterValues>
-                                              </uda:QueryEntityRecords>
-                                            </Sequence>
-                                          </ui:CommentOut.Body>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:CommentOut>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:RetryScope.ActivityBody>
-                                  <ui:RetryScope.Condition>
-                                    <ActivityFunc x:TypeArguments="x:Boolean" />
-                                  </ui:RetryScope.Condition>
-                                </ui:RetryScope>
-                              </Sequence>
-                            </If.Then>
-                            <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,403" sap2010:WorkflowViewState.IdRef="Sequence_78">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;] is Empty.&quot;]" />
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="CommentOut_14">
-                                  <ui:CommentOut.Body>
-                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_94">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Assign - io_listBRE" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_34">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"CTSRToBillingForecast : Extracted Year ["+str_year+"] ["+str_qYear+"] | Month ["+str_month+"] ["+str_qMonth+"] is Empty."}).ToList()]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                    </Sequence>
-                                  </ui:CommentOut.Body>
+                                <Switch x:TypeArguments="x:String" DisplayName="Switch - Year to Schema NumberId Mapping" Expression="[str_year]" sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="Switch`1_5">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                </ui:CommentOut>
-                                <Throw Exception="[New SystemException(&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;] is Empty.&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                  <Assign x:Key="Y2025" DisplayName="Assign - Y2025=2" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">2</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="Y2026" DisplayName="Assign - Y2025=4" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">4</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="Y2027" DisplayName="Assign - Y2027=5" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">5</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="Y2028" DisplayName="Assign - Y2028=1" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">1</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="Y2029" DisplayName="Assign - Y2029=3" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">3</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="Y2030" DisplayName="Assign - Y2029=0" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qYear]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">0</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Switch>
+                                <Switch x:TypeArguments="x:String" DisplayName="Switch - Month to Schema NumberId Mapping" Expression="[str_month]" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign x:Key="01" DisplayName="Assign - January = 8" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">8</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="02" DisplayName="Assign - February = 3" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">3</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="03" DisplayName="Assign - March = 5" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">5</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="04" DisplayName="Assign - April  = 1" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">1</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="05" DisplayName="Assign - May = 9" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">9</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="06" DisplayName="Assign - June = 4" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">4</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="07" DisplayName="Assign - July = 0" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">0</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="08" DisplayName="Assign - August = 7" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">7</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="09" DisplayName="Assign - September = 10" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">10</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="10" DisplayName="Assign - October = 11" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">11</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="11" DisplayName="Assign - November = 2" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">2</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign x:Key="12" DisplayName="Assign - December = 6" sap:VirtualizedContainerService.HintSize="457.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_qMonth]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">6</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Switch>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
+                          <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="631.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Trace" Message="[&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;]&quot;]" />
+                          <If Condition="[string.IsNullOrEmpty(str_qYear) = false AND string.IsNullOrEmpty(str_qMonth) = false]" DisplayName="Check If - Year and Months is not empty or null" sap:VirtualizedContainerService.HintSize="631.2,764" sap2010:WorkflowViewState.IdRef="If_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,245.6" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:FilterDataTable DataTable="[in_dtBFTemplate]" DisplayName="Filter BFR Template - Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="382.4,185.6" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_FilteredBFTemplate]" SelectColumnsMode="Remove">
+                                  <ui:FilterDataTable.Filters>
+                                    <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                      <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                        <ui:FilterOperationArgument.Column>
+                                          <InArgument x:TypeArguments="x:String">["MonthName"]</InArgument>
+                                        </ui:FilterOperationArgument.Column>
+                                        <ui:FilterOperationArgument.Operand>
+                                          <InArgument x:TypeArguments="x:Int32">[CInt(str_qMonth)]</InArgument>
+                                        </ui:FilterOperationArgument.Operand>
+                                      </ui:FilterOperationArgument>
+                                      <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                        <ui:FilterOperationArgument.Column>
+                                          <InArgument x:TypeArguments="x:String">["Year"]</InArgument>
+                                        </ui:FilterOperationArgument.Column>
+                                        <ui:FilterOperationArgument.Operand>
+                                          <InArgument x:TypeArguments="x:Int32">[CInt(str_qYear)]</InArgument>
+                                        </ui:FilterOperationArgument.Operand>
+                                      </ui:FilterOperationArgument>
+                                    </scg:List>
+                                  </ui:FilterDataTable.Filters>
+                                  <ui:FilterDataTable.SelectColumns>
+                                    <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                      <x:Null />
+                                    </scg:List>
+                                  </ui:FilterDataTable.SelectColumns>
+                                </ui:FilterDataTable>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,348" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="382.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;] is Empty.&quot;]" />
+                                <Throw Exception="[New SystemException(&quot;CTSRToBillingForecast : Extracted Year [&quot;+str_year+&quot;] [&quot;+str_qYear+&quot;] | Month [&quot;+str_month+&quot;] [&quot;+str_qMonth+&quot;] is Empty.&quot;)]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="Throw_1" />
                               </Sequence>
                             </If.Else>
                           </If>
-                          <Sequence DisplayName="Sequence - Totat Amount" sap:VirtualizedContainerService.HintSize="632,197" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                          <Sequence DisplayName="Sequence - Totat Amount" sap:VirtualizedContainerService.HintSize="631.2,196.8" sap2010:WorkflowViewState.IdRef="Sequence_80">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_29">
+                            <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_29">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[str_totalAmount]</OutArgument>
                               </Assign.To>
@@ -734,13 +678,13 @@
                               </Assign.Value>
                             </Assign>
                           </Sequence>
-                          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="632,1125" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" SensitivityOperation="None" TemplatePath="C:\RPA\BillingForecast\dev\24114\080426\24114_BillingForecastTemplate_080426.xlsx" WorkbookPath="[in_BFRfilepath]">
+                          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use BFR Excel File" sap:VirtualizedContainerService.HintSize="631.2,1936.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" SensitivityOperation="None" TemplatePath="C:\RPA\BillingForecast\dev\24114\080426\24114_BillingForecastTemplate_080426.xlsx" WorkbookPath="[in_BFRfilepath]">
                             <ueab:ExcelApplicationCard.Body>
                               <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="598,833" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="597.6,1644" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="str_totalAmount1" />
                                   </Sequence.Variables>
@@ -749,33 +693,33 @@
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each VendorTypes" sap:VirtualizedContainerService.HintSize="564,477" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[ls_VendorTypes]">
+                                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each VendorTypes" sap:VirtualizedContainerService.HintSize="564,486.4" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[ls_VendorTypes]">
                                     <ui:ForEach.Body>
                                       <ActivityAction x:TypeArguments="x:String">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="x:String" Name="currentVendorCode" />
                                         </ActivityAction.Argument>
-                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530,331" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530.4,340" sap2010:WorkflowViewState.IdRef="Sequence_53">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Switch x:TypeArguments="x:String" DisplayName="Switch - Vendor Types" Expression="[currentVendorCode]" sap:VirtualizedContainerService.HintSize="496,271" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                                          <Switch x:TypeArguments="x:String" DisplayName="Switch - Vendor Types" Expression="[currentVendorCode]" sap:VirtualizedContainerService.HintSize="496.8,280" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence x:Key="E" DisplayName="Sequence - Equipment" sap:VirtualizedContainerService.HintSize="536,146" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                            <Sequence x:Key="E" DisplayName="Sequence - Equipment" sap:VirtualizedContainerService.HintSize="606.4,145.6" sap2010:WorkflowViewState.IdRef="Sequence_47">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Equipment&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Equipment&quot;)" sap:VirtualizedContainerService.HintSize="502,1072" sap2010:WorkflowViewState.IdRef="If_4">
+                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Equipment&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Equipment&quot;)" sap:VirtualizedContainerService.HintSize="382.4,206.4" sap2010:WorkflowViewState.IdRef="If_4">
                                                 <If.Then>
                                                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,687" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -826,7 +770,7 @@
                                                 </If.Else>
                                               </If>
                                             </Sequence>
-                                            <Sequence x:Key="L" DisplayName="Sequence - Labor" sap:VirtualizedContainerService.HintSize="606,55" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                            <Sequence x:Key="L" DisplayName="Sequence - Labor" sap:VirtualizedContainerService.HintSize="606.4,24.8" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -883,14 +827,14 @@
                                                 </If.Else>
                                               </If>
                                             </Sequence>
-                                            <Sequence x:Key="M" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="606,265" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                            <Sequence x:Key="M" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="606.4,145.6" sap2010:WorkflowViewState.IdRef="Sequence_49">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Material&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Material&quot;)" sap:VirtualizedContainerService.HintSize="382,205" sap2010:WorkflowViewState.IdRef="If_6">
+                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Material&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Material&quot;)" sap:VirtualizedContainerService.HintSize="382.4,206.4" sap2010:WorkflowViewState.IdRef="If_6">
                                                 <If.Then>
                                                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="538,983" sap2010:WorkflowViewState.IdRef="Sequence_65">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -935,14 +879,14 @@
                                                 </If.Else>
                                               </If>
                                             </Sequence>
-                                            <Sequence x:Key="O" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="606,265" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                            <Sequence x:Key="O" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="606.4,145.6" sap2010:WorkflowViewState.IdRef="Sequence_57">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Other&quot;)]" DisplayName="If -Currentmatch.ToString.Contains(&quot;Other&quot;)" sap:VirtualizedContainerService.HintSize="382,205" sap2010:WorkflowViewState.IdRef="If_7">
+                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Other&quot;)]" DisplayName="If -Currentmatch.ToString.Contains(&quot;Other&quot;)" sap:VirtualizedContainerService.HintSize="382.4,206.4" sap2010:WorkflowViewState.IdRef="If_7">
                                                 <If.Then>
                                                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,687" sap2010:WorkflowViewState.IdRef="Sequence_67">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -993,14 +937,14 @@
                                                 </If.Else>
                                               </If>
                                             </Sequence>
-                                            <Sequence x:Key="S" DisplayName="Sequence - Sub Contractor" sap:VirtualizedContainerService.HintSize="606,265" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                            <Sequence x:Key="S" DisplayName="Sequence - Sub Contractor" sap:VirtualizedContainerService.HintSize="606.4,145.6" sap2010:WorkflowViewState.IdRef="Sequence_58">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Subcontract&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Subcontract&quot;)" sap:VirtualizedContainerService.HintSize="382,205" sap2010:WorkflowViewState.IdRef="If_8">
+                                              <If Condition="[Currentmatch.ToString.Contains(&quot;Subcontract&quot;)]" DisplayName="If - Currentmatch.ToString.Contains(&quot;Subcontract&quot;)" sap:VirtualizedContainerService.HintSize="382.4,206.4" sap2010:WorkflowViewState.IdRef="If_8">
                                                 <If.Then>
                                                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="538,983" sap2010:WorkflowViewState.IdRef="Sequence_69">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -1045,7 +989,7 @@
                                                 </If.Else>
                                               </If>
                                             </Sequence>
-                                            <Sequence x:Key="T" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="456,55" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                            <Sequence x:Key="T" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="606.4,24.8" sap2010:WorkflowViewState.IdRef="Sequence_59">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1108,15 +1052,15 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:ForEach>
-                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="564,57" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="564,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_11">
                                     <ui:CommentOut.Body>
-                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="478,242" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476.8,243.2" sap2010:WorkflowViewState.IdRef="Sequence_91">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_JobNumber).Cell(dt_EntityResponse(0).Total.ToString)]" DisplayName="Read Excel cell - Total Value from the excel" GetFormattedText="False" sap:VirtualizedContainerService.HintSize="444,182" sap2010:WorkflowViewState.IdRef="ReadCellValueX_1">
+                                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_JobNumber).Cell(dt_EntityResponse(0).Total.ToString)]" DisplayName="Read Excel cell - Total Value from the excel" GetFormattedText="False" sap:VirtualizedContainerService.HintSize="443.2,183.2" sap2010:WorkflowViewState.IdRef="ReadCellValueX_1">
                                           <ueab:ReadCellValueX.SaveTo>
                                             <OutArgument x:TypeArguments="x:Decimal">[dec_totalAmount]</OutArgument>
                                           </ueab:ReadCellValueX.SaveTo>
@@ -1130,37 +1074,37 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:CommentOut>
-                                  <ueab:ReadCellValueX Cell="[Excel.Sheet(in_JobNumber).Cell(dt_FilteredBFTemplate(0)(&quot;Total&quot;).ToString)]" DisplayName="Read Excel cell - Total Value from the excel" GetFormattedText="False" sap:VirtualizedContainerService.HintSize="564,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
+                                  <ueab:ReadCellValueX Cell="[Excel.Sheet(in_JobNumber).Cell(dt_FilteredBFTemplate(0)(&quot;Total&quot;).ToString)]" DisplayName="Read Excel cell - Total Value from the excel" GetFormattedText="False" sap:VirtualizedContainerService.HintSize="564,192" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
                                     <ueab:ReadCellValueX.SaveTo>
                                       <OutArgument x:TypeArguments="x:Decimal">[dec_totalAmount]</OutArgument>
                                     </ueab:ReadCellValueX.SaveTo>
                                   </ueab:ReadCellValueX>
-                                  <If Condition="[CDec(str_totalAmount.Replace(&quot;,&quot;, &quot;&quot;)) = dec_totalAmount]" DisplayName="If - CDec(str_totalAmount.Replace(&quot;,&quot;, &quot;&quot;)) = dec_totalAmount" sap:VirtualizedContainerService.HintSize="564,48" sap2010:WorkflowViewState.IdRef="If_11">
+                                  <If Condition="[CDec(str_totalAmount.Replace(&quot;,&quot;, &quot;&quot;)) = dec_totalAmount]" DisplayName="If - CDec(str_totalAmount.Replace(&quot;,&quot;, &quot;&quot;)) = dec_totalAmount" sap:VirtualizedContainerService.HintSize="564,848.8" sap2010:WorkflowViewState.IdRef="If_11">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,224" sap2010:WorkflowViewState.IdRef="Sequence_81">
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,225.6" sap2010:WorkflowViewState.IdRef="Sequence_81">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:LogMessage DisplayName="Log Message - Totals are equal" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] = Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;]" />
+                                        <ui:LogMessage DisplayName="Log Message - Totals are equal" sap:VirtualizedContainerService.HintSize="382.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] = Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;]" />
                                       </Sequence>
                                     </If.Then>
                                     <If.Else>
-                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,460" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="467.2,461.6" sap2010:WorkflowViewState.IdRef="Sequence_82">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:LogMessage DisplayName="Log Message - Totals are not equal" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Info" Message="[&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;]" />
-                                        <Assign DisplayName="Assign - io_listBRE" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                        <ui:LogMessage DisplayName="Log Message - Totals are not equal" sap:VirtualizedContainerService.HintSize="433.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Info" Message="[&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;]" />
+                                        <Assign DisplayName="Assign - io_listBRE" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_33">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
                                           </Assign.To>
@@ -1168,7 +1112,7 @@
                                             <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"CTSRToBillingForecast : Year ["+str_year+"] | Month ["+str_month+"] | Excel Value ["+dec_totalAmount.ToString+"] != Total Value ["+str_totalAmount.Replace(",","")+"]"}).ToList()]</InArgument>
                                           </Assign.Value>
                                         </Assign>
-                                        <Throw DisplayName="Throw - New BusinessRuleException(&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount+&quot;]&quot;)" Exception="[New BusinessRuleException(&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;)]" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                                        <Throw DisplayName="Throw - New BusinessRuleException(&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount+&quot;]&quot;)" Exception="[New BusinessRuleException(&quot;CTSRToBillingForecast : Year [&quot;+str_year+&quot;] | Month [&quot;+str_month+&quot;] | Excel Value [&quot;+dec_totalAmount.ToString+&quot;] != Total Value [&quot;+str_totalAmount.Replace(&quot;,&quot;,&quot;&quot;)+&quot;]&quot;)]" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_2" />
                                       </Sequence>
                                     </If.Else>
                                   </If>
@@ -1197,26 +1141,8 @@
             </ActivityAction>
           </ueab:ExcelProcessScopeX.Body>
         </ueab:ExcelProcessScopeX>
-        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="802,48" sap2010:WorkflowViewState.IdRef="CommentOut_15">
-          <ui:CommentOut.Body>
-            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_95">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_46" Message="[&quot;Completed&quot;]" />
-            </Sequence>
-          </ui:CommentOut.Body>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:CommentOut>
       </Sequence>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Ended&quot;" sap:VirtualizedContainerService.HintSize="870,164" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;CTSRToBillingForecast : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;CTSRToBillingForecast : Ended&quot;" sap:VirtualizedContainerService.HintSize="866.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;CTSRToBillingForecast : Ended&quot;]" />
   </Sequence>
 </Activity>

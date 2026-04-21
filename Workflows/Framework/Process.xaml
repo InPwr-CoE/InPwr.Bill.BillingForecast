@@ -180,12 +180,13 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="851,1317" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="787.2,1494.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="sec_ClientSecretValue" />
       <Variable x:TypeArguments="x:String" Name="str_dsClientID" />
       <Variable x:TypeArguments="x:Boolean" Name="out_ReadyToExport" />
       <Variable x:TypeArguments="x:String" Name="str_downloadedFilePath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_BFTemplate" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -193,23 +194,30 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecastReport_ActualProjected - Invoke Workflow File (Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BFRTemplateMappingDS - Invoke Workflow File (Workflows\DataService\BFRTemplateMappingDS.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\DataService\BFRTemplateMappingDS.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtBFTemplate">[dt_BFTemplate]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecastReport_ActualProjected - Invoke Workflow File (Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CurrentMonth">[in_Config("CurrentMonth_EndDate").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[in_CTSRText]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_BFTemplate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JORToBillingForecast - Invoke Workflow File (Workflows\Spectrum\Spec_JORToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JORToBillingForecast - Invoke Workflow File (Workflows\Spectrum\Spec_JORToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JORtext">[in_JORText]</InArgument>
@@ -217,12 +225,13 @@
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BHRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\BHRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BHRToBillingForecast.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BHRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\BHRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BHRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_BHRText">[in_BHRText]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_BFTemplate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecastSendMail - Invoke Workflow File (Workflows\Mail\BillingForecastSendMail.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\Mail\BillingForecastSendMail.xaml">
