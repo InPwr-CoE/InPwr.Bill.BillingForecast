@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TC_03_BillingForecastSendEmail" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="TC_03_BillingForecastSendEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -130,26 +129,36 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_03_BillingForecastSendEmail" sap:VirtualizedContainerService.HintSize="804,562.84" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_03_BillingForecastSendEmail" sap:VirtualizedContainerService.HintSize="1005,637" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ExceptionEmail" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_EmailTable" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="ls_BRE" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[JobData]" />
-    <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="416,278.4" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_1" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="AccountsPayable_SendMail - Invoke Workflow File (Workflows\Mail\AccountsPayable_SendMail.xaml)" sap:VirtualizedContainerService.HintSize="416,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Mail\BillingForecastSendMail.xaml">
+    <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[JobData]" />
+    <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="434,275" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_1" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[ls_BRE]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String) From {"&lt;td&gt;test&lt;/td&gt;", "&lt;td&gt;Test&lt;/td&gt;"}]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="AccountsPayable_SendMail - Invoke Workflow File (Workflows\Mail\AccountsPayable_SendMail.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Mail\BillingForecastSendMail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_ReportDate">04/17/26</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">C:\RPA\BillingForecast\dev\24114\150426\24114_BillingForecastTemplate_150426.xlsx</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">C:\Users\Dev2Mercury\Documents\UiPath\ForecastTest\24114 - CACI Crane - Billing Forecast.xlsx</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtEmailTable">[dt_EmailTable]</InArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="ls_BRE">[ls_BRE]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

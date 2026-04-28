@@ -150,22 +150,24 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BFRTemplateMappingDS" sap:VirtualizedContainerService.HintSize="787.2,679.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BFRTemplateMappingDS" sap:VirtualizedContainerService.HintSize="1023,778.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="483.2,656" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message - &quot;BFRTemplateMappingDS : Started&quot;" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;BFRTemplateMappingDS : Started&quot;]" />
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="449.6,572.8" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,572" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
         <ui:RetryScope.ActivityBody>
           <ActivityAction>
-            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,348.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,348" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="str_DSClientID" />
                 <Variable x:TypeArguments="ss:SecureString" Name="sec_DSClientSecret" />
@@ -175,8 +177,8 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;AP_DataService_API&quot;).ToString]" CacheStrategy="None" DisplayName="Get Data Service -  Credential" FolderPath="[in_Config(&quot;DataService_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="382.4,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sec_DSClientSecret]" Username="[str_DSClientID]" />
-              <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="[str_DSClientID]" ClientSecret="[New System.Net.NetworkCredential(&quot;&quot;, sec_DSClientSecret).Password.ToString]" DisplayName="Get - All Records" EntityName="[in_Config(&quot;BillingForecastTemplate_DSName&quot;).ToString]" EntityResponse="[out_dtBFTemplate]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="[in_Config(&quot;DataService_RefreshToken&quot;).ToString]" />
+              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;AP_DataService_API&quot;).ToString]" CacheStrategy="None" DisplayName="Get Data Service -  Credential" FolderPath="[in_Config(&quot;DataService_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="382,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sec_DSClientSecret]" Username="[str_DSClientID]" />
+              <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="[str_DSClientID]" ClientSecret="[New System.Net.NetworkCredential(&quot;&quot;, sec_DSClientSecret).Password.ToString]" DisplayName="Get - All Records" EntityName="[in_Config(&quot;BillingForecastTemplate_DSName&quot;).ToString]" EntityResponse="[out_dtBFTemplate]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="[in_Config(&quot;DataService_RefreshToken&quot;).ToString]" />
             </Sequence>
           </ActivityAction>
         </ui:RetryScope.ActivityBody>
@@ -185,5 +187,6 @@
         </ui:RetryScope.Condition>
       </ui:RetryScope>
     </Sequence>
+    <ui:LogMessage DisplayName="Log Message - &quot;BFRTemplateMappingDS : Ended&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;BFRTemplateMappingDS : Ended&quot;]" />
   </Sequence>
 </Activity>
