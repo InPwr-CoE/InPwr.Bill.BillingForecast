@@ -4,7 +4,7 @@
   "description": "InPwr.Bill.BillingForecast-24114 ",
   "main": "Main.xaml",
   "dependencies": {
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.42]",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.43]",
     "InPwr.CoE.CustomComponent.Utility": "[1.0.18]",
     "UiPath.DataService.Activities": "[25.9.3]",
     "UiPath.DocumentUnderstanding.Activities": "[3.0.0-preview]",
@@ -16,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.6",
+  "projectVersion": "1.0.7",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

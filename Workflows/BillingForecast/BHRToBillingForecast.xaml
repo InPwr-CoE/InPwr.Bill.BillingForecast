@@ -165,7 +165,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BHRToBillingForecast" sap:VirtualizedContainerService.HintSize="1005,3759" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BHRToBillingForecast" sap:VirtualizedContainerService.HintSize="1005,3198" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_BHRfilepath" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_FilteredBFTemplate" />
@@ -175,7 +175,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="752,618" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="752,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="513,507" sap2010:WorkflowViewState.IdRef="Sequence_22">
           <sap:WorkflowViewStateService.ViewState>
@@ -217,6 +217,12 @@
           <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[in_dtBFTemplate]" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.E43316A056FB7A1C44E88D24F4BAE2BBDF7C62E025752BA0FD12B6BA02D8768D" />
         </Sequence>
       </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
     <ui:LogMessage DisplayName="Log Message - &quot;BHRToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="752,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;BHRToBillingForecast : Started&quot;]" />
     <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="752,121" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -657,7 +663,7 @@
                                         <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
                                       </ui:AssignOperation.To>
                                       <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;BHRToBillingForecast &lt;/td&gt;&lt;td&gt; Billing Forecast report total is matching with Calculated Total amount. | ["+CStr(str_bhReportTotal) +"="+CStr(str_bhrTotal)+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
+                                        <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Billing History Report &lt;/td&gt;&lt;td&gt; Billing Forecast report total ["+CStr(str_bhReportTotal)+"] is not matching with Calculated Total amount ["+CStr(str_bhrTotal)+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
                                       </ui:AssignOperation.Value>
                                     </ui:AssignOperation>
                                   </scg:List>
