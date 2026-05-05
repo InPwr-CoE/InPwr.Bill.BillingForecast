@@ -129,7 +129,7 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_03_BillingForecastSendEmail" sap:VirtualizedContainerService.HintSize="1005,637" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_03_BillingForecastSendEmail" sap:VirtualizedContainerService.HintSize="1076,778.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ExceptionEmail" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_EmailTable" />
@@ -155,10 +155,13 @@
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="AccountsPayable_SendMail - Invoke Workflow File (Workflows\Mail\AccountsPayable_SendMail.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Mail\BillingForecastSendMail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ReportDate">04/17/26</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">C:\Users\Dev2Mercury\Documents\UiPath\ForecastTest\24114 - CACI Crane - Billing Forecast.xlsx</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ReportDate">05/05/26</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">C:\RPA\BillingForecast\dev\24114\05_05_26\24114_BillingForecastTemplate_050526.xlsx</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtEmailTable">[dt_EmailTable]</InArgument>
         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="ls_BRE">[ls_BRE]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CTSRfilePath">C:\RPA\BillingForecast\dev\24114\05_05_26\24114_Cost Type Summary Report_050526.pdf</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BHRfilePath">C:\RPA\BillingForecast\dev\24114\05_05_26\24114_Billing History Report_05412026.pdf</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JORfilePath">C:\RPA\BillingForecast\dev\24114\05_05_26\24114_Job Overview Report_050526.pdf</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
