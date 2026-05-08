@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_SpectrumBrowser" Type="InArgument(ui:UiElement)" />
-    <x:Property Name="in_BFR_FilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_JORText" Type="InArgument(x:String)" />
     <x:Property Name="in_CTSRText" Type="InArgument(x:String)" />
     <x:Property Name="in_BHRText" Type="InArgument(x:String)" />
@@ -314,42 +313,44 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecastReport_ActualProjected - Invoke Workflow File (Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecastReport_ActualProjected.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_Config("BFR_ReportPath").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CurrentMonth">[in_Config("CurrentMonth_EndDate").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_Config("BFR_ReportPath").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[in_CTSRText]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[out_listBRE]</InOutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_BFTemplate]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JORToBillingForecast - Invoke Workflow File (Workflows\Spectrum\Spec_JORToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_JORtext">[in_JORText]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
-        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[out_listBRE]</InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BHRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\BHRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BHRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFR_FilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_Config("BFR_ReportPath").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_BHRText">[in_BHRText]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[out_listBRE]</InOutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_BFTemplate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JORToBillingForecast - Invoke Workflow File (Workflows\Spectrum\Spec_JORToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_Config("BFR_ReportPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JORtext">[in_JORText]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_Config("Job_Number").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[out_listBRE]</InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecastSendMail - Invoke Workflow File (Workflows\Mail\BillingForecastSendMail.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\Mail\BillingForecastSendMail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_ReportDate">[in_Config("CurrentMonth_EndDate").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">[in_BFR_FilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilePath">[in_Config("BFR_ReportPath").ToString]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtEmailTable">[in_dtEmailTable]</InArgument>
         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="ls_BRE">[out_listBRE]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CTSRfilePath">[in_CTSRfilePath]</InArgument>
