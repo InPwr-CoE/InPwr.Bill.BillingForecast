@@ -97,6 +97,7 @@
       "Path": "Workflows/BillingForecast/JORToBillingForecast.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "str_billedToDate&Sequence_3",
         "ls_VendorType&Sequence_1",
         "bol_JORTextFile&Sequence_1",
         "dic_JORProjectedCost&Sequence_1",
@@ -154,6 +155,117 @@
         "in_CTSRfilePath",
         "in_BHRfilePath"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/BillingForecast/CTSRToBillingForecast.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_TemplateMonths&Sequence_1",
+        "str_qMonth&Sequence_1",
+        "str_qYear&Sequence_1",
+        "str_CTSRTextfilePath&Sequence_1",
+        "ls_VendorTypes&Sequence_1",
+        "index&Sequence_1",
+        "str_BRE&Sequence_3",
+        "AllMatches&Sequence_44",
+        "str_CTSRText&Sequence_44",
+        "LineforVendorCode&Sequence_44",
+        "ActualCost&Sequence_44",
+        "str_totalAmount&Sequence_44",
+        "str_year&Sequence_44",
+        "dec_totalAmount&Sequence_44",
+        "reportTotalMatches&Sequence_44",
+        "str_month&Sequence_46",
+        "yearMatches&Sequence_46",
+        "monthmatches&Sequence_46",
+        "dt_EntityResponse1&Sequence_46",
+        "dt_FilteredBFTemplate&Sequence_46",
+        "dec_equipmentTotal&Sequence_105",
+        "dec_laborTotal&Sequence_109",
+        "dec_materialTotal&Sequence_113",
+        "dec_othersTotal&Sequence_117",
+        "dec_subsTotal&Sequence_121",
+        "dec_travelTotal&Sequence_125"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BFRfilepath",
+        "in_JobNumber",
+        "in_CTSRText",
+        "io_listBRE",
+        "in_dtBFTemplate",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/BillingForecast/TC_04_ReportsUploadToSP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_ExceptionEmail&Sequence_1",
+        "dt_EmailTable&Sequence_1",
+        "reportPath&Sequence_1",
+        "Config&Sequence_1",
+        "JobData&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str_O365AClientId&Sequence_9",
+        "sec_O365ClientSecretId&Sequence_9",
+        "sec_SpectrumPassword&Sequence_9",
+        "str_SpectrumUserName&Sequence_9",
+        "outputFile&Sequence_9",
+        "str_dsClientId&Sequence_9",
+        "sec_dsClientSecVal&Sequence_9"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "out_spectrumBrowser",
+        "out_JORText",
+        "out_CTSRText",
+        "out_BHRText",
+        "out_CTSRfilePath",
+        "out_JORfilePath",
+        "out_BHRfilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/SharePoint/ReportsUploadToSP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "SP_directoryResponse&Sequence_2",
+        "str_DownloadedFile&Sequence_2",
+        "driveITem&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "out_SPUploadStatus",
+        "in_CashReportFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/BillingForecast/TC_03_BillingForecastSendEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_ExceptionEmail&Sequence_1",
+        "dt_EmailTable&Sequence_1",
+        "Config&Sequence_1",
+        "JobData&Sequence_1",
+        "ls_BRE&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

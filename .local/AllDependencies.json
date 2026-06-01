@@ -116,25 +116,35 @@
           }
         }
       },
-      "ClosedXML/0.100.3": {
+      "ClosedXML/0.105.0": {
         "type": "package",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.16.0",
+          "ClosedXML.Parser": "2.0.0",
+          "DocumentFormat.OpenXml": "[3.1.1, 4.0.0)",
           "ExcelNumberFormat": "1.1.0",
-          "Microsoft.CSharp": "4.7.0",
-          "SixLabors.Fonts": "1.0.0-beta18",
-          "System.Buffers": "4.5.1",
-          "System.IO.Packaging": "6.0.0",
-          "System.Memory": "4.5.4",
-          "XLParser": "1.5.2"
+          "RBush.Signed": "4.0.0",
+          "SixLabors.Fonts": "1.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
+          "lib/netstandard2.1/_._": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "ClosedXML.Parser/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/ClosedXML.dll": {
+          "lib/netstandard2.1/ClosedXML.Parser.dll": {
             "related": ".xml"
           }
         }
@@ -161,18 +171,34 @@
           "lib/netstandard2.0/DiffMatchPatch.dll": {}
         }
       },
-      "DocumentFormat.OpenXml/2.16.0": {
+      "DocumentFormat.OpenXml/3.1.1": {
         "type": "package",
         "dependencies": {
-          "System.IO.Packaging": "4.7.0"
+          "DocumentFormat.OpenXml.Framework": "3.1.1"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net8.0/DocumentFormat.OpenXml.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml.Framework/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "8.0.1"
+        },
+        "compile": {
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.Framework.dll": {
             "related": ".xml"
           }
         }
@@ -449,12 +475,55 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.47": {
+      "InPwr.CoE.CustomComponent.SharePoint/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "InPwr.CoE.CustomComponent.SharePoint.Library.Runtime": "1.0.3",
+          "UiPath.Excel.Activities": "2.23.4",
+          "UiPath.MicrosoftOffice365.Activities": "3.2.10",
+          "UiPath.System.Activities": "24.10.3",
+          "UiPath.Testing.Activities": "24.10.0",
+          "UiPath.UIAutomation.Activities": "24.10.0"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.ViewModels.dll": {}
+        }
+      },
+      "InPwr.CoE.CustomComponent.SharePoint.Library.Runtime/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.Excel.Activities": "2.23.4",
+          "UiPath.MicrosoftOffice365.Activities": "3.2.10",
+          "UiPath.System.Activities.Runtime": "24.10.3",
+          "UiPath.Testing.Activities": "24.10.0",
+          "UiPath.UIAutomation.Activities.Runtime": "24.10.0"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_23172240.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_28913585.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_41183044.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.47",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.48",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -465,7 +534,7 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.47": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
@@ -479,28 +548,30 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_1166919.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_12615825.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14994573.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_17924607.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22268713.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22493629.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25427015.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26740947.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46192326.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_51116640.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55333739.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56535383.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5714731.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59718158.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62829533.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62919684.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64678278.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_660814.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_66454027.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8193272.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8817938.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -560,23 +631,6 @@
             "codeLanguage": "any",
             "copyToOutput": false
           }
-        }
-      },
-      "Irony.NetCore/1.0.11": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.6/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.6/Irony.dll": {}
         }
       },
       "MailKit/4.7.1.1": {
@@ -2239,6 +2293,19 @@
           "lib/netstandard2.0/net.adamec.lib.common.core.dll": {}
         }
       },
+      "RBush.Signed/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/RBush.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "RestSharp/106.15.0": {
         "type": "package",
         "compile": {
@@ -2526,7 +2593,7 @@
           }
         }
       },
-      "SixLabors.Fonts/1.0.0-beta18": {
+      "SixLabors.Fonts/1.0.0": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/_._": {
@@ -3337,20 +3404,20 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Packaging/6.0.1": {
+      "System.IO.Packaging/8.0.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.IO.Packaging.dll": {
+          "lib/net8.0/System.IO.Packaging.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.IO.Pipelines/6.0.3": {
@@ -5626,17 +5693,17 @@
           }
         }
       },
-      "UiPath.MicrosoftOffice365.Activities/3.1.21": {
+      "UiPath.MicrosoftOffice365.Activities/3.2.10": {
         "type": "package",
         "dependencies": {
-          "ClosedXML": "0.100.3",
+          "ClosedXML": "0.105.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Graph": "4.11.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.34.0",
           "Newtonsoft.Json": "13.0.3",
-          "System.Activities.ViewModels": "1.0.0-20250401.2",
+          "System.Activities.ViewModels": "1.0.0-20250519.7",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.IO.Packaging": "6.0.1",
+          "System.IO.Packaging": "8.0.1",
           "System.Linq.Async.Queryable": "6.0.1",
           "System.Net.Http": "4.3.4",
           "System.Runtime.Caching": "6.0.0",
@@ -7048,19 +7115,6 @@
         "runtime": {
           "lib/netstandard2.0/Numsense.dll": {}
         }
-      },
-      "XLParser/1.5.2": {
-        "type": "package",
-        "dependencies": {
-          "Irony.NetCore": "1.0.11",
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "lib/netstandard1.6/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.6/XLParser.dll": {}
-        }
       }
     },
     "net8.0-windows7.0/win-x64": {
@@ -7178,25 +7232,35 @@
           }
         }
       },
-      "ClosedXML/0.100.3": {
+      "ClosedXML/0.105.0": {
         "type": "package",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.16.0",
+          "ClosedXML.Parser": "2.0.0",
+          "DocumentFormat.OpenXml": "[3.1.1, 4.0.0)",
           "ExcelNumberFormat": "1.1.0",
-          "Microsoft.CSharp": "4.7.0",
-          "SixLabors.Fonts": "1.0.0-beta18",
-          "System.Buffers": "4.5.1",
-          "System.IO.Packaging": "6.0.0",
-          "System.Memory": "4.5.4",
-          "XLParser": "1.5.2"
+          "RBush.Signed": "4.0.0",
+          "SixLabors.Fonts": "1.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
+          "lib/netstandard2.1/_._": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "ClosedXML.Parser/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/ClosedXML.dll": {
+          "lib/netstandard2.1/ClosedXML.Parser.dll": {
             "related": ".xml"
           }
         }
@@ -7223,18 +7287,34 @@
           "lib/netstandard2.0/DiffMatchPatch.dll": {}
         }
       },
-      "DocumentFormat.OpenXml/2.16.0": {
+      "DocumentFormat.OpenXml/3.1.1": {
         "type": "package",
         "dependencies": {
-          "System.IO.Packaging": "4.7.0"
+          "DocumentFormat.OpenXml.Framework": "3.1.1"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net8.0/DocumentFormat.OpenXml.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml.Framework/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "8.0.1"
+        },
+        "compile": {
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.Framework.dll": {
             "related": ".xml"
           }
         }
@@ -7511,12 +7591,55 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.47": {
+      "InPwr.CoE.CustomComponent.SharePoint/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "InPwr.CoE.CustomComponent.SharePoint.Library.Runtime": "1.0.3",
+          "UiPath.Excel.Activities": "2.23.4",
+          "UiPath.MicrosoftOffice365.Activities": "3.2.10",
+          "UiPath.System.Activities": "24.10.3",
+          "UiPath.Testing.Activities": "24.10.0",
+          "UiPath.UIAutomation.Activities": "24.10.0"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.ViewModels.dll": {}
+        }
+      },
+      "InPwr.CoE.CustomComponent.SharePoint.Library.Runtime/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.Excel.Activities": "2.23.4",
+          "UiPath.MicrosoftOffice365.Activities": "3.2.10",
+          "UiPath.System.Activities.Runtime": "24.10.3",
+          "UiPath.Testing.Activities": "24.10.0",
+          "UiPath.UIAutomation.Activities.Runtime": "24.10.0"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_23172240.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_28913585.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_41183044.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.47",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.48",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -7527,7 +7650,7 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.47": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
@@ -7541,28 +7664,30 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_1166919.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_12615825.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14994573.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_17924607.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22268713.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22493629.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25427015.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26740947.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46192326.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_51116640.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55333739.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56535383.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5714731.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59718158.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62829533.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62919684.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64678278.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_660814.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_66454027.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8193272.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8817938.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -7622,23 +7747,6 @@
             "codeLanguage": "any",
             "copyToOutput": false
           }
-        }
-      },
-      "Irony.NetCore/1.0.11": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.6/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.6/Irony.dll": {}
         }
       },
       "MailKit/4.7.1.1": {
@@ -9198,6 +9306,19 @@
           "lib/netstandard2.0/net.adamec.lib.common.core.dll": {}
         }
       },
+      "RBush.Signed/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/RBush.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "RestSharp/106.15.0": {
         "type": "package",
         "compile": {
@@ -9663,7 +9784,7 @@
           }
         }
       },
-      "SixLabors.Fonts/1.0.0-beta18": {
+      "SixLabors.Fonts/1.0.0": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/_._": {
@@ -10362,20 +10483,20 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Packaging/6.0.1": {
+      "System.IO.Packaging/8.0.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.IO.Packaging.dll": {
+          "lib/net8.0/System.IO.Packaging.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.IO.Pipelines/6.0.3": {
@@ -12559,17 +12680,17 @@
           }
         }
       },
-      "UiPath.MicrosoftOffice365.Activities/3.1.21": {
+      "UiPath.MicrosoftOffice365.Activities/3.2.10": {
         "type": "package",
         "dependencies": {
-          "ClosedXML": "0.100.3",
+          "ClosedXML": "0.105.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Graph": "4.11.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.34.0",
           "Newtonsoft.Json": "13.0.3",
-          "System.Activities.ViewModels": "1.0.0-20250401.2",
+          "System.Activities.ViewModels": "1.0.0-20250519.7",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.IO.Packaging": "6.0.1",
+          "System.IO.Packaging": "8.0.1",
           "System.Linq.Async.Queryable": "6.0.1",
           "System.Net.Http": "4.3.4",
           "System.Runtime.Caching": "6.0.0",
@@ -13981,19 +14102,6 @@
         "runtime": {
           "lib/netstandard2.0/Numsense.dll": {}
         }
-      },
-      "XLParser/1.5.2": {
-        "type": "package",
-        "dependencies": {
-          "Irony.NetCore": "1.0.11",
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "lib/netstandard1.6/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.6/XLParser.dll": {}
-        }
       }
     }
   },
@@ -14128,18 +14236,38 @@
         "packageIcon.png"
       ]
     },
-    "ClosedXML/0.100.3": {
-      "sha512": "yvEK5ga48mSalPknChOh5hppZixBY5tDkHN7V6WybLjLBBoHvRqm0Vi23XdIaDu9St2rLGJ9/vmgvdCyMPPAsA==",
+    "ClosedXML/0.105.0": {
+      "sha512": "U0hAdnYyPvF7TqHMFloxrS7pmozab79tFFF4c/bgPtqeelUs7ILpUd3r3c7C0a/DXsUZb3k1n4Pf7Q2LMyMQOg==",
       "type": "package",
-      "path": "closedxml/0.100.3",
+      "path": "closedxml/0.105.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "closedxml.0.100.3.nupkg.sha512",
+        "closedxml.0.105.0.nupkg.sha512",
         "closedxml.nuspec",
         "lib/netstandard2.0/ClosedXML.dll",
+        "lib/netstandard2.0/ClosedXML.pdb",
         "lib/netstandard2.0/ClosedXML.xml",
+        "lib/netstandard2.1/ClosedXML.dll",
+        "lib/netstandard2.1/ClosedXML.pdb",
+        "lib/netstandard2.1/ClosedXML.xml",
         "nuget-logo.png"
+      ]
+    },
+    "ClosedXML.Parser/2.0.0": {
+      "sha512": "ngTqjYreDYNytG1W5d3ewHsw0ukmmrgV7EKnS4/40rXoYZGt07jrBvo+N+GxT49rcageUMUiprV0jYT4nwVBHQ==",
+      "type": "package",
+      "path": "closedxml.parser/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "closedxml.parser.2.0.0.nupkg.sha512",
+        "closedxml.parser.nuspec",
+        "lib/netstandard2.0/ClosedXML.Parser.dll",
+        "lib/netstandard2.0/ClosedXML.Parser.xml",
+        "lib/netstandard2.1/ClosedXML.Parser.dll",
+        "lib/netstandard2.1/ClosedXML.Parser.xml"
       ]
     },
     "CsvHelper/33.0.1": {
@@ -14182,14 +14310,15 @@
         "lib/netstandard2.0/DiffMatchPatch.dll"
       ]
     },
-    "DocumentFormat.OpenXml/2.16.0": {
-      "sha512": "RhpnDgyyx1KjZm98T3w3bSXFHG/7ZNUaVmz4NAUA+jmV3PcVNZeW87Y04CpBNLdDHEMSspirfo0B5kLRaoE97w==",
+    "DocumentFormat.OpenXml/3.1.1": {
+      "sha512": "2z9QBzeTLNNKWM9SaOSDMegfQk/7hDuElOsmF77pKZMkFRP/GHA/W/4yOAQD9kn15N/FsFxHn3QVYkatuZghiA==",
       "type": "package",
-      "path": "documentformat.openxml/2.16.0",
+      "path": "documentformat.openxml/3.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "documentformat.openxml.2.16.0.nupkg.sha512",
+        "README.md",
+        "documentformat.openxml.3.1.1.nupkg.sha512",
         "documentformat.openxml.nuspec",
         "icon.png",
         "lib/net35/DocumentFormat.OpenXml.dll",
@@ -14198,10 +14327,35 @@
         "lib/net40/DocumentFormat.OpenXml.xml",
         "lib/net46/DocumentFormat.OpenXml.dll",
         "lib/net46/DocumentFormat.OpenXml.xml",
-        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
-        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/net8.0/DocumentFormat.OpenXml.dll",
+        "lib/net8.0/DocumentFormat.OpenXml.xml",
         "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
         "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
+    "DocumentFormat.OpenXml.Framework/3.1.1": {
+      "sha512": "6APEp/ElZV58S/4v8mf4Ke3ONEDORs64MqdD64Z7wWpcHANB9oovQsGIwtqjnKihulOj7T0a6IxHIHOfMqKOng==",
+      "type": "package",
+      "path": "documentformat.openxml.framework/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "documentformat.openxml.framework.3.1.1.nupkg.sha512",
+        "documentformat.openxml.framework.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.Framework.dll",
+        "lib/net35/DocumentFormat.OpenXml.Framework.xml",
+        "lib/net40/DocumentFormat.OpenXml.Framework.dll",
+        "lib/net40/DocumentFormat.OpenXml.Framework.xml",
+        "lib/net46/DocumentFormat.OpenXml.Framework.dll",
+        "lib/net46/DocumentFormat.OpenXml.Framework.xml",
+        "lib/net6.0/DocumentFormat.OpenXml.Framework.dll",
+        "lib/net6.0/DocumentFormat.OpenXml.Framework.xml",
+        "lib/net8.0/DocumentFormat.OpenXml.Framework.dll",
+        "lib/net8.0/DocumentFormat.OpenXml.Framework.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.Framework.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.Framework.xml"
       ]
     },
     "DynamicExpresso.Core/2.12.0": {
@@ -14656,10 +14810,78 @@
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_47120742.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.47": {
-      "sha512": "YMie42jY+Fc7I4HxN/KdRm2our1UoMR5lkCG8CIBrbPlRgjFpMf0JBLfFKpBgXES//fls0UqYxfJwELRsHo+KA==",
+    "InPwr.CoE.CustomComponent.SharePoint/1.0.3": {
+      "sha512": "xiked2VF9uOjs5nhwbQs8fo5zefl928bWfItgauoQvRAFQ0YgeG7MmKBaW08RfoQKj0WKD4ZOYGpYNxM4Pb3hQ==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.0.47",
+      "path": "inpwr.coe.customcomponent.sharepoint/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        "content/.project/PackageBindingsMetadata.json",
+        "content/.project/design.json",
+        "content/.settings/Design/settings-5190454b.json",
+        "content/.settings/Design/settings-a1b2dac1.json",
+        "content/.settings/Design/settings-afad0842.json",
+        "content/.settings/Release/settings-1a5b880a.json",
+        "content/.settings/Release/settings-5190454b.json",
+        "content/.settings/Release/settings-51f48ab4.json",
+        "content/.settings/Release/settings-590bb27b.json",
+        "content/.settings/Release/settings-82ca306a.json",
+        "content/.settings/Release/settings-9e9290da.json",
+        "content/.settings/Release/settings-a1b2dac1.json",
+        "content/.settings/Release/settings-afad0842.json",
+        "content/README.md",
+        "content/Runtime.Mapping.json",
+        "content/SharePoint/SP_CreateDirectory.xaml",
+        "content/SharePoint/SP_CreateDirectory.xaml.json",
+        "content/SharePoint/SP_DownloadFile.xaml",
+        "content/SharePoint/SP_DownloadFile.xaml.json",
+        "content/SharePoint/SP_UploadFile.xaml",
+        "content/SharePoint/SP_UploadFile.xaml.json",
+        "content/bindings.json",
+        "content/bindings_v2.json",
+        "content/project.json",
+        "inpwr.coe.customcomponent.sharepoint.1.0.3.nupkg.sha512",
+        "inpwr.coe.customcomponent.sharepoint.nuspec",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.ViewModels.dll"
+      ]
+    },
+    "InPwr.CoE.CustomComponent.SharePoint.Library.Runtime/1.0.3": {
+      "sha512": "vWcVvl7fdi5WZCpQjpka741omoyF3KKFhX0w7dyBy71z2b3XB+Vcwnq22WNWzm4yuaC3WxGR42KzGU21EIw+Fw==",
+      "type": "package",
+      "path": "inpwr.coe.customcomponent.sharepoint.library.runtime/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        "content/.settings/Release/settings-1a5b880a.json",
+        "content/.settings/Release/settings-5190454b.json",
+        "content/.settings/Release/settings-51f48ab4.json",
+        "content/.settings/Release/settings-590bb27b.json",
+        "content/.settings/Release/settings-82ca306a.json",
+        "content/.settings/Release/settings-9e9290da.json",
+        "content/.settings/Release/settings-a1b2dac1.json",
+        "content/.settings/Release/settings-afad0842.json",
+        "content/README.md",
+        "content/SharePoint/SP_CreateDirectory.xaml",
+        "content/SharePoint/SP_CreateDirectory.xaml.json",
+        "content/SharePoint/SP_DownloadFile.xaml",
+        "content/SharePoint/SP_DownloadFile.xaml.json",
+        "content/SharePoint/SP_UploadFile.xaml",
+        "content/SharePoint/SP_UploadFile.xaml.json",
+        "content/bindings.json",
+        "content/bindings_v2.json",
+        "contentFiles/any/any/.objects/.metadata",
+        "contentFiles/any/any/.objects/.type",
+        "inpwr.coe.customcomponent.sharepoint.library.runtime.1.0.3.nupkg.sha512",
+        "inpwr.coe.customcomponent.sharepoint.library.runtime.nuspec",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_23172240.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_28913585.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_41183044.dll"
+      ]
+    },
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
+      "sha512": "bF8D9N/y4KCsmePaCPWGwDCPJaWyD5Y/SWR/JtJlmjgruzgeYUyaPJpMYtcvPP9wcH6Oh3Zr7nr+FXj4Sb6FYw==",
+      "type": "package",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.0.48",
       "files": [
         ".nupkg.metadata",
         "content/.project/PackageBindingsMetadata.json",
@@ -14694,6 +14916,8 @@
         "content/Spectrum/Spec_Login.xaml.json",
         "content/Spectrum/Spec_Logout.xaml",
         "content/Spectrum/Spec_Logout.xaml.json",
+        "content/Spectrum/Spec_MyReports_Selection.xaml",
+        "content/Spectrum/Spec_MyReports_Selection.xaml.json",
         "content/Spectrum/Spec_Navigation.xaml",
         "content/Spectrum/Spec_Navigation.xaml.json",
         "content/Spectrum/Spec_Switch_Tab.xaml",
@@ -14712,19 +14936,20 @@
         "content/TestCases/TC_11_Spec_JobCostTypeSummary.xaml.json",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml.json",
+        "content/TestCases/TC_13_Spec_MyReports_Selection.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.1.0.47.nupkg.sha512",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.1.0.48.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.xml",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.47": {
-      "sha512": "tlIr5tXiyj+98LCCSCxC1X99DxjxPPtUVp0CSWnO2OQjBYpoqVuUuXvz1FOt0GZpXtgDeQeeUP7J/xroTGtMVQ==",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
+      "sha512": "Uh65nnx/x196dz4dszwbYLiPffE0PVM1b0wmlb+HkXjYW5aeb9Yqt3w+YQ9D0M6I7frfXaCOUVZcByU9ru5Fdg==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.0.47",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.0.48",
       "files": [
         ".nupkg.metadata",
         "content/.settings/Release/settings-1a5b880a.json",
@@ -14734,6 +14959,7 @@
         "content/.settings/Release/settings-82ca306a.json",
         "content/.settings/Release/settings-9e9290da.json",
         "content/.settings/Release/settings-a1b2dac1.json",
+        "content/.storage/.runtime/AncestryPersistenceService/00244c78-ceaf-4ab9-be55-15f6c14fad24",
         "content/.storage/.runtime/AncestryPersistenceService/00f95da2-429a-454b-9453-1da135e05fbc",
         "content/.storage/.runtime/AncestryPersistenceService/02250c67-94f7-40b9-aa4b-8c05e7b23902",
         "content/.storage/.runtime/AncestryPersistenceService/05927142-a4c8-4cda-b51d-d9d258c8f6dc",
@@ -14744,6 +14970,7 @@
         "content/.storage/.runtime/AncestryPersistenceService/267fc886-06a8-4ded-a8c5-d20f372731f2",
         "content/.storage/.runtime/AncestryPersistenceService/2fe76f6f-c253-4690-9f6d-6476315b0e39",
         "content/.storage/.runtime/AncestryPersistenceService/31a3c1a9-47c3-43b2-a01f-9901ee6d3f18",
+        "content/.storage/.runtime/AncestryPersistenceService/32089e7f-6caf-44fe-9a26-39528597269a",
         "content/.storage/.runtime/AncestryPersistenceService/33231c94-0c54-4349-a8a9-65ad3b0f688b",
         "content/.storage/.runtime/AncestryPersistenceService/3625ca35-12e6-47d0-a75d-bf8af863af03",
         "content/.storage/.runtime/AncestryPersistenceService/381a0e1d-83de-47b5-b94e-cc6d2aac49e1",
@@ -14756,8 +14983,11 @@
         "content/.storage/.runtime/AncestryPersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
         "content/.storage/.runtime/AncestryPersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
         "content/.storage/.runtime/AncestryPersistenceService/6c30196c-b4d1-4d48-8c25-5054762a0a76",
+        "content/.storage/.runtime/AncestryPersistenceService/7bff4983-a5e2-45d9-bfed-44f9f8d13426",
         "content/.storage/.runtime/AncestryPersistenceService/7c2d7a82-8599-4c32-8bcc-b4012ea26fd9",
+        "content/.storage/.runtime/AncestryPersistenceService/7f5b5e29-2498-4347-882a-ac1fb94a8e40",
         "content/.storage/.runtime/AncestryPersistenceService/81bc1bd9-ac66-4472-b20f-819ce6625e33",
+        "content/.storage/.runtime/AncestryPersistenceService/89f83868-37e2-47c3-b52d-12ce1810ece0",
         "content/.storage/.runtime/AncestryPersistenceService/8c193c01-b918-401f-80d6-97436cce5be0",
         "content/.storage/.runtime/AncestryPersistenceService/9b16e8fc-4659-4662-8d71-4b83e9b9e9c4",
         "content/.storage/.runtime/AncestryPersistenceService/9beb2dd2-8cc7-491a-b33c-613394379e96",
@@ -14772,16 +15002,21 @@
         "content/.storage/.runtime/AncestryPersistenceService/bf126371-54d9-4bfd-9ccb-75b931dcf245",
         "content/.storage/.runtime/AncestryPersistenceService/c3956a8b-c63d-43d1-afed-e1f54a2fcd3e",
         "content/.storage/.runtime/AncestryPersistenceService/cba1404d-2afb-48ba-b102-558b72e79439",
+        "content/.storage/.runtime/AncestryPersistenceService/cd2aba4a-b585-4448-9324-c5e973c728d0",
         "content/.storage/.runtime/AncestryPersistenceService/ce06b4fd-53c9-4167-ae50-6322195d1ac9",
+        "content/.storage/.runtime/AncestryPersistenceService/cf2a4bc8-1e53-4c7b-bec1-b280099d9114",
         "content/.storage/.runtime/AncestryPersistenceService/d0e579e1-5c4d-4977-9bc8-efc4da90661d",
         "content/.storage/.runtime/AncestryPersistenceService/d7d79826-48d2-4c37-b296-16afafa6d42a",
         "content/.storage/.runtime/AncestryPersistenceService/da5a5663-2622-402c-b7b8-bbd2a5e263fa",
+        "content/.storage/.runtime/AncestryPersistenceService/e11f81a3-3e90-4b35-b769-07128e115530",
         "content/.storage/.runtime/AncestryPersistenceService/ee9dd0d5-625b-43f6-8029-dba5c258225d",
         "content/.storage/.runtime/AncestryPersistenceService/ef525661-9d96-4855-b489-14ab4538b033",
         "content/.storage/.runtime/AncestryPersistenceService/f333c832-29cf-4940-b629-e23c8d2eb8fb",
         "content/.storage/.runtime/AncestryPersistenceService/f3ac64d5-5989-4c3a-81a0-2472bc1a474e",
         "content/.storage/.runtime/AncestryPersistenceService/f6e9ca6f-1c78-43e6-93df-cc07d501b1e7",
         "content/.storage/.runtime/AncestryPersistenceService/fc1df54a-be82-4be8-aac8-72c3f9eb71b2",
+        "content/.storage/.runtime/AncestryPersistenceService/fdeefcc9-b996-44a7-a3b9-33c722f2a8be",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/00244c78-ceaf-4ab9-be55-15f6c14fad24",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/00f95da2-429a-454b-9453-1da135e05fbc",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/02250c67-94f7-40b9-aa4b-8c05e7b23902",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/05927142-a4c8-4cda-b51d-d9d258c8f6dc",
@@ -14792,6 +15027,7 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/267fc886-06a8-4ded-a8c5-d20f372731f2",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/2fe76f6f-c253-4690-9f6d-6476315b0e39",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/31a3c1a9-47c3-43b2-a01f-9901ee6d3f18",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/32089e7f-6caf-44fe-9a26-39528597269a",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/33231c94-0c54-4349-a8a9-65ad3b0f688b",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/3625ca35-12e6-47d0-a75d-bf8af863af03",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/381a0e1d-83de-47b5-b94e-cc6d2aac49e1",
@@ -14804,8 +15040,11 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/6c30196c-b4d1-4d48-8c25-5054762a0a76",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7bff4983-a5e2-45d9-bfed-44f9f8d13426",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7c2d7a82-8599-4c32-8bcc-b4012ea26fd9",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7f5b5e29-2498-4347-882a-ac1fb94a8e40",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/81bc1bd9-ac66-4472-b20f-819ce6625e33",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/89f83868-37e2-47c3-b52d-12ce1810ece0",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/8c193c01-b918-401f-80d6-97436cce5be0",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/9b16e8fc-4659-4662-8d71-4b83e9b9e9c4",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/9beb2dd2-8cc7-491a-b33c-613394379e96",
@@ -14820,16 +15059,20 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/bf126371-54d9-4bfd-9ccb-75b931dcf245",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/c3956a8b-c63d-43d1-afed-e1f54a2fcd3e",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cba1404d-2afb-48ba-b102-558b72e79439",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cd2aba4a-b585-4448-9324-c5e973c728d0",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ce06b4fd-53c9-4167-ae50-6322195d1ac9",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cf2a4bc8-1e53-4c7b-bec1-b280099d9114",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d0e579e1-5c4d-4977-9bc8-efc4da90661d",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d7d79826-48d2-4c37-b296-16afafa6d42a",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/da5a5663-2622-402c-b7b8-bbd2a5e263fa",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/e11f81a3-3e90-4b35-b769-07128e115530",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ee9dd0d5-625b-43f6-8029-dba5c258225d",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ef525661-9d96-4855-b489-14ab4538b033",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f333c832-29cf-4940-b629-e23c8d2eb8fb",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f3ac64d5-5989-4c3a-81a0-2472bc1a474e",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f6e9ca6f-1c78-43e6-93df-cc07d501b1e7",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/fc1df54a-be82-4be8-aac8-72c3f9eb71b2",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/fdeefcc9-b996-44a7-a3b9-33c722f2a8be",
         "content/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.pdb",
         "content/Spectrum/Draft/Draft.xaml",
         "content/Spectrum/Invoice_OutofBalance_Error.xaml",
@@ -14850,6 +15093,8 @@
         "content/Spectrum/Spec_Login.xaml.json",
         "content/Spectrum/Spec_Logout.xaml",
         "content/Spectrum/Spec_Logout.xaml.json",
+        "content/Spectrum/Spec_MyReports_Selection.xaml",
+        "content/Spectrum/Spec_MyReports_Selection.xaml.json",
         "content/Spectrum/Spec_Navigation.xaml",
         "content/Spectrum/Spec_Navigation.xaml.json",
         "content/Spectrum/Spec_Switch_Tab.xaml",
@@ -14868,6 +15113,7 @@
         "content/TestCases/TC_11_Spec_JobCostTypeSummary.xaml.json",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml.json",
+        "content/TestCases/TC_13_Spec_MyReports_Selection.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
         "contentFiles/any/any/.objects/.metadata",
@@ -14925,6 +15171,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.data/ObjectRepositoryScreenData/.images/.design/0-nt00WXMg0WDzu1rr-k4ng",
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.images/.design/0Q92CUmqE5U-P06hYOoJksA",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.hash",
@@ -14967,6 +15219,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.data/ObjectRepositoryTargetData/.images/.design/0KAAbwdsvvUWj3rAgN-UxfA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.images/.design/077hwPgjZuk-_wPeNeD6LnA",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.hash",
@@ -14997,6 +15255,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.data/ObjectRepositoryTargetData/.images/.design/07rdctfsqP0S2dc5Qlnb_UA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.images/.design/0F_re1gTvm0euNbBOKYr1dw",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.hash",
@@ -15063,12 +15327,30 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.data/ObjectRepositoryTargetData/.images/.design/0H_RvzbaJ-UqBKrLY0sQBXQ",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.images/.design/0kv29fwAOqUeYneByRRGt1Q",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.hash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.images/.design/0cQ_QLLUO1EqBtwMjCAjivg",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.images/.design/001VVy49ol0GEPVafwnQ7sA",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.images/.design/0VBveayg3R0yIer70pzbfYw",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.hash",
@@ -15093,6 +15375,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.data/ObjectRepositoryTargetData/.images/.design/04LP5Ghsx6Uu8DThvr9azwA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.images/.design/0q7RZMt2HDUOf486Z2wZqpw",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.hash",
@@ -15123,6 +15411,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.data/ObjectRepositoryTargetData/.images/.design/0ZgoMEvNxQkyqlGD9m2VwmQ",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.images/.design/0KaQCdyuybEud861QSJNnvg",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.hash",
@@ -15147,6 +15441,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.data/ObjectRepositoryTargetData/.images/.design/0NGp-jIbKBUWrktWgIiEy_w",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.images/.design/0dk_ZqGhgp0uobWtflLo_Dw",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.hash",
@@ -15159,38 +15459,46 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.data/ObjectRepositoryTargetData/.images/.design/0fva9jnTj_EW-C7KAnWcL0A",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.images/.design/0p5c0Y7S2ZUKqjYEWXjau4w",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.hash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.images/.design/0s3kjzn-MVUGArGknQbFTww",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.type",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.0.47.nupkg.sha512",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.0.48.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_1166919.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_12615825.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14994573.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_17924607.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22268713.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22493629.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25427015.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26740947.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46192326.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_51116640.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55333739.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56535383.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5714731.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59718158.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62829533.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_62919684.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64678278.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_660814.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_66454027.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8193272.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_8817938.dll"
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll"
       ]
     },
     "InPwr.CoE.CustomComponent.Utility/1.0.18": {
@@ -15328,20 +15636,6 @@
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Utility_Expressions_54060011.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Utility_Expressions_54861376.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Utility_Expressions_64600119.dll"
-      ]
-    },
-    "Irony.NetCore/1.0.11": {
-      "sha512": "/2MCkqdhEjPiSTZKYXg6u9AO9o3m68biqcFHAnM28WdnrcZii2vYbmKPzT5ejByyV72FUlygOtHBMt8SLnUyNw==",
-      "type": "package",
-      "path": "irony.netcore/1.0.11",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "irony.netcore.1.0.11.nupkg.sha512",
-        "irony.netcore.nuspec",
-        "lib/net452/Irony.dll",
-        "lib/net461/Irony.dll",
-        "lib/netstandard1.6/Irony.dll"
       ]
     },
     "MailKit/4.7.1.1": {
@@ -17877,6 +18171,24 @@
         "radcommons.core.nuspec"
       ]
     },
+    "RBush.Signed/4.0.0": {
+      "sha512": "aP5KQxL5RnFNGW1f0euYVBfCatkLw5iEzMRJcXKq8LWWP4Cp3+qoSq1tDDL2vvJ2rM0ychmVMa2VaEKLS6uX4w==",
+      "type": "package",
+      "path": "rbush.signed/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net47/RBush.dll",
+        "lib/net47/RBush.xml",
+        "lib/net8.0/RBush.dll",
+        "lib/net8.0/RBush.xml",
+        "lib/netstandard2.0/RBush.dll",
+        "lib/netstandard2.0/RBush.xml",
+        "rbush.signed.4.0.0.nupkg.sha512",
+        "rbush.signed.nuspec",
+        "readme.md"
+      ]
+    },
     "RestSharp/106.15.0": {
       "sha512": "HM7ohR6AscxedNenrrl93DSZG6hvdnA7O+NHyCl/6ZKTfn8psQ9rRmUpcb9eWr+140vmfxoVemql0bUoeGEW3A==",
       "type": "package",
@@ -18871,10 +19183,10 @@
         "sharpziplib.nuspec"
       ]
     },
-    "SixLabors.Fonts/1.0.0-beta18": {
-      "sha512": "evykNmy/kEE9EAEKgZm3MNUYXuMHFfmcLUNPw7Ho5q7OI96GFkkIxBm+QaKOTPBKw+L0AjKOs+ArVg8P40Ac9g==",
+    "SixLabors.Fonts/1.0.0": {
+      "sha512": "LFQsCZlV0xlUyXAOMUo5kkSl+8zAQXXbbdwWchtk0B4o7zotZhQsQOcJUELGHdfPfm/xDAsz6hONAuV25bJaAg==",
       "type": "package",
-      "path": "sixlabors.fonts/1.0.0-beta18",
+      "path": "sixlabors.fonts/1.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -18884,7 +19196,7 @@
         "lib/netstandard2.0/SixLabors.Fonts.xml",
         "lib/netstandard2.1/SixLabors.Fonts.dll",
         "lib/netstandard2.1/SixLabors.Fonts.xml",
-        "sixlabors.fonts.1.0.0-beta18.nupkg.sha512",
+        "sixlabors.fonts.1.0.0.nupkg.sha512",
         "sixlabors.fonts.128.png",
         "sixlabors.fonts.nuspec"
       ]
@@ -20549,25 +20861,31 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Packaging/6.0.1": {
-      "sha512": "uU8v5JFutuypHiG+4E1jJH+pudE2UBJcKMO4O3bwZBTQn0+K3I2YOh21M6TfQy+Jr8fT2zxTxb9bGqnRxnfo4A==",
+    "System.IO.Packaging/8.0.1": {
+      "sha512": "KYkIOAvPexQOLDxPO2g0BVoWInnQhPpkFzRqvNrNrMhVT6kqhVr0zEb6KCHlptLFukxnZrjuMVAnxK7pOGUYrw==",
       "type": "package",
-      "path": "system.io.packaging/6.0.1",
+      "path": "system.io.packaging/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Packaging.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.IO.Packaging.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.IO.Packaging.dll",
-        "lib/net461/System.IO.Packaging.xml",
+        "lib/net462/System.IO.Packaging.dll",
+        "lib/net462/System.IO.Packaging.xml",
         "lib/net6.0/System.IO.Packaging.dll",
         "lib/net6.0/System.IO.Packaging.xml",
+        "lib/net7.0/System.IO.Packaging.dll",
+        "lib/net7.0/System.IO.Packaging.xml",
+        "lib/net8.0/System.IO.Packaging.dll",
+        "lib/net8.0/System.IO.Packaging.xml",
         "lib/netstandard2.0/System.IO.Packaging.dll",
         "lib/netstandard2.0/System.IO.Packaging.xml",
-        "system.io.packaging.6.0.1.nupkg.sha512",
+        "system.io.packaging.8.0.1.nupkg.sha512",
         "system.io.packaging.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -24895,10 +25213,10 @@
         "uipath.mail.activities.nuspec"
       ]
     },
-    "UiPath.MicrosoftOffice365.Activities/3.1.21": {
-      "sha512": "y1qQW+DdEATzGw1xP7mgfenE/Juua5Ctv6OfndiXcDzxf6s33BtW3+PQZGgpteVO+tdEf6J0EghiXAlL9ncOCA==",
+    "UiPath.MicrosoftOffice365.Activities/3.2.10": {
+      "sha512": "gsGSwtZds7lFiWq4Ni6LpvhyEfYzLtzSstyEynPy1w9LW6GyOgmgkISJp5mSAth/sO4Q3tiTn8GCrWHqcDB28A==",
       "type": "package",
-      "path": "uipath.microsoftoffice365.activities/3.1.21",
+      "path": "uipath.microsoftoffice365.activities/3.2.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -24983,7 +25301,7 @@
         "lib/net6.0/zh-TW/UiPath.MicrosoftOffice365.resources.dll",
         "lib/net6.0/zu/UiPath.MicrosoftOffice365.Activities.resources.dll",
         "lib/net6.0/zu/UiPath.MicrosoftOffice365.resources.dll",
-        "uipath.microsoftoffice365.activities.3.1.21.nupkg.sha512",
+        "uipath.microsoftoffice365.activities.3.2.10.nupkg.sha512",
         "uipath.microsoftoffice365.activities.nuspec"
       ]
     },
@@ -26654,26 +26972,13 @@
         "uipath.wordstonumbers.1.0.0.nupkg.sha512",
         "uipath.wordstonumbers.nuspec"
       ]
-    },
-    "XLParser/1.5.2": {
-      "sha512": "8tnUCmMbn6c/HGuHFyq1sulHym8YReTKDNXFFQk0U8nldNx6RGrwRvLh0+aQjEc7YoC3Q1ztH1npLt7dClKqjw==",
-      "type": "package",
-      "path": "xlparser/1.5.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/XLParser.dll",
-        "lib/net461/XLParser.dll",
-        "lib/netstandard1.6/XLParser.dll",
-        "xlparser.1.5.2.nupkg.sha512",
-        "xlparser.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [],
     "net8.0-windows7.0": [
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.0.47 <= 1.0.47",
+      "InPwr.CoE.CustomComponent.SharePoint >= 1.0.3 <= 1.0.3",
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.0.48 <= 1.0.48",
       "InPwr.CoE.CustomComponent.Utility >= 1.0.18 <= 1.0.18",
       "UiPath.DataService.Activities >= 25.9.3 <= 25.9.3",
       "UiPath.DocumentUnderstanding.Activities >= 3.0.0-preview <= 3.0.0-preview",
@@ -26696,10 +27001,15 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "dependencies": {
+          "InPwr.CoE.CustomComponent.SharePoint": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.3, 1.0.3]"
+          },
           "InPwr.CoE.CustomComponent.SpectrumWebUIApp": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.47, 1.0.47]"
+            "version": "[1.0.48, 1.0.48]"
           },
           "InPwr.CoE.CustomComponent.Utility": {
             "include": "Runtime",

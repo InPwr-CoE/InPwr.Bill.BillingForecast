@@ -276,7 +276,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[ls_BRE is Nothing]" DisplayName="Check If BRE is exist?" sap:VirtualizedContainerService.HintSize="619,2281" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[ls_BRE.Count=0]" DisplayName="Check If BRE is exist?" sap:VirtualizedContainerService.HintSize="619,2281" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -315,7 +315,7 @@
                             <OutArgument x:TypeArguments="x:String">[str_OverwriteBody]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(0)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath)]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(1)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath)]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
