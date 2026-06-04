@@ -154,14 +154,14 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SP_DownloadReport" sap:VirtualizedContainerService.HintSize="986,1969" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SP_DownloadReport" sap:VirtualizedContainerService.HintSize="1836,2244" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - &quot;ReportsUploadToSP : Started&quot;" sap:VirtualizedContainerService.HintSize="484,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;ReportsUploadToSP : Started&quot;]" />
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="484,1609" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="484,1884" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="str_DownloadedFile" />
         <Variable x:TypeArguments="umfm:O365DriveLocalItem" Name="driveITem" />
@@ -174,9 +174,10 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <is:SP_CreateDirectory Action="Create" FolderName="[Now.ToString(&quot;yyyy&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_1" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString]" />
-      <is:SP_CreateDirectory Action="Create" FolderName="[Now.ToString(&quot;MM&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" />
-      <is:SP_CreateDirectory Action="Create" FolderName="[Now.ToString(&quot;dd-MMM-yyyy&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_3" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MM&quot;)]" />
+      <is:SP_CreateDirectory Action="Create" DisplayName="SP_CreateDirectory - year" FolderName="[Now.ToString(&quot;yyyy&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_4" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString]" />
+      <is:SP_CreateDirectory Action="Create" DisplayName="SP_CreateDirectory - month" FolderName="[Now.ToString(&quot;MM&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)]" />
+      <is:SP_CreateDirectory Action="Create" DisplayName="SP_CreateDirectory - job number" FolderName="[in_Config(&quot;Job_Number&quot;).ToString]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_1" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MM&quot;)]" />
+      <is:SP_CreateDirectory Action="Create" DisplayName="SP_CreateDirectory - Date" FolderName="[Now.ToString(&quot;dd-MMM-yyyy&quot;)]" FolderResponse="[SP_directoryResponse]" sap:VirtualizedContainerService.HintSize="450,275" sap2010:WorkflowViewState.IdRef="SP_CreateDirectory_3" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" ParentFolder="[in_Config(&quot;Report_SPFolderPath&quot;).ToString+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MM&quot;)+ &quot;/&quot;+ in_Config(&quot;Job_Number&quot;).ToString]" />
       <Assign DisplayName="Assign - Report Files to List" sap:VirtualizedContainerService.HintSize="450,115" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(x:String)">[list_ReportFiles]</OutArgument>
@@ -195,10 +196,10 @@
           <OutArgument x:TypeArguments="x:String">[out_SP_ReportsPath]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_Config("Report_SPFolderPath").ToString+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MM")+"/" + Now.ToString("dd-MMM-yyyy")]</InArgument>
+          <InArgument x:TypeArguments="x:String">[in_Config("Report_SPFolderPath").ToString+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MM")+ "/"+ in_Config("Job_Number").ToString+"/" + Now.ToString("dd-MMM-yyyy")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="450,463" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[list_ReportFiles]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText - list of reports" sap:VirtualizedContainerService.HintSize="450,463" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[list_ReportFiles]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
@@ -210,7 +211,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <is:SP_UploadFile FileBehavior="Replace" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="SP_UploadFile_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" SharepointFolderPath="[out_SP_ReportsPath]" TargetFilePath="[currentText.ToString]" UploadStatus="[out_SPUploadStatus]" />
+              <is:SP_UploadFile DisplayName="SP_UploadFile - report" FileBehavior="Replace" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="SP_UploadFile_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" O365ApplicationSecret="[New System.Net.NetworkCredential(&quot;&quot;, in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString).SecurePassword]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" SharepointFolderPath="[out_SP_ReportsPath]" TargetFilePath="[currentText.ToString]" UploadStatus="[out_SPUploadStatus]" />
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
