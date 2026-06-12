@@ -165,7 +165,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BillingForecastSendMail" sap:VirtualizedContainerService.HintSize="986,2873" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BillingForecastSendMail" sap:VirtualizedContainerService.HintSize="1270,2873" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_OverwriteBody" />
       <Variable x:TypeArguments="x:String" Name="str_EmailCode" />
@@ -315,13 +315,13 @@
                             <OutArgument x:TypeArguments="x:String">[str_OverwriteBody]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(0)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath)]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(0)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath).Replace("{1}",in_Config("ReportName").ToString)]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <iu:Bot_Correspondence Attachment="{x:Null}" OverwriteSubject="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail with Attachment" EmailCode="EM0001" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="479,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_1" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
+                  <iu:Bot_Correspondence Attachment="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail with Attachment" EmailCode="EM0001" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="479,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_1" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" OverwriteSubject="[in_dtEmailTable.Rows(0)(&quot;EmailSubject&quot;).ToString.Replace(&quot;&lt;JOBNUM&gt;&quot;, in_Config(&quot;Job_Number&quot;).ToString)]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -390,7 +390,7 @@
                       <OutArgument x:TypeArguments="x:String">[str_OverwriteBody]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(1)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath)]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(1)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath).Replace("{1}",in_Config("ReportName").ToString)]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -419,7 +419,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <iu:Bot_Correspondence Attachment="{x:Null}" OverwriteSubject="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail without Attachment" EmailCode="EM0002" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_3" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
+                  <iu:Bot_Correspondence Attachment="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail without Attachment" EmailCode="EM0002" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_3" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" OverwriteSubject="[in_dtEmailTable.Rows(1)(&quot;EmailSubject&quot;).ToString.Replace(&quot;&lt;JOBNUM&gt;&quot;, in_Config(&quot;Job_Number&quot;).ToString)]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

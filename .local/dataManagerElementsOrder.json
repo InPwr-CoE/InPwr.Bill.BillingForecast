@@ -35,6 +35,8 @@
         "str_BHRfilePath&StateMachine_1",
         "str_JORfilePath&StateMachine_1",
         "str_CTSRfilePath&StateMachine_1",
+        "bool_RunRequest&StateMachine_1",
+        "dic_MailMetaData&StateMachine_1",
         "str_MappingStatus&Sequence_17",
         "BillingForecastTemplate&Sequence_45",
         "today&Sequence_75",
@@ -144,6 +146,7 @@
         "dt_BFTemplate&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_MailMeetaData",
         "in_Config",
         "in_SpectrumBrowser",
         "in_JORText",
@@ -191,7 +194,8 @@
         "dec_travelTotal&Sequence_125"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_JORtext",
+        "in_CTSRText",
+        "in_dtBFTemplate",
         "in_BFRfilepath",
         "in_JobNumber",
         "io_listBRE",
@@ -240,10 +244,6 @@
         "out_CTSRfilePath",
         "out_JORfilePath",
         "out_BHRfilePath",
-        "in_BFRfilepath",
-        "in_JORtext",
-        "in_JobNumber",
-        "io_listBRE",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -291,11 +291,7 @@
         "str_OverwriteBody&Sequence_1",
         "str_EmailCode&Sequence_1",
         "str_O365Application_ClientId&Sequence_26",
-        "str_O365Application_ClientSecretId&Sequence_26",
-        "str_DownloadedFile&Sequence_2",
-        "driveITem&Sequence_2",
-        "SP_directoryResponse&Sequence_2",
-        "list_ReportFiles&Sequence_2"
+        "str_O365Application_ClientSecretId&Sequence_26"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_ReportDate",
@@ -306,12 +302,6 @@
         "in_BHRfilePath",
         "in_JORfilePath",
         "in_SP_ReportsPath",
-        "out_SPUploadStatus",
-        "in_BFRFilePath",
-        "in_CTSRFilePath",
-        "in_JORFilePath",
-        "in_BHRFilePath",
-        "out_SP_ReportsPath",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -321,21 +311,15 @@
       "Path": "Workflows/Spectrum/Spec_JOR_Download.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "str_O365AClientId&Sequence_9",
-        "sec_O365ClientSecretId&Sequence_9",
-        "sec_SpectrumPassword&Sequence_9",
-        "str_SpectrumUserName&Sequence_9",
-        "outputFile&Sequence_9",
-        "str_dsClientId&Sequence_9",
-        "sec_dsClientSecVal&Sequence_9",
         "bol_JOR_ReadyToExport&Sequence_1",
         "outputFile&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_BFRfilepath",
-        "in_JORtext",
-        "in_JobNumber",
-        "io_listBRE",
+        "in_dsClientSecVal",
+        "in_dsClientID",
+        "in_spectrumBrowser",
+        "out_JORText",
+        "out_JORfilePath",
         "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -349,8 +333,6 @@
         "outputFile&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "out_JORText",
-        "out_JORfilePath",
         "in_Config",
         "in_dsClientSecVal",
         "in_dsClientID",
@@ -365,30 +347,6 @@
       "Path": "Workflows/DataService/BFRTemplateMappingDS.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "ls_VendorType&Sequence_1",
-        "bol_JORTextFile&Sequence_1",
-        "dic_JORProjectedCost&Sequence_1",
-        "dt_BFTemplate&Sequence_1",
-        "in_JORTextfilePath&Sequence_1",
-        "in_JORfilePath&Sequence_1",
-        "str_contAmt&Sequence_3",
-        "str_reprtGProfit&Sequence_3",
-        "str_reprtGPercentage&Sequence_3",
-        "str_grossProfit&Sequence_3",
-        "str_grossPercentage&Sequence_3",
-        "str_Totals&Sequence_3",
-        "str_jobTotal&Sequence_3",
-        "str_completeDate&Sequence_3",
-        "str_billingForecastAmount&Sequence_3",
-        "str_billedToDate&Sequence_3",
-        "str_subTotallLines&Sequence_4",
-        "allCost&Sequence_4",
-        "str_Profit&Sequence_4",
-        "str_Amount&Sequence_4",
-        "allProfit&Sequence_4",
-        "str_TotalAmount&Sequence_4",
-        "allTotalAmount&Sequence_4",
-        "str_CellValue&Sequence_13",
         "str_DSClientID&Sequence_3",
         "sec_DSClientSecret&Sequence_3"
       ],
@@ -420,38 +378,39 @@
     {
       "Path": "Workflows/BillingForecast/YearAndMonthMapping.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ls_VendorType&Sequence_1",
-        "bol_JORTextFile&Sequence_1",
-        "dic_JORProjectedCost&Sequence_1",
-        "dt_BFTemplate&Sequence_1",
-        "in_JORTextfilePath&Sequence_1",
-        "in_JORfilePath&Sequence_1",
-        "str_contAmt&Sequence_3",
-        "str_reprtGProfit&Sequence_3",
-        "str_reprtGPercentage&Sequence_3",
-        "str_grossProfit&Sequence_3",
-        "str_grossPercentage&Sequence_3",
-        "str_Totals&Sequence_3",
-        "str_jobTotal&Sequence_3",
-        "str_completeDate&Sequence_3",
-        "str_billingForecastAmount&Sequence_3",
-        "str_billedToDate&Sequence_3",
-        "str_subTotallLines&Sequence_4",
-        "allCost&Sequence_4",
-        "str_Profit&Sequence_4",
-        "str_Amount&Sequence_4",
-        "allProfit&Sequence_4",
-        "str_TotalAmount&Sequence_4",
-        "allTotalAmount&Sequence_4",
-        "str_CellValue&Sequence_13"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_year",
         "out_qYear",
         "in_month",
         "out_qMonth"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Mail/MailMovement.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str_MailSearchQuery&Sequence_1",
+        "str_o365ApplicationId&Sequence_1",
+        "secstr_o365ApplicationSecret&Sequence_1",
+        "arr_emailsfetched&Sequence_1",
+        "str_MailBody&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_MailDestinationFolder",
+        "dic_MailMetaData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

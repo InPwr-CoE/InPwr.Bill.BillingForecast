@@ -186,7 +186,7 @@
       <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Spec_JOR_Download" sap:VirtualizedContainerService.HintSize="1059,2212" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Spec_JOR_Download" sap:VirtualizedContainerService.HintSize="1100,2212" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="bol_JOR_ReadyToExport" />
       <Variable x:TypeArguments="upr:ILocalResource" Name="outputFile" />
@@ -207,14 +207,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <is:Spec_Navigation DisplayName="Spectrum Navigation" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Spec_Navigation_1" NavToFolder="[in_Config(&quot;Spectrum_NavToJOR&quot;).ToString]" SpecEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
       <is:Spec_JobOverviewReport ClientId="[in_dsClientID]" ClientSecret="[New System.Net.NetworkCredential(String.Empty, in_dsClientSecVal).Password]" EndDate="[in_Config(&quot;CurrentMonth_EndDate&quot;).ToString]" EntityName="[in_Config(&quot;DS_JOR_EntityName&quot;).ToString]" FieldName="[in_Config(&quot;DataService_FieldName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,275" sap2010:WorkflowViewState.IdRef="Spec_JobOverviewReport_1" RefreshToken="[in_Config(&quot;DataService_RefreshToken&quot;).ToString]" SearchValue="[in_Config(&quot;Job_Number&quot;).ToString]" SpectrumBrowser="[in_spectrumBrowser]" />
-      <is:Spec_Export_Report DownloadFileType="[in_Config(&quot;Report_Format&quot;).ToString]" DownloadedFilePath="[out_JORfilePath]" sap:VirtualizedContainerService.HintSize="416,326" sap2010:WorkflowViewState.IdRef="Spec_Export_Report_1" MoveToFolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" ReportFileName="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;JOR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;dd_MM_yyyy&quot;)]" in_spectrumBrowser="[in_spectrumBrowser]">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </is:Spec_Export_Report>
+      <is:Spec_Export_Report DownloadFileType="[in_Config(&quot;Report_Format&quot;).ToString]" DownloadedFilePath="[out_JORfilePath]" sap:VirtualizedContainerService.HintSize="416,326" sap2010:WorkflowViewState.IdRef="Spec_Export_Report_1" MoveToFolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" ReportFileName="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;JOR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;dd_MM_yyyy&quot;)]" in_spectrumBrowser="[in_spectrumBrowser]" />
       <ui:CreateFile PathResource="{x:Null}" DisplayName="Create File - Empty Text file for JOR PDF" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[in_Config(&quot;Job_Number&quot;).ToString+&quot;_&quot;+in_Config(&quot;JOR_ReportName&quot;).ToString + &quot;_&quot;+Now.ToString(&quot;ddMMyy&quot;)+&quot;.txt&quot;]" Output="[outputFile]" Path="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" />
       <is:Spec_Close_Tab DisplayName="Spectrum Close Tab" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Spec_Close_Tab_1" NavToFolder="[in_Config(&quot;Spectrum_NavToJOR&quot;).ToString]" SpecEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" in_spectrumBrowser="[in_spectrumBrowser]" />
     </Sequence>

@@ -4,11 +4,12 @@
   "description": "InPwr.Bill.BillingForecast-24114 ",
   "main": "Main.xaml",
   "dependencies": {
+    "InPwr.CoE.CustomComponent.Mail": "[1.0.17]",
     "InPwr.CoE.CustomComponent.SharePoint": "[1.0.3]",
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.0.48]",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp": "[1.1.1]",
     "InPwr.CoE.CustomComponent.Utility": "[1.0.18]",
     "UiPath.DataService.Activities": "[25.9.3]",
-    "UiPath.DocumentUnderstanding.Activities": "[3.0.0-preview]",
+    "UiPath.DocumentUnderstanding.Activities": "[2.17.4]",
     "UiPath.PDF.Activities": "[3.25.2]",
     "UiPath.System.Activities": "[26.2.4]",
     "UiPath.UIAutomation.Activities": "[24.10.10]"
@@ -17,7 +18,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.13",
+  "projectVersion": "1.0.14",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

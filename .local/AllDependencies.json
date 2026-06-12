@@ -429,15 +429,16 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.Mail/1.0.14": {
+      "InPwr.CoE.CustomComponent.Mail/1.0.17": {
         "type": "package",
         "dependencies": {
-          "InPwr.CoE.CustomComponent.Mail.Library.Runtime": "1.0.14",
+          "InPwr.CoE.CustomComponent.Mail.Library.Runtime": "1.0.17",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.Mail.Activities": "2.1.20",
           "UiPath.MicrosoftOffice365.Activities": "3.1.21",
           "UiPath.System.Activities": "24.10.6",
-          "UiPath.Testing.Activities": "24.10.0",
-          "UiPath.WebAPI.Activities": "1.21.1"
+          "UiPath.Testing.Activities": "24.10.3",
+          "UiPath.WebAPI.Activities": "2.4.0"
         },
         "compile": {
           "lib/net8.0-windows7.0/_._": {}
@@ -446,26 +447,31 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.14": {
+      "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.17": {
         "type": "package",
         "dependencies": {
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.Mail.Activities": "2.1.20",
           "UiPath.MicrosoftOffice365.Activities": "3.1.21",
           "UiPath.System.Activities.Runtime": "24.10.6",
-          "UiPath.Testing.Activities": "24.10.0",
-          "UiPath.WebAPI.Activities.Runtime": "1.21.1"
+          "UiPath.Testing.Activities": "24.10.3",
+          "UiPath.WebAPI.Activities.Runtime": "2.4.0"
         },
         "compile": {
           "lib/net8.0-windows7.0/_._": {}
         },
         "runtime": {
+          "lib/net8.0-windows7.0/DataService.InPwr_CoE_CustomComponent_Mail.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10313182.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_17688001.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29745493.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_41348378.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_47120742.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10540538.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_28861090.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29459761.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_40219656.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_50661992.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_63741013.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_921424.dll": {},
+          "lib/net8.0-windows7.0/UiPath.DataService.Definition.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -518,12 +524,13 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.48",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.1",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -534,11 +541,12 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -548,30 +556,31 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -1199,24 +1208,6 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.TraceSource/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Logging": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.TraceSource.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Extensions.ObjectPool/5.0.17": {
@@ -5141,7 +5132,7 @@
           }
         }
       },
-      "UiPath.DocumentProcessing.Contracts/2.0.0-preview": {
+      "UiPath.DocumentProcessing.Contracts/1.31.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
@@ -5157,7 +5148,7 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Activities/3.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Activities/2.17.4": {
         "type": "package",
         "dependencies": {
           "BitMiracle.LibTiff.NET": "2.4.649",
@@ -5167,7 +5158,7 @@
           "Microsoft.Rest.ClientRuntime": "2.3.24",
           "Newtonsoft.Json": "13.0.1",
           "Polly": "7.1.0",
-          "System.Activities.ViewModels": "1.20251127.3",
+          "System.Activities.ViewModels": "1.0.0-20250814.2",
           "System.Collections.Immutable": "6.0.0",
           "System.Net.Http": "4.3.4",
           "System.Runtime": "4.3.1",
@@ -5175,15 +5166,15 @@
           "System.Threading.Tasks.Extensions": "4.5.4",
           "System.ValueTuple": "4.5.0",
           "TinyCsvParser": "2.5.2",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview",
-          "UiPath.DocumentUnderstanding.Common.SDK": "3.0.0-preview",
-          "UiPath.DocumentUnderstanding.Digitizer": "5.0.0-preview",
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Activities": "4.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview",
-          "UiPath.Platform": "25.12.1",
+          "UiPath.DocumentProcessing.Contracts": "1.31.0",
+          "UiPath.DocumentUnderstanding.Common.SDK": "2.4.1",
+          "UiPath.DocumentUnderstanding.Digitizer": "4.9.5",
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Activities": "3.24.2",
+          "UiPath.OCR.Contracts": "2.19.0",
+          "UiPath.Platform": "24.12.3",
           "UiPath.Telemetry.Client": "2.1.3",
-          "UiPath.Vision": "4.0.0-preview",
+          "UiPath.Vision": "3.17.2",
           "UiPath.WordsToNumbers": "1.0.0"
         },
         "compile": {
@@ -5281,11 +5272,11 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Common.SDK/3.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Common.SDK/2.4.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -5294,7 +5285,7 @@
           "lib/net6.0/UiPath.DocumentUnderstanding.Common.SDK.dll": {}
         }
       },
-      "UiPath.DocumentUnderstanding.Digitizer/5.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Digitizer/4.9.5": {
         "type": "package",
         "dependencies": {
           "BitMiracle.Docotic.Pdf": "9.8.19020-dev",
@@ -5305,8 +5296,8 @@
           "NTextCat": "0.3.65",
           "System.Buffers": "4.5.1",
           "System.Collections.Immutable": "6.0.0",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview",
-          "UiPath.DocumentUnderstanding.Digitizer.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0",
+          "UiPath.DocumentUnderstanding.Digitizer.Contracts": "1.1.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -5322,10 +5313,10 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Digitizer.Contracts/2.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Digitizer.Contracts/1.1.0": {
         "type": "package",
         "dependencies": {
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -5334,7 +5325,7 @@
           "lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.Contracts.dll": {}
         }
       },
-      "UiPath.EmguCVBundle/2.0.0-preview": {
+      "UiPath.EmguCVBundle/1.4.0": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Primitives": "4.3.0",
@@ -5854,12 +5845,10 @@
           }
         }
       },
-      "UiPath.OCR.Activities/4.0.0-preview": {
+      "UiPath.OCR.Activities/3.24.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": "7.0.1",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.Logging.TraceSource": "6.0.0",
           "Microsoft.Rest.ClientRuntime": "2.3.24",
           "NLog": "4.5.11",
           "Newtonsoft.Json": "13.0.1",
@@ -5868,8 +5857,8 @@
           "System.Drawing.Common": "5.0.3",
           "System.Text.RegularExpressions": "4.3.1",
           "System.ValueTuple": "4.5.0",
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview",
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Contracts": "2.19.0",
           "UiPath.Platform": "23.4.0"
         },
         "compile": {
@@ -5961,7 +5950,7 @@
           }
         }
       },
-      "UiPath.OCR.Contracts/3.0.0-preview": {
+      "UiPath.OCR.Contracts/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Common": "5.0.3"
@@ -6974,11 +6963,11 @@
           "lib/net6.0-windows7.0/UiPath.UIAutomation.Activities.Runtime.Design.dll": {}
         }
       },
-      "UiPath.Vision/4.0.0-preview": {
+      "UiPath.Vision/3.17.2": {
         "type": "package",
         "dependencies": {
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview"
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Contracts": "2.19.0"
         },
         "compile": {
           "lib/net6.0-windows7.0/_._": {}
@@ -6991,16 +6980,17 @@
           "lib/net6.0-windows7.0/UiPath.Vision.dll": {}
         }
       },
-      "UiPath.WebAPI.Activities/1.21.1": {
+      "UiPath.WebAPI.Activities/2.4.0": {
         "type": "package",
         "dependencies": {
           "AvalonEdit": "6.1.3.50",
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "106.15.0",
-          "UiPath.Platform": "24.10.2",
+          "System.Activities.ViewModels": "1.20251127.3",
+          "UiPath.Platform": "25.6.0",
           "UiPath.Telemetry.Client": "2.1.3",
-          "UiPath.WebAPI.Activities.Runtime": "1.21.1"
+          "UiPath.WebAPI.Activities.Runtime": "2.4.0"
         },
         "compile": {
           "lib/net6.0-windows7.0/_._": {}
@@ -7049,21 +7039,30 @@
           }
         }
       },
-      "UiPath.WebAPI.Activities.Runtime/1.21.1": {
+      "UiPath.WebAPI.Activities.Runtime/2.4.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
+          "Microsoft.Extensions.Caching.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Caching.Memory": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "106.15.0",
-          "UiPath.Platform": "24.10.2",
+          "UiPath.Platform": "25.6.0",
           "UiPath.Telemetry.Client": "2.1.3"
         },
         "compile": {
-          "lib/net6.0-windows7.0/_._": {}
+          "lib/net6.0-windows7.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0-windows7.0/UiPath.Web.Activities.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Web.dll": {}
+          "lib/net6.0-windows7.0/UiPath.Web.Activities.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/UiPath.Web.dll": {
+            "related": ".Activities.xml"
+          }
         },
         "resource": {
           "lib/net6.0-windows7.0/de/UiPath.Web.Activities.resources.dll": {
@@ -7545,15 +7544,16 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.Mail/1.0.14": {
+      "InPwr.CoE.CustomComponent.Mail/1.0.17": {
         "type": "package",
         "dependencies": {
-          "InPwr.CoE.CustomComponent.Mail.Library.Runtime": "1.0.14",
+          "InPwr.CoE.CustomComponent.Mail.Library.Runtime": "1.0.17",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.Mail.Activities": "2.1.20",
           "UiPath.MicrosoftOffice365.Activities": "3.1.21",
           "UiPath.System.Activities": "24.10.6",
-          "UiPath.Testing.Activities": "24.10.0",
-          "UiPath.WebAPI.Activities": "1.21.1"
+          "UiPath.Testing.Activities": "24.10.3",
+          "UiPath.WebAPI.Activities": "2.4.0"
         },
         "compile": {
           "lib/net8.0-windows7.0/_._": {}
@@ -7562,26 +7562,31 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.14": {
+      "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.17": {
         "type": "package",
         "dependencies": {
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.Mail.Activities": "2.1.20",
           "UiPath.MicrosoftOffice365.Activities": "3.1.21",
           "UiPath.System.Activities.Runtime": "24.10.6",
-          "UiPath.Testing.Activities": "24.10.0",
-          "UiPath.WebAPI.Activities.Runtime": "1.21.1"
+          "UiPath.Testing.Activities": "24.10.3",
+          "UiPath.WebAPI.Activities.Runtime": "2.4.0"
         },
         "compile": {
           "lib/net8.0-windows7.0/_._": {}
         },
         "runtime": {
+          "lib/net8.0-windows7.0/DataService.InPwr_CoE_CustomComponent_Mail.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10313182.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_17688001.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29745493.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_41348378.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_47120742.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10540538.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_28861090.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29459761.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_40219656.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_50661992.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_63741013.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_921424.dll": {},
+          "lib/net8.0-windows7.0/UiPath.DataService.Definition.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -7634,12 +7639,13 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.0.48",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.1",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -7650,11 +7656,12 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
+          "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
         },
@@ -7664,30 +7671,31 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -8315,24 +8323,6 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.TraceSource/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Logging": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.TraceSource.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Extensions.ObjectPool/5.0.17": {
@@ -12128,7 +12118,7 @@
           }
         }
       },
-      "UiPath.DocumentProcessing.Contracts/2.0.0-preview": {
+      "UiPath.DocumentProcessing.Contracts/1.31.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
@@ -12144,7 +12134,7 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Activities/3.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Activities/2.17.4": {
         "type": "package",
         "dependencies": {
           "BitMiracle.LibTiff.NET": "2.4.649",
@@ -12154,7 +12144,7 @@
           "Microsoft.Rest.ClientRuntime": "2.3.24",
           "Newtonsoft.Json": "13.0.1",
           "Polly": "7.1.0",
-          "System.Activities.ViewModels": "1.20251127.3",
+          "System.Activities.ViewModels": "1.0.0-20250814.2",
           "System.Collections.Immutable": "6.0.0",
           "System.Net.Http": "4.3.4",
           "System.Runtime": "4.3.1",
@@ -12162,15 +12152,15 @@
           "System.Threading.Tasks.Extensions": "4.5.4",
           "System.ValueTuple": "4.5.0",
           "TinyCsvParser": "2.5.2",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview",
-          "UiPath.DocumentUnderstanding.Common.SDK": "3.0.0-preview",
-          "UiPath.DocumentUnderstanding.Digitizer": "5.0.0-preview",
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Activities": "4.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview",
-          "UiPath.Platform": "25.12.1",
+          "UiPath.DocumentProcessing.Contracts": "1.31.0",
+          "UiPath.DocumentUnderstanding.Common.SDK": "2.4.1",
+          "UiPath.DocumentUnderstanding.Digitizer": "4.9.5",
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Activities": "3.24.2",
+          "UiPath.OCR.Contracts": "2.19.0",
+          "UiPath.Platform": "24.12.3",
           "UiPath.Telemetry.Client": "2.1.3",
-          "UiPath.Vision": "4.0.0-preview",
+          "UiPath.Vision": "3.17.2",
           "UiPath.WordsToNumbers": "1.0.0"
         },
         "compile": {
@@ -12268,11 +12258,11 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Common.SDK/3.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Common.SDK/2.4.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -12281,7 +12271,7 @@
           "lib/net6.0/UiPath.DocumentUnderstanding.Common.SDK.dll": {}
         }
       },
-      "UiPath.DocumentUnderstanding.Digitizer/5.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Digitizer/4.9.5": {
         "type": "package",
         "dependencies": {
           "BitMiracle.Docotic.Pdf": "9.8.19020-dev",
@@ -12292,8 +12282,8 @@
           "NTextCat": "0.3.65",
           "System.Buffers": "4.5.1",
           "System.Collections.Immutable": "6.0.0",
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview",
-          "UiPath.DocumentUnderstanding.Digitizer.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0",
+          "UiPath.DocumentUnderstanding.Digitizer.Contracts": "1.1.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -12309,10 +12299,10 @@
           }
         }
       },
-      "UiPath.DocumentUnderstanding.Digitizer.Contracts/2.0.0-preview": {
+      "UiPath.DocumentUnderstanding.Digitizer.Contracts/1.1.0": {
         "type": "package",
         "dependencies": {
-          "UiPath.DocumentProcessing.Contracts": "2.0.0-preview"
+          "UiPath.DocumentProcessing.Contracts": "1.31.0"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -12321,7 +12311,7 @@
           "lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.Contracts.dll": {}
         }
       },
-      "UiPath.EmguCVBundle/2.0.0-preview": {
+      "UiPath.EmguCVBundle/1.4.0": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Primitives": "4.3.0",
@@ -12841,12 +12831,10 @@
           }
         }
       },
-      "UiPath.OCR.Activities/4.0.0-preview": {
+      "UiPath.OCR.Activities/3.24.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": "7.0.1",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.Logging.TraceSource": "6.0.0",
           "Microsoft.Rest.ClientRuntime": "2.3.24",
           "NLog": "4.5.11",
           "Newtonsoft.Json": "13.0.1",
@@ -12855,8 +12843,8 @@
           "System.Drawing.Common": "5.0.3",
           "System.Text.RegularExpressions": "4.3.1",
           "System.ValueTuple": "4.5.0",
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview",
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Contracts": "2.19.0",
           "UiPath.Platform": "23.4.0"
         },
         "compile": {
@@ -12948,7 +12936,7 @@
           }
         }
       },
-      "UiPath.OCR.Contracts/3.0.0-preview": {
+      "UiPath.OCR.Contracts/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Common": "5.0.3"
@@ -13961,11 +13949,11 @@
           "lib/net6.0-windows7.0/UiPath.UIAutomation.Activities.Runtime.Design.dll": {}
         }
       },
-      "UiPath.Vision/4.0.0-preview": {
+      "UiPath.Vision/3.17.2": {
         "type": "package",
         "dependencies": {
-          "UiPath.EmguCVBundle": "2.0.0-preview",
-          "UiPath.OCR.Contracts": "3.0.0-preview"
+          "UiPath.EmguCVBundle": "1.4.0",
+          "UiPath.OCR.Contracts": "2.19.0"
         },
         "compile": {
           "lib/net6.0-windows7.0/_._": {}
@@ -13978,16 +13966,17 @@
           "lib/net6.0-windows7.0/UiPath.Vision.dll": {}
         }
       },
-      "UiPath.WebAPI.Activities/1.21.1": {
+      "UiPath.WebAPI.Activities/2.4.0": {
         "type": "package",
         "dependencies": {
           "AvalonEdit": "6.1.3.50",
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "106.15.0",
-          "UiPath.Platform": "24.10.2",
+          "System.Activities.ViewModels": "1.20251127.3",
+          "UiPath.Platform": "25.6.0",
           "UiPath.Telemetry.Client": "2.1.3",
-          "UiPath.WebAPI.Activities.Runtime": "1.21.1"
+          "UiPath.WebAPI.Activities.Runtime": "2.4.0"
         },
         "compile": {
           "lib/net6.0-windows7.0/_._": {}
@@ -14036,21 +14025,30 @@
           }
         }
       },
-      "UiPath.WebAPI.Activities.Runtime/1.21.1": {
+      "UiPath.WebAPI.Activities.Runtime/2.4.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
+          "Microsoft.Extensions.Caching.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Caching.Memory": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "106.15.0",
-          "UiPath.Platform": "24.10.2",
+          "UiPath.Platform": "25.6.0",
           "UiPath.Telemetry.Client": "2.1.3"
         },
         "compile": {
-          "lib/net6.0-windows7.0/_._": {}
+          "lib/net6.0-windows7.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0-windows7.0/UiPath.Web.Activities.dll": {},
-          "lib/net6.0-windows7.0/UiPath.Web.dll": {}
+          "lib/net6.0-windows7.0/UiPath.Web.Activities.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/UiPath.Web.dll": {
+            "related": ".Activities.xml"
+          }
         },
         "resource": {
           "lib/net6.0-windows7.0/de/UiPath.Web.Activities.resources.dll": {
@@ -14695,15 +14693,16 @@
         "lib/net8.0-windows7.0/UiPath.DataService.Definition.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.Mail/1.0.14": {
-      "sha512": "RH1bzc8/MlHw3YKbMZHgg0GY+rsaTpmzQpHhqAlQIL6v8KdX7Od68O3ezn/Oktqafr6xQB/+mkt8g3v2nfh9vw==",
+    "InPwr.CoE.CustomComponent.Mail/1.0.17": {
+      "sha512": "q/3gOEUDQefyPshOw37ZIb12bVSMKepN57KmejgDFrx7vfNnAvR2MRL5YNf3LfecKArM1MsiBDwMWsiSBKhukw==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.mail/1.0.14",
+      "path": "inpwr.coe.customcomponent.mail/1.0.17",
       "files": [
         ".nupkg.metadata",
         "InPwr_logo.png",
         "content/.codedworkflows/ConnectionsFactory.cs",
         "content/.codedworkflows/ConnectionsManager.cs",
+        "content/.entities/EntitiesStore.json",
         "content/.package/InPwr_logo.png",
         "content/.project/CodedBindingsMetadata.json",
         "content/.project/PackageBindingsMetadata.json",
@@ -14725,7 +14724,10 @@
         "content/Icon/Mail file download.svg",
         "content/Icon/move mail to folder.svg",
         "content/InPwr.CoE.CustomComponent.Mail.Core.pdb",
-        "content/InPwr.CoE.CustomComponent.Mail.Core.xml",
+        "content/Mail/Check Run Request.xaml",
+        "content/Mail/Check Run Request.xaml.json",
+        "content/Mail/Create Mail Folder.xaml",
+        "content/Mail/Create Mail Folder.xaml.json",
         "content/Mail/Delete Mail.xaml",
         "content/Mail/Delete Mail.xaml.json",
         "content/Mail/Download Email Attachment.xaml",
@@ -14748,19 +14750,21 @@
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "inpwr.coe.customcomponent.mail.1.0.14.nupkg.sha512",
+        "inpwr.coe.customcomponent.mail.1.0.17.nupkg.sha512",
         "inpwr.coe.customcomponent.mail.nuspec",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.Core.xml",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.ViewModels.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.14": {
-      "sha512": "ku3/1xt/w2CWrDSn1liwhUlNCtdPGpqYd8Yx9qsxRpyPIzMeMYvDAo0ghhzZhBmhl417fEgYvRz7j+ud8pTHVA==",
+    "InPwr.CoE.CustomComponent.Mail.Library.Runtime/1.0.17": {
+      "sha512": "Y8jJTQ4SXc6L78RxHVceSsWS3mZUhVuOiWmjxlXmIKtoq9mEchUt22QB0jlLE5+F2Ek1s6luyDn3e7f/bJKmGA==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.mail.library.runtime/1.0.14",
+      "path": "inpwr.coe.customcomponent.mail.library.runtime/1.0.17",
       "files": [
         ".nupkg.metadata",
         "content/.codedworkflows/ConnectionsFactory.cs",
         "content/.codedworkflows/ConnectionsManager.cs",
+        "content/.entities/EntitiesStore.json",
         "content/.package/InPwr_logo.png",
         "content/.settings/Release/settings-1a5b880a.json",
         "content/.settings/Release/settings-5190454b.json",
@@ -14776,7 +14780,10 @@
         "content/Icon/Mail file download.svg",
         "content/Icon/move mail to folder.svg",
         "content/InPwr.CoE.CustomComponent.Mail.Core.pdb",
-        "content/InPwr.CoE.CustomComponent.Mail.Core.xml",
+        "content/Mail/Check Run Request.xaml",
+        "content/Mail/Check Run Request.xaml.json",
+        "content/Mail/Create Mail Folder.xaml",
+        "content/Mail/Create Mail Folder.xaml.json",
         "content/Mail/Delete Mail.xaml",
         "content/Mail/Delete Mail.xaml.json",
         "content/Mail/Download Email Attachment.xaml",
@@ -14799,15 +14806,19 @@
         "content/bindings_v2.json",
         "contentFiles/any/any/.objects/.metadata",
         "contentFiles/any/any/.objects/.type",
-        "inpwr.coe.customcomponent.mail.library.runtime.1.0.14.nupkg.sha512",
+        "inpwr.coe.customcomponent.mail.library.runtime.1.0.17.nupkg.sha512",
         "inpwr.coe.customcomponent.mail.library.runtime.nuspec",
+        "lib/net8.0-windows7.0/DataService.InPwr_CoE_CustomComponent_Mail.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.Core.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10313182.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_17688001.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29745493.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_41348378.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_47120742.dll"
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_10540538.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_28861090.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_29459761.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_40219656.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_50661992.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_63741013.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.Mail_Expressions_921424.dll",
+        "lib/net8.0-windows7.0/UiPath.DataService.Definition.dll"
       ]
     },
     "InPwr.CoE.CustomComponent.SharePoint/1.0.3": {
@@ -14878,13 +14889,14 @@
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_41183044.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.0.48": {
-      "sha512": "bF8D9N/y4KCsmePaCPWGwDCPJaWyD5Y/SWR/JtJlmjgruzgeYUyaPJpMYtcvPP9wcH6Oh3Zr7nr+FXj4Sb6FYw==",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
+      "sha512": "P8QhJxoOsQbzPt//Au3bMuDwUMH31fy0hWWHBPSHVSsBgscZ0jOxOIiDRhKPDzt/SgqpJ4Hm3SJYTiO4OGS8zQ==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.0.48",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.1.1",
       "files": [
         ".nupkg.metadata",
         "content/.project/PackageBindingsMetadata.json",
+        "content/.project/bookmarks.json",
         "content/.project/design.json",
         "content/.settings/Design/settings-5190454b.json",
         "content/.settings/Design/settings-a1b2dac1.json",
@@ -14908,6 +14920,8 @@
         "content/Spectrum/Spec_Export_Report.xaml.json",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml.json",
+        "content/Spectrum/Spec_JobCostHistoryReport.xaml",
+        "content/Spectrum/Spec_JobCostHistoryReport.xaml.json",
         "content/Spectrum/Spec_JobCostTypeSummaryReport.xaml",
         "content/Spectrum/Spec_JobCostTypeSummaryReport.xaml.json",
         "content/Spectrum/Spec_JobOverviewReport.xaml",
@@ -14936,20 +14950,21 @@
         "content/TestCases/TC_11_Spec_JobCostTypeSummary.xaml.json",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml.json",
-        "content/TestCases/TC_13_Spec_MyReports_Selection.xaml",
+        "content/TestCases/TC_13_Spec_JobCostHistoryReport.xaml.json",
+        "content/TestCases/TC_14_Spec_MyReports_Selection.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.1.0.48.nupkg.sha512",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.1.1.1.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.xml",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.0.48": {
-      "sha512": "Uh65nnx/x196dz4dszwbYLiPffE0PVM1b0wmlb+HkXjYW5aeb9Yqt3w+YQ9D0M6I7frfXaCOUVZcByU9ru5Fdg==",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
+      "sha512": "XBdwLTaKAD4vOA0ogh4EbHZ0+erf/KadEDOP/uK18Tal3EOICGK69VdusI7uK9iWGVkSWlBBH9gACI/K4v21XA==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.0.48",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.1.1",
       "files": [
         ".nupkg.metadata",
         "content/.settings/Release/settings-1a5b880a.json",
@@ -14959,7 +14974,6 @@
         "content/.settings/Release/settings-82ca306a.json",
         "content/.settings/Release/settings-9e9290da.json",
         "content/.settings/Release/settings-a1b2dac1.json",
-        "content/.storage/.runtime/AncestryPersistenceService/00244c78-ceaf-4ab9-be55-15f6c14fad24",
         "content/.storage/.runtime/AncestryPersistenceService/00f95da2-429a-454b-9453-1da135e05fbc",
         "content/.storage/.runtime/AncestryPersistenceService/02250c67-94f7-40b9-aa4b-8c05e7b23902",
         "content/.storage/.runtime/AncestryPersistenceService/05927142-a4c8-4cda-b51d-d9d258c8f6dc",
@@ -14970,25 +14984,29 @@
         "content/.storage/.runtime/AncestryPersistenceService/267fc886-06a8-4ded-a8c5-d20f372731f2",
         "content/.storage/.runtime/AncestryPersistenceService/2fe76f6f-c253-4690-9f6d-6476315b0e39",
         "content/.storage/.runtime/AncestryPersistenceService/31a3c1a9-47c3-43b2-a01f-9901ee6d3f18",
-        "content/.storage/.runtime/AncestryPersistenceService/32089e7f-6caf-44fe-9a26-39528597269a",
         "content/.storage/.runtime/AncestryPersistenceService/33231c94-0c54-4349-a8a9-65ad3b0f688b",
         "content/.storage/.runtime/AncestryPersistenceService/3625ca35-12e6-47d0-a75d-bf8af863af03",
         "content/.storage/.runtime/AncestryPersistenceService/381a0e1d-83de-47b5-b94e-cc6d2aac49e1",
         "content/.storage/.runtime/AncestryPersistenceService/3d024020-1c49-4c31-b6c2-12a53db34d07",
+        "content/.storage/.runtime/AncestryPersistenceService/40981784-0a33-46f1-b806-b21d21019bec",
+        "content/.storage/.runtime/AncestryPersistenceService/4186625f-5c5e-4c91-bcbf-eaf02926abce",
         "content/.storage/.runtime/AncestryPersistenceService/41b621b4-e3e5-416a-96d4-92282b81292e",
         "content/.storage/.runtime/AncestryPersistenceService/44c9b36e-4023-4c46-9ed1-1724124fbed7",
+        "content/.storage/.runtime/AncestryPersistenceService/4c8c468f-3656-4032-b8a5-ca811e78625e",
         "content/.storage/.runtime/AncestryPersistenceService/4ea3b081-4c37-4fba-b28d-d0b27c507398",
         "content/.storage/.runtime/AncestryPersistenceService/571ef0e5-db36-45d7-9a5e-6a298dc465ce",
         "content/.storage/.runtime/AncestryPersistenceService/5d85d889-84ea-49ad-8281-a8b731555246",
+        "content/.storage/.runtime/AncestryPersistenceService/5e95036c-06ac-447e-b5e3-29f582379de4",
+        "content/.storage/.runtime/AncestryPersistenceService/5eeb301e-efff-45eb-b3cf-0fb8fb29c930",
+        "content/.storage/.runtime/AncestryPersistenceService/60cca3b0-27e4-40b8-825c-96f9ba70547d",
         "content/.storage/.runtime/AncestryPersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
+        "content/.storage/.runtime/AncestryPersistenceService/67d9b96f-ad5f-4ef8-92a6-e9180640effa",
         "content/.storage/.runtime/AncestryPersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
         "content/.storage/.runtime/AncestryPersistenceService/6c30196c-b4d1-4d48-8c25-5054762a0a76",
-        "content/.storage/.runtime/AncestryPersistenceService/7bff4983-a5e2-45d9-bfed-44f9f8d13426",
         "content/.storage/.runtime/AncestryPersistenceService/7c2d7a82-8599-4c32-8bcc-b4012ea26fd9",
-        "content/.storage/.runtime/AncestryPersistenceService/7f5b5e29-2498-4347-882a-ac1fb94a8e40",
         "content/.storage/.runtime/AncestryPersistenceService/81bc1bd9-ac66-4472-b20f-819ce6625e33",
-        "content/.storage/.runtime/AncestryPersistenceService/89f83868-37e2-47c3-b52d-12ce1810ece0",
         "content/.storage/.runtime/AncestryPersistenceService/8c193c01-b918-401f-80d6-97436cce5be0",
+        "content/.storage/.runtime/AncestryPersistenceService/8e81db1b-61f0-4373-a89a-6f6dd9070a25",
         "content/.storage/.runtime/AncestryPersistenceService/9b16e8fc-4659-4662-8d71-4b83e9b9e9c4",
         "content/.storage/.runtime/AncestryPersistenceService/9beb2dd2-8cc7-491a-b33c-613394379e96",
         "content/.storage/.runtime/AncestryPersistenceService/9ca29368-2337-4825-80b0-869d6b08d7b1",
@@ -15002,21 +15020,23 @@
         "content/.storage/.runtime/AncestryPersistenceService/bf126371-54d9-4bfd-9ccb-75b931dcf245",
         "content/.storage/.runtime/AncestryPersistenceService/c3956a8b-c63d-43d1-afed-e1f54a2fcd3e",
         "content/.storage/.runtime/AncestryPersistenceService/cba1404d-2afb-48ba-b102-558b72e79439",
-        "content/.storage/.runtime/AncestryPersistenceService/cd2aba4a-b585-4448-9324-c5e973c728d0",
         "content/.storage/.runtime/AncestryPersistenceService/ce06b4fd-53c9-4167-ae50-6322195d1ac9",
-        "content/.storage/.runtime/AncestryPersistenceService/cf2a4bc8-1e53-4c7b-bec1-b280099d9114",
         "content/.storage/.runtime/AncestryPersistenceService/d0e579e1-5c4d-4977-9bc8-efc4da90661d",
+        "content/.storage/.runtime/AncestryPersistenceService/d1f93176-d960-42da-a588-4a92d8716d3c",
+        "content/.storage/.runtime/AncestryPersistenceService/d6260a8e-80b1-46e2-bd33-f49d877a55d7",
         "content/.storage/.runtime/AncestryPersistenceService/d7d79826-48d2-4c37-b296-16afafa6d42a",
         "content/.storage/.runtime/AncestryPersistenceService/da5a5663-2622-402c-b7b8-bbd2a5e263fa",
-        "content/.storage/.runtime/AncestryPersistenceService/e11f81a3-3e90-4b35-b769-07128e115530",
+        "content/.storage/.runtime/AncestryPersistenceService/e4efb029-2167-4138-a752-38fd36805c2f",
+        "content/.storage/.runtime/AncestryPersistenceService/e6ffa2b8-84b1-4f3c-94e8-64d9cb450f0a",
+        "content/.storage/.runtime/AncestryPersistenceService/ec59b366-c713-44da-9bee-9d54639fdfdf",
         "content/.storage/.runtime/AncestryPersistenceService/ee9dd0d5-625b-43f6-8029-dba5c258225d",
         "content/.storage/.runtime/AncestryPersistenceService/ef525661-9d96-4855-b489-14ab4538b033",
         "content/.storage/.runtime/AncestryPersistenceService/f333c832-29cf-4940-b629-e23c8d2eb8fb",
         "content/.storage/.runtime/AncestryPersistenceService/f3ac64d5-5989-4c3a-81a0-2472bc1a474e",
+        "content/.storage/.runtime/AncestryPersistenceService/f4858a21-b9f1-4af1-a205-b3c56b712333",
         "content/.storage/.runtime/AncestryPersistenceService/f6e9ca6f-1c78-43e6-93df-cc07d501b1e7",
+        "content/.storage/.runtime/AncestryPersistenceService/f97ef2c5-2fc4-4345-ad6d-23fc4922b337",
         "content/.storage/.runtime/AncestryPersistenceService/fc1df54a-be82-4be8-aac8-72c3f9eb71b2",
-        "content/.storage/.runtime/AncestryPersistenceService/fdeefcc9-b996-44a7-a3b9-33c722f2a8be",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/00244c78-ceaf-4ab9-be55-15f6c14fad24",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/00f95da2-429a-454b-9453-1da135e05fbc",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/02250c67-94f7-40b9-aa4b-8c05e7b23902",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/05927142-a4c8-4cda-b51d-d9d258c8f6dc",
@@ -15027,25 +15047,29 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/267fc886-06a8-4ded-a8c5-d20f372731f2",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/2fe76f6f-c253-4690-9f6d-6476315b0e39",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/31a3c1a9-47c3-43b2-a01f-9901ee6d3f18",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/32089e7f-6caf-44fe-9a26-39528597269a",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/33231c94-0c54-4349-a8a9-65ad3b0f688b",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/3625ca35-12e6-47d0-a75d-bf8af863af03",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/381a0e1d-83de-47b5-b94e-cc6d2aac49e1",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/3d024020-1c49-4c31-b6c2-12a53db34d07",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/40981784-0a33-46f1-b806-b21d21019bec",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/4186625f-5c5e-4c91-bcbf-eaf02926abce",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/41b621b4-e3e5-416a-96d4-92282b81292e",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/44c9b36e-4023-4c46-9ed1-1724124fbed7",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/4c8c468f-3656-4032-b8a5-ca811e78625e",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/4ea3b081-4c37-4fba-b28d-d0b27c507398",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/571ef0e5-db36-45d7-9a5e-6a298dc465ce",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/5d85d889-84ea-49ad-8281-a8b731555246",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/5e95036c-06ac-447e-b5e3-29f582379de4",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/5eeb301e-efff-45eb-b3cf-0fb8fb29c930",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/60cca3b0-27e4-40b8-825c-96f9ba70547d",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/67d9b96f-ad5f-4ef8-92a6-e9180640effa",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/6c30196c-b4d1-4d48-8c25-5054762a0a76",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7bff4983-a5e2-45d9-bfed-44f9f8d13426",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7c2d7a82-8599-4c32-8bcc-b4012ea26fd9",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/7f5b5e29-2498-4347-882a-ac1fb94a8e40",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/81bc1bd9-ac66-4472-b20f-819ce6625e33",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/89f83868-37e2-47c3-b52d-12ce1810ece0",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/8c193c01-b918-401f-80d6-97436cce5be0",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/8e81db1b-61f0-4373-a89a-6f6dd9070a25",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/9b16e8fc-4659-4662-8d71-4b83e9b9e9c4",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/9beb2dd2-8cc7-491a-b33c-613394379e96",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/9ca29368-2337-4825-80b0-869d6b08d7b1",
@@ -15059,20 +15083,23 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/bf126371-54d9-4bfd-9ccb-75b931dcf245",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/c3956a8b-c63d-43d1-afed-e1f54a2fcd3e",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cba1404d-2afb-48ba-b102-558b72e79439",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cd2aba4a-b585-4448-9324-c5e973c728d0",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ce06b4fd-53c9-4167-ae50-6322195d1ac9",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/cf2a4bc8-1e53-4c7b-bec1-b280099d9114",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d0e579e1-5c4d-4977-9bc8-efc4da90661d",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d1f93176-d960-42da-a588-4a92d8716d3c",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d6260a8e-80b1-46e2-bd33-f49d877a55d7",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/d7d79826-48d2-4c37-b296-16afafa6d42a",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/da5a5663-2622-402c-b7b8-bbd2a5e263fa",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/e11f81a3-3e90-4b35-b769-07128e115530",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/e4efb029-2167-4138-a752-38fd36805c2f",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/e6ffa2b8-84b1-4f3c-94e8-64d9cb450f0a",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ec59b366-c713-44da-9bee-9d54639fdfdf",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ee9dd0d5-625b-43f6-8029-dba5c258225d",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/ef525661-9d96-4855-b489-14ab4538b033",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f333c832-29cf-4940-b629-e23c8d2eb8fb",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f3ac64d5-5989-4c3a-81a0-2472bc1a474e",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f4858a21-b9f1-4af1-a205-b3c56b712333",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f6e9ca6f-1c78-43e6-93df-cc07d501b1e7",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/f97ef2c5-2fc4-4345-ad6d-23fc4922b337",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/fc1df54a-be82-4be8-aac8-72c3f9eb71b2",
-        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/fdeefcc9-b996-44a7-a3b9-33c722f2a8be",
         "content/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.pdb",
         "content/Spectrum/Draft/Draft.xaml",
         "content/Spectrum/Invoice_OutofBalance_Error.xaml",
@@ -15085,6 +15112,8 @@
         "content/Spectrum/Spec_Export_Report.xaml.json",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml.json",
+        "content/Spectrum/Spec_JobCostHistoryReport.xaml",
+        "content/Spectrum/Spec_JobCostHistoryReport.xaml.json",
         "content/Spectrum/Spec_JobCostTypeSummaryReport.xaml",
         "content/Spectrum/Spec_JobCostTypeSummaryReport.xaml.json",
         "content/Spectrum/Spec_JobOverviewReport.xaml",
@@ -15113,7 +15142,8 @@
         "content/TestCases/TC_11_Spec_JobCostTypeSummary.xaml.json",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml",
         "content/TestCases/TC_12_Spec_BillingHistoryReport.xaml.json",
-        "content/TestCases/TC_13_Spec_MyReports_Selection.xaml",
+        "content/TestCases/TC_13_Spec_JobCostHistoryReport.xaml.json",
+        "content/TestCases/TC_14_Spec_MyReports_Selection.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
         "contentFiles/any/any/.objects/.metadata",
@@ -15171,12 +15201,6 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.data/ObjectRepositoryScreenData/.images/.design/0-nt00WXMg0WDzu1rr-k4ng",
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/cVie/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.data/ObjectRepositoryScreenData/.images/.design/0Q92CUmqE5U-P06hYOoJksA",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lBfT/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/.data/ObjectRepositoryScreenData/.hash",
@@ -15219,12 +15243,6 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.data/ObjectRepositoryTargetData/.images/.design/0KAAbwdsvvUWj3rAgN-UxfA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/5Ioq/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.data/ObjectRepositoryTargetData/.images/.design/077hwPgjZuk-_wPeNeD6LnA",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/9Xsm/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Au2g/.data/ObjectRepositoryTargetData/.hash",
@@ -15255,12 +15273,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.data/ObjectRepositoryTargetData/.images/.design/07rdctfsqP0S2dc5Qlnb_UA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/JihP/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.data/ObjectRepositoryTargetData/.images/.design/0F_re1gTvm0euNbBOKYr1dw",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kt-8/.type",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.data/ObjectRepositoryTargetData/.content",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.data/ObjectRepositoryTargetData/.hash",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.data/ObjectRepositoryTargetData/.images/.design/0EbY8vfuVVkyRgcXIe4Q4sg",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.metadata",
+        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/KdFr/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Kvgr/.data/ObjectRepositoryTargetData/.hash",
@@ -15327,30 +15345,12 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.data/ObjectRepositoryTargetData/.images/.design/0H_RvzbaJ-UqBKrLY0sQBXQ",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/YcAw/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.data/ObjectRepositoryTargetData/.images/.design/0kv29fwAOqUeYneByRRGt1Q",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ZdCa/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.hash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.data/ObjectRepositoryTargetData/.images/.design/0cQ_QLLUO1EqBtwMjCAjivg",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/Zjd5/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.data/ObjectRepositoryTargetData/.images/.design/001VVy49ol0GEPVafwnQ7sA",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/_Tsz/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.data/ObjectRepositoryTargetData/.images/.design/0VBveayg3R0yIer70pzbfYw",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/a1Ay/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/aOAq/.data/ObjectRepositoryTargetData/.hash",
@@ -15375,12 +15375,6 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.data/ObjectRepositoryTargetData/.images/.design/04LP5Ghsx6Uu8DThvr9azwA",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/dYDG/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.data/ObjectRepositoryTargetData/.images/.design/0q7RZMt2HDUOf486Z2wZqpw",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/ggut/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/hZI2/.data/ObjectRepositoryTargetData/.hash",
@@ -15411,12 +15405,6 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.data/ObjectRepositoryTargetData/.images/.design/0ZgoMEvNxQkyqlGD9m2VwmQ",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/kcXH/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.data/ObjectRepositoryTargetData/.images/.design/0KaQCdyuybEud861QSJNnvg",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/krxg/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/mghY/.data/ObjectRepositoryTargetData/.hash",
@@ -15441,12 +15429,6 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.data/ObjectRepositoryTargetData/.images/.design/0NGp-jIbKBUWrktWgIiEy_w",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/pYov/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.data/ObjectRepositoryTargetData/.images/.design/0dk_ZqGhgp0uobWtflLo_Dw",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/tni3/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uE8Q/.data/ObjectRepositoryTargetData/.hash",
@@ -15459,46 +15441,41 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.data/ObjectRepositoryTargetData/.images/.design/0fva9jnTj_EW-C7KAnWcL0A",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/uXth/.type",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.attributes/SearchHash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.content",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.hash",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.data/ObjectRepositoryTargetData/.images/.design/0p5c0Y7S2ZUKqjYEWXjau4w",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.metadata",
-        "contentFiles/any/any/.objects/BSZC/tF1Q/lgIy/vWgL/.type",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.attributes/SearchHash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.content",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.hash",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.images/.design/0s3kjzn-MVUGArGknQbFTww",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.type",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.0.48.nupkg.sha512",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.1.1.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10912611.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_13745105.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_16731789.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2448314.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30946115.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31402657.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_33271298.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_37478775.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39553658.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43094089.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_4332782.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43886356.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44360481.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_44606316.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47452326.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_478101.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_54927774.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_57897959.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_58640883.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59946844.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_60849883.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_63869705.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64664339.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7220015.dll"
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll"
       ]
     },
     "InPwr.CoE.CustomComponent.Utility/1.0.18": {
@@ -16641,25 +16618,6 @@
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "microsoft.extensions.logging.abstractions.9.0.3.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Logging.TraceSource/6.0.0": {
-      "sha512": "5puFJsPsifpvUd7dwetcSIDk8szFwFA/DB3j9j3GY2dHzKKpwWJm+nEEvDSOTMKyHcoHWa+r9YmgA6Aw6BN1PQ==",
-      "type": "package",
-      "path": "microsoft.extensions.logging.tracesource/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.Logging.TraceSource.dll",
-        "lib/net461/Microsoft.Extensions.Logging.TraceSource.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.TraceSource.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.TraceSource.xml",
-        "microsoft.extensions.logging.tracesource.6.0.0.nupkg.sha512",
-        "microsoft.extensions.logging.tracesource.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -24678,23 +24636,25 @@
         "uipath.dataservice.activities.nuspec"
       ]
     },
-    "UiPath.DocumentProcessing.Contracts/2.0.0-preview": {
-      "sha512": "bo/I0svZPghnxm3sj/ySSzBacb/LeMJsQtfsUdIA9H54xtgE/n6sOsN7c8JS2ygcthupe1RqHHi5+rjV6kikCg==",
+    "UiPath.DocumentProcessing.Contracts/1.31.0": {
+      "sha512": "9rlOv5b7pcBzyW+HG1bd4IclXUKhPq+wyleIXBHnaAvrZvSejKZPysjnMmm68nePY6UFyH2LrTwC0FbDT20dKQ==",
       "type": "package",
-      "path": "uipath.documentprocessing.contracts/2.0.0-preview",
+      "path": "uipath.documentprocessing.contracts/1.31.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net461/UiPath.DocumentProcessing.Contracts.dll",
+        "lib/net461/UiPath.DocumentProcessing.Contracts.xml",
         "lib/net6.0/UiPath.DocumentProcessing.Contracts.dll",
         "lib/net6.0/UiPath.DocumentProcessing.Contracts.xml",
-        "uipath.documentprocessing.contracts.2.0.0-preview.nupkg.sha512",
+        "uipath.documentprocessing.contracts.1.31.0.nupkg.sha512",
         "uipath.documentprocessing.contracts.nuspec"
       ]
     },
-    "UiPath.DocumentUnderstanding.Activities/3.0.0-preview": {
-      "sha512": "yaNE9vH3tKSsGD2n3meB4eRSkrV4N3ykCeOKpqk7my1EfhWNJtyEgKwTqcRadvfRkbeTlwohOYaxILRfAYyAIg==",
+    "UiPath.DocumentUnderstanding.Activities/2.17.4": {
+      "sha512": "1DkyWeese4BVB8Ocos6HeGKTWRqCDq+O6VEYpEegv6eIWEGA+KEKbc+UxSTfDn0akEBprzeGdEeq9hViu9kS5g==",
       "type": "package",
-      "path": "uipath.documentunderstanding.activities/3.0.0-preview",
+      "path": "uipath.documentunderstanding.activities/2.17.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -24735,26 +24695,27 @@
         "lib/net6.0/zh-TW/UiPath.IntelligentOCR.resources.dll",
         "lib/net6.0/zu/UiPath.IntelligentOCR.StudioWeb.Activities.resources.dll",
         "lib/net6.0/zu/UiPath.IntelligentOCR.resources.dll",
-        "uipath.documentunderstanding.activities.3.0.0-preview.nupkg.sha512",
+        "uipath.documentunderstanding.activities.2.17.4.nupkg.sha512",
         "uipath.documentunderstanding.activities.nuspec"
       ]
     },
-    "UiPath.DocumentUnderstanding.Common.SDK/3.0.0-preview": {
-      "sha512": "T3qBPJ/hIF9rWhFQh+QjX3vsu1VzrS4Gtz/UzeNsc3Vfp6hQHigWtmDD0j+zRziz+cif1FAtqAdsGjaunF9zhw==",
+    "UiPath.DocumentUnderstanding.Common.SDK/2.4.1": {
+      "sha512": "oLPw6t8PScnHVssKRgAHgBUI5XJiUKzO1tCNG8xU1C5xTLN96ynP0nNgP590fMmtxZg8MNqDZaHpPwsOv8G5kQ==",
       "type": "package",
-      "path": "uipath.documentunderstanding.common.sdk/3.0.0-preview",
+      "path": "uipath.documentunderstanding.common.sdk/2.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net461/UiPath.DocumentUnderstanding.Common.SDK.dll",
         "lib/net6.0/UiPath.DocumentUnderstanding.Common.SDK.dll",
-        "uipath.documentunderstanding.common.sdk.3.0.0-preview.nupkg.sha512",
+        "uipath.documentunderstanding.common.sdk.2.4.1.nupkg.sha512",
         "uipath.documentunderstanding.common.sdk.nuspec"
       ]
     },
-    "UiPath.DocumentUnderstanding.Digitizer/5.0.0-preview": {
-      "sha512": "UTmBQmWeDD1wmsA8ljaZvIifearo6A55b4EIuT6kds4J0gzWa3GeqfK2Xs0AK+csSlM8z6/jkzbZt/PaPfxPTQ==",
+    "UiPath.DocumentUnderstanding.Digitizer/4.9.5": {
+      "sha512": "AeVhbYBEG9OwRfnZFonbKHt95Zqv1Gzk6580IhU0F/OaPR3T/4FQhKN7bDNNuxafhOFA47YvEt8LdgREo4OpuA==",
       "type": "package",
-      "path": "uipath.documentunderstanding.digitizer/5.0.0-preview",
+      "path": "uipath.documentunderstanding.digitizer/4.9.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -24762,30 +24723,42 @@
         "contentfiles/any/any/fonts/embedded/NotoSansJP-Regular.ttf",
         "contentfiles/any/any/fonts/embedded/NotoSansMono-Regular.ttf",
         "contentfiles/any/any/fonts/embedded/license.txt",
+        "lib/net461/UiPath.DocumentUnderstanding.Digitizer.dll",
         "lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.dll",
-        "uipath.documentunderstanding.digitizer.5.0.0-preview.nupkg.sha512",
+        "uipath.documentunderstanding.digitizer.4.9.5.nupkg.sha512",
         "uipath.documentunderstanding.digitizer.nuspec"
       ]
     },
-    "UiPath.DocumentUnderstanding.Digitizer.Contracts/2.0.0-preview": {
-      "sha512": "ymxU+EBZEgLj6tFsRobT9w4Pydc/orI/njh+NGmVLQUmiE/aQmPlvvLB/6Y50/7jsVeCBMCENCIPeV+YSrvAlA==",
+    "UiPath.DocumentUnderstanding.Digitizer.Contracts/1.1.0": {
+      "sha512": "wK2C47B8b2L5bcF0YYDCpO4ub9AOgDLzXvyEF40GV67XFTWQuWiX5PhPCeYwJf+aZ6JTN79yYwH7tdUy+01eKw==",
       "type": "package",
-      "path": "uipath.documentunderstanding.digitizer.contracts/2.0.0-preview",
+      "path": "uipath.documentunderstanding.digitizer.contracts/1.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net461/UiPath.DocumentUnderstanding.Digitizer.Contracts.dll",
         "lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.Contracts.dll",
-        "uipath.documentunderstanding.digitizer.contracts.2.0.0-preview.nupkg.sha512",
+        "uipath.documentunderstanding.digitizer.contracts.1.1.0.nupkg.sha512",
         "uipath.documentunderstanding.digitizer.contracts.nuspec"
       ]
     },
-    "UiPath.EmguCVBundle/2.0.0-preview": {
-      "sha512": "hGK8CmqNeW6dzexo0eED2Sr2MUjU53jpAug/xqZBFi1u1LcpaR5+AR0p+e9XRvMvKOxIRio3xbroGIxNkinGuQ==",
+    "UiPath.EmguCVBundle/1.4.0": {
+      "sha512": "JzhnQCzms+ysCEyNV8/tLW/r6xyVqggcasEtaxqFmEzzVw1gJPjg0tzfK4KkFw2wcbnRwxwfuHh6FopFCeme7w==",
       "type": "package",
-      "path": "uipath.emgucvbundle/2.0.0-preview",
+      "path": "uipath.emgucvbundle/1.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net461/Emgu.CV.dll",
+        "lib/net461/concrt140.dll",
+        "lib/net461/cvextern.dll",
+        "lib/net461/libusb-1.0.dll",
+        "lib/net461/msvcp140.dll",
+        "lib/net461/msvcp140_1.dll",
+        "lib/net461/msvcp140_2.dll",
+        "lib/net461/msvcp140_atomic_wait.dll",
+        "lib/net461/msvcp140_codecvt_ids.dll",
+        "lib/net461/vcruntime140.dll",
         "lib/net6.0/Emgu.CV.dll",
         "lib/net6.0/concrt140.dll",
         "lib/net6.0/cvextern.dll",
@@ -24800,7 +24773,7 @@
         "lib/net6.0/runtimes/rhel-x64/native/libcvextern.so",
         "lib/net6.0/vcruntime140.dll",
         "lib/net6.0/vcruntime140_1.dll",
-        "uipath.emgucvbundle.2.0.0-preview.nupkg.sha512",
+        "uipath.emgucvbundle.1.4.0.nupkg.sha512",
         "uipath.emgucvbundle.nuspec"
       ]
     },
@@ -25305,79 +25278,180 @@
         "uipath.microsoftoffice365.activities.nuspec"
       ]
     },
-    "UiPath.OCR.Activities/4.0.0-preview": {
-      "sha512": "h2JxQBI+A5wC4Si95gtqdA91ObBJQuvM01tFoPqjIhfo7veQSVelQdHLMVE/ut33FKMRzQp6BOOReN4gSlnTFg==",
+    "UiPath.OCR.Activities/3.24.2": {
+      "sha512": "CGY7F5B/BH6Nf0KDJ8s8EhB5/uQDblFmfgDe5sLYFA+m4Q64bUn2Fvi4E1KEWh2sb7pl5h7tirTsIXVr/5NaYg==",
       "type": "package",
-      "path": "uipath.ocr.activities/4.0.0-preview",
+      "path": "uipath.ocr.activities/3.24.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/net6.0-windows7.0/Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.CSharp.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.CSharp.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.VisualBasic.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.VisualBasic.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.DependencyInjection.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.TraceSource.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Options.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Primitives.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Core.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Interpreter.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Transport.Attributes.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerShell.CoreCLR.Eventing.dll",
-        "build/net6.0-windows7.0/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "build/net6.0-windows7.0/Microsoft.Rest.ClientRuntime.dll",
-        "build/net6.0-windows7.0/NLog.dll",
-        "build/net6.0-windows7.0/Newtonsoft.Json.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Context.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Coordination.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Interop.WaitHandles.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Oop.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Tasks.dll",
-        "build/net6.0-windows7.0/Nito.Cancellation.dll",
-        "build/net6.0-windows7.0/Nito.Collections.Deque.dll",
-        "build/net6.0-windows7.0/Nito.Disposables.dll",
-        "build/net6.0-windows7.0/Polly.dll",
-        "build/net6.0-windows7.0/ReflectionMagic.dll",
-        "build/net6.0-windows7.0/System.Activities.Core.Presentation.dll",
-        "build/net6.0-windows7.0/System.Activities.Metadata.dll",
-        "build/net6.0-windows7.0/System.Activities.Presentation.dll",
-        "build/net6.0-windows7.0/System.Activities.dll",
-        "build/net6.0-windows7.0/System.ComponentModel.Composition.dll",
-        "build/net6.0-windows7.0/System.IO.Abstractions.dll",
-        "build/net6.0-windows7.0/System.ServiceModel.Activities.dll",
-        "build/net6.0-windows7.0/System.Text.Json.dll",
-        "build/net6.0-windows7.0/UiPath.Activities.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.Activities.Contracts.dll",
-        "build/net6.0-windows7.0/UiPath.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.CoreIpc.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.Design.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.Design.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.Package.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.Package.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Activities.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Contracts.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Core.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Core.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Host.Common.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Host.Common.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Host64.deps.json",
-        "build/net6.0-windows7.0/UiPath.OCR.Host64.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Host64.dll.config",
-        "build/net6.0-windows7.0/UiPath.OCR.Host64.exe",
-        "build/net6.0-windows7.0/UiPath.OCR.Host64.runtimeconfig.json",
-        "build/net6.0-windows7.0/UiPath.Platform.dll",
-        "build/net6.0-windows7.0/UiPath.Robot.Activities.Api.dll",
-        "build/net6.0-windows7.0/UiPath.Studio.Activities.Api.dll",
-        "build/net6.0-windows7.0/UiPath.Studio.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.Workflow.dll",
-        "build/net6.0-windows7.0/nlog.config",
+        "build/net461/Emgu.CV.dll",
+        "build/net461/Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll",
+        "build/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "build/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "build/net461/Microsoft.Extensions.DependencyInjection.dll",
+        "build/net461/Microsoft.Extensions.Logging.Abstractions.dll",
+        "build/net461/Microsoft.Extensions.Logging.TraceSource.dll",
+        "build/net461/Microsoft.Extensions.Logging.dll",
+        "build/net461/Microsoft.Extensions.Options.dll",
+        "build/net461/Microsoft.Extensions.Primitives.dll",
+        "build/net461/Microsoft.Rest.ClientRuntime.Azure.dll",
+        "build/net461/Microsoft.Rest.ClientRuntime.dll",
+        "build/net461/Microsoft.Win32.Primitives.dll",
+        "build/net461/NLog.dll",
+        "build/net461/Newtonsoft.Json.dll",
+        "build/net461/Nito.AsyncEx.Context.dll",
+        "build/net461/Nito.AsyncEx.Coordination.dll",
+        "build/net461/Nito.AsyncEx.Interop.WaitHandles.dll",
+        "build/net461/Nito.AsyncEx.Oop.dll",
+        "build/net461/Nito.AsyncEx.Tasks.dll",
+        "build/net461/Nito.Cancellation.dll",
+        "build/net461/Nito.Collections.Deque.dll",
+        "build/net461/Nito.Disposables.dll",
+        "build/net461/Polly.dll",
+        "build/net461/System.AppContext.dll",
+        "build/net461/System.Buffers.dll",
+        "build/net461/System.Collections.Concurrent.dll",
+        "build/net461/System.Collections.Immutable.dll",
+        "build/net461/System.Collections.NonGeneric.dll",
+        "build/net461/System.Collections.Specialized.dll",
+        "build/net461/System.Collections.dll",
+        "build/net461/System.ComponentModel.EventBasedAsync.dll",
+        "build/net461/System.ComponentModel.Primitives.dll",
+        "build/net461/System.ComponentModel.TypeConverter.dll",
+        "build/net461/System.ComponentModel.dll",
+        "build/net461/System.Console.dll",
+        "build/net461/System.Data.Common.dll",
+        "build/net461/System.Diagnostics.Contracts.dll",
+        "build/net461/System.Diagnostics.Debug.dll",
+        "build/net461/System.Diagnostics.DiagnosticSource.dll",
+        "build/net461/System.Diagnostics.FileVersionInfo.dll",
+        "build/net461/System.Diagnostics.Process.dll",
+        "build/net461/System.Diagnostics.StackTrace.dll",
+        "build/net461/System.Diagnostics.TextWriterTraceListener.dll",
+        "build/net461/System.Diagnostics.Tools.dll",
+        "build/net461/System.Diagnostics.TraceSource.dll",
+        "build/net461/System.Diagnostics.Tracing.dll",
+        "build/net461/System.Drawing.Primitives.dll",
+        "build/net461/System.Dynamic.Runtime.dll",
+        "build/net461/System.Globalization.Calendars.dll",
+        "build/net461/System.Globalization.Extensions.dll",
+        "build/net461/System.Globalization.dll",
+        "build/net461/System.IO.Abstractions.dll",
+        "build/net461/System.IO.Compression.ZipFile.dll",
+        "build/net461/System.IO.Compression.dll",
+        "build/net461/System.IO.FileSystem.DriveInfo.dll",
+        "build/net461/System.IO.FileSystem.Primitives.dll",
+        "build/net461/System.IO.FileSystem.Watcher.dll",
+        "build/net461/System.IO.FileSystem.dll",
+        "build/net461/System.IO.IsolatedStorage.dll",
+        "build/net461/System.IO.MemoryMappedFiles.dll",
+        "build/net461/System.IO.Pipes.AccessControl.dll",
+        "build/net461/System.IO.Pipes.dll",
+        "build/net461/System.IO.UnmanagedMemoryStream.dll",
+        "build/net461/System.IO.dll",
+        "build/net461/System.Linq.Expressions.dll",
+        "build/net461/System.Linq.Parallel.dll",
+        "build/net461/System.Linq.Queryable.dll",
+        "build/net461/System.Linq.dll",
+        "build/net461/System.Memory.dll",
+        "build/net461/System.Net.Http.dll",
+        "build/net461/System.Net.NameResolution.dll",
+        "build/net461/System.Net.NetworkInformation.dll",
+        "build/net461/System.Net.Ping.dll",
+        "build/net461/System.Net.Primitives.dll",
+        "build/net461/System.Net.Requests.dll",
+        "build/net461/System.Net.Security.dll",
+        "build/net461/System.Net.Sockets.dll",
+        "build/net461/System.Net.WebHeaderCollection.dll",
+        "build/net461/System.Net.WebSockets.Client.dll",
+        "build/net461/System.Net.WebSockets.dll",
+        "build/net461/System.Numerics.Vectors.dll",
+        "build/net461/System.ObjectModel.dll",
+        "build/net461/System.Reflection.DispatchProxy.dll",
+        "build/net461/System.Reflection.Extensions.dll",
+        "build/net461/System.Reflection.Primitives.dll",
+        "build/net461/System.Reflection.dll",
+        "build/net461/System.Resources.Reader.dll",
+        "build/net461/System.Resources.ResourceManager.dll",
+        "build/net461/System.Resources.Writer.dll",
+        "build/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "build/net461/System.Runtime.CompilerServices.VisualC.dll",
+        "build/net461/System.Runtime.Extensions.dll",
+        "build/net461/System.Runtime.Handles.dll",
+        "build/net461/System.Runtime.InteropServices.RuntimeInformation.dll",
+        "build/net461/System.Runtime.InteropServices.dll",
+        "build/net461/System.Runtime.Numerics.dll",
+        "build/net461/System.Runtime.Serialization.Formatters.dll",
+        "build/net461/System.Runtime.Serialization.Json.dll",
+        "build/net461/System.Runtime.Serialization.Primitives.dll",
+        "build/net461/System.Runtime.Serialization.Xml.dll",
+        "build/net461/System.Runtime.dll",
+        "build/net461/System.Security.AccessControl.dll",
+        "build/net461/System.Security.Claims.dll",
+        "build/net461/System.Security.Cryptography.Algorithms.dll",
+        "build/net461/System.Security.Cryptography.Csp.dll",
+        "build/net461/System.Security.Cryptography.Encoding.dll",
+        "build/net461/System.Security.Cryptography.Primitives.dll",
+        "build/net461/System.Security.Cryptography.X509Certificates.dll",
+        "build/net461/System.Security.Principal.Windows.dll",
+        "build/net461/System.Security.Principal.dll",
+        "build/net461/System.Security.SecureString.dll",
+        "build/net461/System.Text.Encoding.Extensions.dll",
+        "build/net461/System.Text.Encoding.dll",
+        "build/net461/System.Text.Encodings.Web.dll",
+        "build/net461/System.Text.Json.dll",
+        "build/net461/System.Text.RegularExpressions.dll",
+        "build/net461/System.Threading.Overlapped.dll",
+        "build/net461/System.Threading.Tasks.Extensions.dll",
+        "build/net461/System.Threading.Tasks.Parallel.dll",
+        "build/net461/System.Threading.Tasks.dll",
+        "build/net461/System.Threading.Thread.dll",
+        "build/net461/System.Threading.ThreadPool.dll",
+        "build/net461/System.Threading.Timer.dll",
+        "build/net461/System.Threading.dll",
+        "build/net461/System.ValueTuple.dll",
+        "build/net461/System.Xml.ReaderWriter.dll",
+        "build/net461/System.Xml.XDocument.dll",
+        "build/net461/System.Xml.XPath.XDocument.dll",
+        "build/net461/System.Xml.XPath.dll",
+        "build/net461/System.Xml.XmlDocument.dll",
+        "build/net461/System.Xml.XmlSerializer.dll",
+        "build/net461/UiPath.Activities.Api.Base.dll",
+        "build/net461/UiPath.Activities.Contracts.dll",
+        "build/net461/UiPath.Api.Base.dll",
+        "build/net461/UiPath.CoreIpc.dll",
+        "build/net461/UiPath.OCR.Activities.Design.dll",
+        "build/net461/UiPath.OCR.Activities.Design.dll.config",
+        "build/net461/UiPath.OCR.Activities.Package.dll",
+        "build/net461/UiPath.OCR.Activities.Package.dll.config",
+        "build/net461/UiPath.OCR.Activities.dll",
+        "build/net461/UiPath.OCR.Activities.dll.config",
+        "build/net461/UiPath.OCR.Contracts.dll",
+        "build/net461/UiPath.OCR.Core.dll",
+        "build/net461/UiPath.OCR.Core.dll.config",
+        "build/net461/UiPath.OCR.Host.Common.dll",
+        "build/net461/UiPath.OCR.Host.Common.dll.config",
+        "build/net461/UiPath.OCR.Host.exe",
+        "build/net461/UiPath.OCR.Host.exe.config",
+        "build/net461/UiPath.OCR.Host64.exe",
+        "build/net461/UiPath.OCR.Host64.exe.config",
+        "build/net461/UiPath.Platform.dll",
+        "build/net461/UiPath.Robot.Activities.Api.dll",
+        "build/net461/UiPath.Studio.Activities.Api.dll",
+        "build/net461/UiPath.Studio.Api.Base.dll",
+        "build/net461/concrt140.dll",
+        "build/net461/cvextern.dll",
+        "build/net461/libusb-1.0.dll",
+        "build/net461/msvcp140.dll",
+        "build/net461/msvcp140_1.dll",
+        "build/net461/msvcp140_2.dll",
+        "build/net461/msvcp140_atomic_wait.dll",
+        "build/net461/msvcp140_codecvt_ids.dll",
+        "build/net461/netstandard.dll",
+        "build/net461/nlog.config",
+        "build/net461/vcruntime140.dll",
+        "build/net461/vcruntime140_1.dll",
         "build/net6.0/Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll",
         "build/net6.0/Microsoft.CodeAnalysis.CSharp.Scripting.dll",
         "build/net6.0/Microsoft.CodeAnalysis.CSharp.dll",
@@ -25450,6 +25524,35 @@
         "build/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
         "build/net6.0/vcruntime140.dll",
         "build/net6.0/vcruntime140_1.dll",
+        "lib/net461/UiPath.OCR.Activities.Design.dll",
+        "lib/net461/UiPath.OCR.Activities.dll",
+        "lib/net461/UiPath.OCR.Core.dll",
+        "lib/net461/de/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/de/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/es-MX/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/es-MX/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/es/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/es/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/fr/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/fr/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/ja/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/ja/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/ko/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/ko/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/pt-BR/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/pt-BR/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/pt/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/pt/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/ru/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/ru/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/tr/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/tr/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/zh-CN/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/zh-CN/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/zh-TW/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/zh-TW/UiPath.OCR.Activities.resources.dll",
+        "lib/net461/zu/UiPath.OCR.Activities.Design.resources.dll",
+        "lib/net461/zu/UiPath.OCR.Activities.resources.dll",
         "lib/net6.0-windows7.0/UiPath.OCR.Activities.Design.dll",
         "lib/net6.0-windows7.0/UiPath.OCR.Activities.dll",
         "lib/net6.0-windows7.0/UiPath.OCR.Core.dll",
@@ -25494,22 +25597,24 @@
         "lib/net6.0/zh-CN/UiPath.OCR.Activities.resources.dll",
         "lib/net6.0/zh-TW/UiPath.OCR.Activities.resources.dll",
         "lib/net6.0/zu/UiPath.OCR.Activities.resources.dll",
-        "uipath.ocr.activities.4.0.0-preview.nupkg.sha512",
+        "uipath.ocr.activities.3.24.2.nupkg.sha512",
         "uipath.ocr.activities.nuspec"
       ]
     },
-    "UiPath.OCR.Contracts/3.0.0-preview": {
-      "sha512": "1GLa4gsbJv1nmbzpF6FXaTSyCaKANlhRazSVfTUpyYBjYwzVHlN1ZlAafnnWB6CvWuzHpZfljYvYmD56Q2Kgfg==",
+    "UiPath.OCR.Contracts/2.19.0": {
+      "sha512": "iOcmG1qwI7Z9evXESUpFqfKEHBAzgu17AqcfyhhDmnXC4PmRwOqxPvOe3WHrD3OPgQ9bIBtVcuiI4rWNOFBzJA==",
       "type": "package",
-      "path": "uipath.ocr.contracts/3.0.0-preview",
+      "path": "uipath.ocr.contracts/2.19.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/net461/UiPath.OCR.Contracts.dll",
+        "lib/net461/UiPath.OCR.Contracts.xml",
         "lib/net6.0-windows7.0/UiPath.OCR.Contracts.dll",
         "lib/net6.0-windows7.0/UiPath.OCR.Contracts.xml",
         "lib/net6.0/UiPath.OCR.Contracts.dll",
         "lib/net6.0/UiPath.OCR.Contracts.xml",
-        "uipath.ocr.contracts.3.0.0-preview.nupkg.sha512",
+        "uipath.ocr.contracts.2.19.0.nupkg.sha512",
         "uipath.ocr.contracts.nuspec"
       ]
     },
@@ -26716,110 +26821,199 @@
         "uipath.uiautomation.activities.runtime.design.nuspec"
       ]
     },
-    "UiPath.Vision/4.0.0-preview": {
-      "sha512": "29QF6t3n+E8ZpvoDZziSiyRKyz/mDNIom2DvwqFutbWS65zdzc1EDx9SIhrVnf5YDkEAi5zGOIDA9dtYQBBi5Q==",
+    "UiPath.Vision/3.17.2": {
+      "sha512": "Ql5SE016Pox6WNFXMTcw/Yr3lklUeQRNJTY+WeCjqomgdHc8ez94ty4wRdKDXz8PUAbFc0CKEpNH1CD07MRi1Q==",
       "type": "package",
-      "path": "uipath.vision/4.0.0-preview",
+      "path": "uipath.vision/3.17.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/net6.0-windows7.0/Google.Api.CommonProtos.dll",
-        "build/net6.0-windows7.0/Google.Api.Gax.Grpc.dll",
-        "build/net6.0-windows7.0/Google.Api.Gax.dll",
-        "build/net6.0-windows7.0/Google.Apis.Auth.dll",
-        "build/net6.0-windows7.0/Google.Apis.Core.dll",
-        "build/net6.0-windows7.0/Google.Apis.dll",
-        "build/net6.0-windows7.0/Google.Cloud.Vision.V1.dll",
-        "build/net6.0-windows7.0/Google.LongRunning.dll",
-        "build/net6.0-windows7.0/Google.Protobuf.dll",
-        "build/net6.0-windows7.0/Grpc.Auth.dll",
-        "build/net6.0-windows7.0/Grpc.Core.Api.dll",
-        "build/net6.0-windows7.0/Grpc.Net.Client.dll",
-        "build/net6.0-windows7.0/Grpc.Net.Common.dll",
-        "build/net6.0-windows7.0/Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll",
-        "build/net6.0-windows7.0/Microsoft.Bcl.AsyncInterfaces.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.CSharp.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.CSharp.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.VisualBasic.Scripting.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.VisualBasic.dll",
-        "build/net6.0-windows7.0/Microsoft.CodeAnalysis.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.DependencyInjection.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.TraceSource.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Logging.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Options.dll",
-        "build/net6.0-windows7.0/Microsoft.Extensions.Primitives.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Core.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Interpreter.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerFx.Transport.Attributes.dll",
-        "build/net6.0-windows7.0/Microsoft.PowerShell.CoreCLR.Eventing.dll",
-        "build/net6.0-windows7.0/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "build/net6.0-windows7.0/Microsoft.Rest.ClientRuntime.dll",
-        "build/net6.0-windows7.0/NLog.dll",
-        "build/net6.0-windows7.0/Newtonsoft.Json.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Context.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Coordination.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Interop.WaitHandles.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Oop.dll",
-        "build/net6.0-windows7.0/Nito.AsyncEx.Tasks.dll",
-        "build/net6.0-windows7.0/Nito.Cancellation.dll",
-        "build/net6.0-windows7.0/Nito.Collections.Deque.dll",
-        "build/net6.0-windows7.0/Nito.Disposables.dll",
-        "build/net6.0-windows7.0/Polly.dll",
-        "build/net6.0-windows7.0/ReflectionMagic.dll",
-        "build/net6.0-windows7.0/System.Activities.Core.Presentation.dll",
-        "build/net6.0-windows7.0/System.Activities.Metadata.dll",
-        "build/net6.0-windows7.0/System.Activities.Presentation.dll",
-        "build/net6.0-windows7.0/System.Activities.dll",
-        "build/net6.0-windows7.0/System.ComponentModel.Composition.dll",
-        "build/net6.0-windows7.0/System.IO.Abstractions.dll",
-        "build/net6.0-windows7.0/System.Management.dll",
-        "build/net6.0-windows7.0/System.ServiceModel.Activities.dll",
-        "build/net6.0-windows7.0/System.Text.Json.dll",
-        "build/net6.0-windows7.0/Tesseract.dll",
-        "build/net6.0-windows7.0/UiPath.Activities.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.Activities.Contracts.dll",
-        "build/net6.0-windows7.0/UiPath.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.CoreIpc.dll",
-        "build/net6.0-windows7.0/UiPath.OCR.Contracts.dll",
-        "build/net6.0-windows7.0/UiPath.Platform.dll",
-        "build/net6.0-windows7.0/UiPath.Robot.Activities.Api.dll",
-        "build/net6.0-windows7.0/UiPath.Studio.Activities.Api.dll",
-        "build/net6.0-windows7.0/UiPath.Studio.Api.Base.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.AzureComputerVision.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.AzureComputerVision.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.Core.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.Core.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.GoogleCloud.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.GoogleCloud.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.Common.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.Common.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.deps.json",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.exe",
-        "build/net6.0-windows7.0/UiPath.Vision.Host.runtimeconfig.json",
-        "build/net6.0-windows7.0/UiPath.Vision.Package.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.Package.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.Tesseract.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.Tesseract.dll.config",
-        "build/net6.0-windows7.0/UiPath.Vision.dll",
-        "build/net6.0-windows7.0/UiPath.Vision.dll.config",
-        "build/net6.0-windows7.0/UiPath.Workflow.dll",
-        "build/net6.0-windows7.0/concrt140.dll",
-        "build/net6.0-windows7.0/msvcp140.dll",
-        "build/net6.0-windows7.0/msvcp140_1.dll",
-        "build/net6.0-windows7.0/msvcp140_2.dll",
-        "build/net6.0-windows7.0/msvcp140_atomic_wait.dll",
-        "build/net6.0-windows7.0/msvcp140_codecvt_ids.dll",
-        "build/net6.0-windows7.0/nlog.config",
-        "build/net6.0-windows7.0/tessdata/eng.traineddata",
-        "build/net6.0-windows7.0/vcruntime140.dll",
-        "build/net6.0-windows7.0/vcruntime140_1.dll",
-        "build/net6.0-windows7.0/x64/leptonica-1.80.0.dll",
-        "build/net6.0-windows7.0/x64/tesseract41.dll",
+        "build/net461/Google.Api.CommonProtos.dll",
+        "build/net461/Google.Api.Gax.Grpc.dll",
+        "build/net461/Google.Api.Gax.dll",
+        "build/net461/Google.Apis.Auth.dll",
+        "build/net461/Google.Apis.Core.dll",
+        "build/net461/Google.Apis.dll",
+        "build/net461/Google.Cloud.Vision.V1.dll",
+        "build/net461/Google.LongRunning.dll",
+        "build/net461/Google.Protobuf.dll",
+        "build/net461/Grpc.Auth.dll",
+        "build/net461/Grpc.Core.Api.dll",
+        "build/net461/Grpc.Net.Client.dll",
+        "build/net461/Grpc.Net.Common.dll",
+        "build/net461/Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll",
+        "build/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "build/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "build/net461/Microsoft.Extensions.DependencyInjection.dll",
+        "build/net461/Microsoft.Extensions.Logging.Abstractions.dll",
+        "build/net461/Microsoft.Extensions.Logging.TraceSource.dll",
+        "build/net461/Microsoft.Extensions.Logging.dll",
+        "build/net461/Microsoft.Extensions.Options.dll",
+        "build/net461/Microsoft.Extensions.Primitives.dll",
+        "build/net461/Microsoft.Rest.ClientRuntime.Azure.dll",
+        "build/net461/Microsoft.Rest.ClientRuntime.dll",
+        "build/net461/Microsoft.Win32.Primitives.dll",
+        "build/net461/NLog.dll",
+        "build/net461/Newtonsoft.Json.dll",
+        "build/net461/Nito.AsyncEx.Context.dll",
+        "build/net461/Nito.AsyncEx.Coordination.dll",
+        "build/net461/Nito.AsyncEx.Interop.WaitHandles.dll",
+        "build/net461/Nito.AsyncEx.Oop.dll",
+        "build/net461/Nito.AsyncEx.Tasks.dll",
+        "build/net461/Nito.Cancellation.dll",
+        "build/net461/Nito.Collections.Deque.dll",
+        "build/net461/Nito.Disposables.dll",
+        "build/net461/Polly.dll",
+        "build/net461/System.AppContext.dll",
+        "build/net461/System.Buffers.dll",
+        "build/net461/System.CodeDom.dll",
+        "build/net461/System.Collections.Concurrent.dll",
+        "build/net461/System.Collections.Immutable.dll",
+        "build/net461/System.Collections.NonGeneric.dll",
+        "build/net461/System.Collections.Specialized.dll",
+        "build/net461/System.Collections.dll",
+        "build/net461/System.ComponentModel.EventBasedAsync.dll",
+        "build/net461/System.ComponentModel.Primitives.dll",
+        "build/net461/System.ComponentModel.TypeConverter.dll",
+        "build/net461/System.ComponentModel.dll",
+        "build/net461/System.Console.dll",
+        "build/net461/System.Data.Common.dll",
+        "build/net461/System.Diagnostics.Contracts.dll",
+        "build/net461/System.Diagnostics.Debug.dll",
+        "build/net461/System.Diagnostics.DiagnosticSource.dll",
+        "build/net461/System.Diagnostics.FileVersionInfo.dll",
+        "build/net461/System.Diagnostics.Process.dll",
+        "build/net461/System.Diagnostics.StackTrace.dll",
+        "build/net461/System.Diagnostics.TextWriterTraceListener.dll",
+        "build/net461/System.Diagnostics.Tools.dll",
+        "build/net461/System.Diagnostics.TraceSource.dll",
+        "build/net461/System.Diagnostics.Tracing.dll",
+        "build/net461/System.Drawing.Primitives.dll",
+        "build/net461/System.Dynamic.Runtime.dll",
+        "build/net461/System.Globalization.Calendars.dll",
+        "build/net461/System.Globalization.Extensions.dll",
+        "build/net461/System.Globalization.dll",
+        "build/net461/System.IO.Abstractions.dll",
+        "build/net461/System.IO.Compression.ZipFile.dll",
+        "build/net461/System.IO.Compression.dll",
+        "build/net461/System.IO.FileSystem.DriveInfo.dll",
+        "build/net461/System.IO.FileSystem.Primitives.dll",
+        "build/net461/System.IO.FileSystem.Watcher.dll",
+        "build/net461/System.IO.FileSystem.dll",
+        "build/net461/System.IO.IsolatedStorage.dll",
+        "build/net461/System.IO.MemoryMappedFiles.dll",
+        "build/net461/System.IO.Pipes.AccessControl.dll",
+        "build/net461/System.IO.Pipes.dll",
+        "build/net461/System.IO.UnmanagedMemoryStream.dll",
+        "build/net461/System.IO.dll",
+        "build/net461/System.Linq.Expressions.dll",
+        "build/net461/System.Linq.Parallel.dll",
+        "build/net461/System.Linq.Queryable.dll",
+        "build/net461/System.Linq.dll",
+        "build/net461/System.Management.dll",
+        "build/net461/System.Memory.dll",
+        "build/net461/System.Net.Http.dll",
+        "build/net461/System.Net.NameResolution.dll",
+        "build/net461/System.Net.NetworkInformation.dll",
+        "build/net461/System.Net.Ping.dll",
+        "build/net461/System.Net.Primitives.dll",
+        "build/net461/System.Net.Requests.dll",
+        "build/net461/System.Net.Security.dll",
+        "build/net461/System.Net.Sockets.dll",
+        "build/net461/System.Net.WebHeaderCollection.dll",
+        "build/net461/System.Net.WebSockets.Client.dll",
+        "build/net461/System.Net.WebSockets.dll",
+        "build/net461/System.Numerics.Vectors.dll",
+        "build/net461/System.ObjectModel.dll",
+        "build/net461/System.Reflection.DispatchProxy.dll",
+        "build/net461/System.Reflection.Extensions.dll",
+        "build/net461/System.Reflection.Primitives.dll",
+        "build/net461/System.Reflection.dll",
+        "build/net461/System.Resources.Reader.dll",
+        "build/net461/System.Resources.ResourceManager.dll",
+        "build/net461/System.Resources.Writer.dll",
+        "build/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "build/net461/System.Runtime.CompilerServices.VisualC.dll",
+        "build/net461/System.Runtime.Extensions.dll",
+        "build/net461/System.Runtime.Handles.dll",
+        "build/net461/System.Runtime.InteropServices.RuntimeInformation.dll",
+        "build/net461/System.Runtime.InteropServices.dll",
+        "build/net461/System.Runtime.Numerics.dll",
+        "build/net461/System.Runtime.Serialization.Formatters.dll",
+        "build/net461/System.Runtime.Serialization.Json.dll",
+        "build/net461/System.Runtime.Serialization.Primitives.dll",
+        "build/net461/System.Runtime.Serialization.Xml.dll",
+        "build/net461/System.Runtime.dll",
+        "build/net461/System.Security.AccessControl.dll",
+        "build/net461/System.Security.Claims.dll",
+        "build/net461/System.Security.Cryptography.Algorithms.dll",
+        "build/net461/System.Security.Cryptography.Csp.dll",
+        "build/net461/System.Security.Cryptography.Encoding.dll",
+        "build/net461/System.Security.Cryptography.Primitives.dll",
+        "build/net461/System.Security.Cryptography.X509Certificates.dll",
+        "build/net461/System.Security.Principal.Windows.dll",
+        "build/net461/System.Security.Principal.dll",
+        "build/net461/System.Security.SecureString.dll",
+        "build/net461/System.Text.Encoding.Extensions.dll",
+        "build/net461/System.Text.Encoding.dll",
+        "build/net461/System.Text.Encodings.Web.dll",
+        "build/net461/System.Text.Json.dll",
+        "build/net461/System.Text.RegularExpressions.dll",
+        "build/net461/System.Threading.Overlapped.dll",
+        "build/net461/System.Threading.Tasks.Extensions.dll",
+        "build/net461/System.Threading.Tasks.Parallel.dll",
+        "build/net461/System.Threading.Tasks.dll",
+        "build/net461/System.Threading.Thread.dll",
+        "build/net461/System.Threading.ThreadPool.dll",
+        "build/net461/System.Threading.Timer.dll",
+        "build/net461/System.Threading.dll",
+        "build/net461/System.ValueTuple.dll",
+        "build/net461/System.Xml.ReaderWriter.dll",
+        "build/net461/System.Xml.XDocument.dll",
+        "build/net461/System.Xml.XPath.XDocument.dll",
+        "build/net461/System.Xml.XPath.dll",
+        "build/net461/System.Xml.XmlDocument.dll",
+        "build/net461/System.Xml.XmlSerializer.dll",
+        "build/net461/Tesseract.dll",
+        "build/net461/UiPath.Activities.Api.Base.dll",
+        "build/net461/UiPath.Activities.Contracts.dll",
+        "build/net461/UiPath.Api.Base.dll",
+        "build/net461/UiPath.CoreIpc.dll",
+        "build/net461/UiPath.OCR.Contracts.dll",
+        "build/net461/UiPath.Platform.dll",
+        "build/net461/UiPath.Robot.Activities.Api.dll",
+        "build/net461/UiPath.Studio.Activities.Api.dll",
+        "build/net461/UiPath.Studio.Api.Base.dll",
+        "build/net461/UiPath.Vision.AzureComputerVision.dll",
+        "build/net461/UiPath.Vision.AzureComputerVision.dll.config",
+        "build/net461/UiPath.Vision.Core.dll",
+        "build/net461/UiPath.Vision.Core.dll.config",
+        "build/net461/UiPath.Vision.GoogleCloud.dll",
+        "build/net461/UiPath.Vision.GoogleCloud.dll.config",
+        "build/net461/UiPath.Vision.Host.Common.dll",
+        "build/net461/UiPath.Vision.Host.Common.dll.config",
+        "build/net461/UiPath.Vision.Host.exe",
+        "build/net461/UiPath.Vision.Host.exe.config",
+        "build/net461/UiPath.Vision.Microsoft.dll",
+        "build/net461/UiPath.Vision.Microsoft.dll.config",
+        "build/net461/UiPath.Vision.Package.dll",
+        "build/net461/UiPath.Vision.Package.dll.config",
+        "build/net461/UiPath.Vision.Tesseract.dll",
+        "build/net461/UiPath.Vision.Tesseract.dll.config",
+        "build/net461/UiPath.Vision.dll",
+        "build/net461/UiPath.Vision.dll.config",
+        "build/net461/concrt140.dll",
+        "build/net461/msvcp140.dll",
+        "build/net461/msvcp140_1.dll",
+        "build/net461/msvcp140_2.dll",
+        "build/net461/msvcp140_atomic_wait.dll",
+        "build/net461/msvcp140_codecvt_ids.dll",
+        "build/net461/netstandard.dll",
+        "build/net461/nlog.config",
+        "build/net461/tessdata/eng.traineddata",
+        "build/net461/vcruntime140.dll",
+        "build/net461/x86/leptonica-1.80.0.dll",
+        "build/net461/x86/tesseract41.dll",
         "build/net6.0/Google.Api.CommonProtos.dll",
         "build/net6.0/Google.Api.Gax.Grpc.dll",
         "build/net6.0/Google.Api.Gax.dll",
@@ -26839,7 +27033,6 @@
         "build/net6.0/UiPath.Vision.GoogleCloud.dll.config",
         "build/net6.0/UiPath.Vision.Host.Common.dll",
         "build/net6.0/UiPath.Vision.Host.Common.dll.config",
-        "build/net6.0/UiPath.Vision.Host.deps.json",
         "build/net6.0/UiPath.Vision.Host.dll",
         "build/net6.0/UiPath.Vision.Host.dll.config",
         "build/net6.0/UiPath.Vision.Host.runtimeconfig.json",
@@ -26848,6 +27041,12 @@
         "build/net6.0/UiPath.Vision.dll",
         "build/net6.0/UiPath.Vision.dll.config",
         "build/net6.0/nlog.config",
+        "lib/net461/UiPath.Vision.AzureComputerVision.dll",
+        "lib/net461/UiPath.Vision.Core.dll",
+        "lib/net461/UiPath.Vision.GoogleCloud.dll",
+        "lib/net461/UiPath.Vision.Microsoft.dll",
+        "lib/net461/UiPath.Vision.Tesseract.dll",
+        "lib/net461/UiPath.Vision.dll",
         "lib/net6.0-windows7.0/UiPath.Vision.AzureComputerVision.dll",
         "lib/net6.0-windows7.0/UiPath.Vision.Core.dll",
         "lib/net6.0-windows7.0/UiPath.Vision.GoogleCloud.dll",
@@ -26860,32 +27059,18 @@
         "lib/net6.0/UiPath.Vision.Host.dll",
         "lib/net6.0/UiPath.Vision.Package.dll",
         "lib/net6.0/UiPath.Vision.dll",
-        "uipath.vision.4.0.0-preview.nupkg.sha512",
+        "uipath.vision.3.17.2.nupkg.sha512",
         "uipath.vision.nuspec"
       ]
     },
-    "UiPath.WebAPI.Activities/1.21.1": {
-      "sha512": "MDrjYyau8UCbVYUguIYaeZ8N0k8FKCmqKuJUYFffT5aIXi95I929EOYkXNk4PBFjH4HS05jTe6iPpL+ua9hTNw==",
+    "UiPath.WebAPI.Activities/2.4.0": {
+      "sha512": "80QOA/PeUWRFTgkye9DzmxgKm4GS2/qgLMN43ftNlucJRZdslVw4kINKaRQwLkdUKCOoAYcyMYC/HeSBa5QgdA==",
       "type": "package",
-      "path": "uipath.webapi.activities/1.21.1",
+      "path": "uipath.webapi.activities/2.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "content/Runtime.Mapping.json",
-        "lib/net461/UiPath.Web.Activities.Design.dll",
-        "lib/net461/UiPath.Web.Activities.RulesLibrary.dll",
-        "lib/net461/de/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/es-MX/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/es/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/fr/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/ja/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/ko/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/pt-BR/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/pt/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/ru/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/tr/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/zh-CN/UiPath.Web.Activities.Design.resources.dll",
-        "lib/net461/zu/UiPath.Web.Activities.Design.resources.dll",
         "lib/net6.0-windows7.0/UiPath.Web.Activities.Design.dll",
         "lib/net6.0-windows7.0/UiPath.Web.Activities.RulesLibrary.dll",
         "lib/net6.0-windows7.0/UiPath.Web.Activities.ViewModels.dll",
@@ -26903,32 +27088,19 @@
         "lib/net6.0-windows7.0/zu/UiPath.Web.Activities.Design.resources.dll",
         "lib/net6.0/UiPath.Web.Activities.RulesLibrary.dll",
         "lib/net6.0/UiPath.Web.Activities.ViewModels.dll",
-        "uipath.webapi.activities.1.21.1.nupkg.sha512",
+        "uipath.webapi.activities.2.4.0.nupkg.sha512",
         "uipath.webapi.activities.nuspec"
       ]
     },
-    "UiPath.WebAPI.Activities.Runtime/1.21.1": {
-      "sha512": "99Nc/IE/kxgYU8AKe9z+lldBTfKsUdHrYHgNiKwtZ0o+llw/ZNUhDjfEkz5X9CX5Zumot0A95yuj+o+uhQd2LQ==",
+    "UiPath.WebAPI.Activities.Runtime/2.4.0": {
+      "sha512": "rJb21bOtxXUKtdlccHWKlGNqyq9M+oS8+V9jBymfr19wroD99SrMjQ8QsbZvWoN206H7gC0m9k3nJLHdxwZigw==",
       "type": "package",
-      "path": "uipath.webapi.activities.runtime/1.21.1",
+      "path": "uipath.webapi.activities.runtime/2.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/UiPath.Web.Activities.dll",
-        "lib/net461/UiPath.Web.dll",
-        "lib/net461/de/UiPath.Web.Activities.resources.dll",
-        "lib/net461/es-MX/UiPath.Web.Activities.resources.dll",
-        "lib/net461/es/UiPath.Web.Activities.resources.dll",
-        "lib/net461/fr/UiPath.Web.Activities.resources.dll",
-        "lib/net461/ja/UiPath.Web.Activities.resources.dll",
-        "lib/net461/ko/UiPath.Web.Activities.resources.dll",
-        "lib/net461/pt-BR/UiPath.Web.Activities.resources.dll",
-        "lib/net461/pt/UiPath.Web.Activities.resources.dll",
-        "lib/net461/ru/UiPath.Web.Activities.resources.dll",
-        "lib/net461/tr/UiPath.Web.Activities.resources.dll",
-        "lib/net461/zh-CN/UiPath.Web.Activities.resources.dll",
-        "lib/net461/zu/UiPath.Web.Activities.resources.dll",
         "lib/net6.0-windows7.0/UiPath.Web.Activities.dll",
+        "lib/net6.0-windows7.0/UiPath.Web.Activities.xml",
         "lib/net6.0-windows7.0/UiPath.Web.dll",
         "lib/net6.0-windows7.0/de/UiPath.Web.Activities.resources.dll",
         "lib/net6.0-windows7.0/es-MX/UiPath.Web.Activities.resources.dll",
@@ -26943,6 +27115,7 @@
         "lib/net6.0-windows7.0/zh-CN/UiPath.Web.Activities.resources.dll",
         "lib/net6.0-windows7.0/zu/UiPath.Web.Activities.resources.dll",
         "lib/net6.0/UiPath.Web.Activities.dll",
+        "lib/net6.0/UiPath.Web.Activities.xml",
         "lib/net6.0/UiPath.Web.dll",
         "lib/net6.0/de/UiPath.Web.Activities.resources.dll",
         "lib/net6.0/es-MX/UiPath.Web.Activities.resources.dll",
@@ -26956,7 +27129,7 @@
         "lib/net6.0/tr/UiPath.Web.Activities.resources.dll",
         "lib/net6.0/zh-CN/UiPath.Web.Activities.resources.dll",
         "lib/net6.0/zu/UiPath.Web.Activities.resources.dll",
-        "uipath.webapi.activities.runtime.1.21.1.nupkg.sha512",
+        "uipath.webapi.activities.runtime.2.4.0.nupkg.sha512",
         "uipath.webapi.activities.runtime.nuspec"
       ]
     },
@@ -26977,11 +27150,12 @@
   "projectFileDependencyGroups": {
     "": [],
     "net8.0-windows7.0": [
+      "InPwr.CoE.CustomComponent.Mail >= 1.0.17 <= 1.0.17",
       "InPwr.CoE.CustomComponent.SharePoint >= 1.0.3 <= 1.0.3",
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.0.48 <= 1.0.48",
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.1.1 <= 1.1.1",
       "InPwr.CoE.CustomComponent.Utility >= 1.0.18 <= 1.0.18",
       "UiPath.DataService.Activities >= 25.9.3 <= 25.9.3",
-      "UiPath.DocumentUnderstanding.Activities >= 3.0.0-preview <= 3.0.0-preview",
+      "UiPath.DocumentUnderstanding.Activities >= 2.17.4 <= 2.17.4",
       "UiPath.PDF.Activities >= 3.25.2 <= 3.25.2",
       "UiPath.System.Activities >= 26.2.4 <= 26.2.4",
       "UiPath.UIAutomation.Activities >= 24.10.10 <= 24.10.10"
@@ -27001,6 +27175,11 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "dependencies": {
+          "InPwr.CoE.CustomComponent.Mail": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.17, 1.0.17]"
+          },
           "InPwr.CoE.CustomComponent.SharePoint": {
             "include": "Runtime",
             "target": "Package",
@@ -27009,7 +27188,7 @@
           "InPwr.CoE.CustomComponent.SpectrumWebUIApp": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.48, 1.0.48]"
+            "version": "[1.1.1, 1.1.1]"
           },
           "InPwr.CoE.CustomComponent.Utility": {
             "include": "Runtime",
@@ -27024,7 +27203,7 @@
           "UiPath.DocumentUnderstanding.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[3.0.0-preview, 3.0.0-preview]"
+            "version": "[2.17.4, 2.17.4]"
           },
           "UiPath.PDF.Activities": {
             "include": "Runtime",
