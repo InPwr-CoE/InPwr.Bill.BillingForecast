@@ -37,11 +37,16 @@
         "str_CTSRfilePath&StateMachine_1",
         "bool_RunRequest&StateMachine_1",
         "dic_MailMetaData&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "TransactionID&StateMachine_1",
         "str_MappingStatus&Sequence_17",
         "BillingForecastTemplate&Sequence_45",
         "today&Sequence_75",
         "monthEnd&Sequence_75",
-        "formatedDate&Sequence_75"
+        "formatedDate&Sequence_75",
+        "ShouldStop&Sequence_95"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
@@ -75,7 +80,8 @@
         "in_JobNumber",
         "in_BHRText",
         "io_listBRE",
-        "in_dtBFTemplate"
+        "in_dtBFTemplate",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -122,6 +128,11 @@
         "allProfit&Sequence_4",
         "str_TotalAmount&Sequence_4",
         "allTotalAmount&Sequence_4",
+        "ProfitMatch&Sequence_62",
+        "str_ProfitMatch&Sequence_62",
+        "str_grossProfit_1&Sequence_62",
+        "grossprofitMatch&Sequence_62",
+        "str_PercentageMatch&Sequence_62",
         "str_CellValue&Sequence_13"
       ],
       "ArgumentsSectionElementsOrder": [
@@ -195,11 +206,11 @@
       ],
       "ArgumentsSectionElementsOrder": [
         "in_CTSRText",
-        "in_dtBFTemplate",
-        "in_BFRfilepath",
-        "in_JobNumber",
         "io_listBRE",
-        "in_Config"
+        "in_dtBFTemplate",
+        "in_Config",
+        "in_BFRfilepath",
+        "in_JobNumber"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -259,13 +270,11 @@
         "list_ReportFiles&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [
-        "out_SP_ReportsPath",
-        "in_BHRFilePath",
-        "in_JORFilePath",
-        "in_CTSRFilePath",
-        "in_BFRFilePath",
-        "in_Config",
-        "out_SPUploadStatus"
+        "in_BFRfilepath",
+        "in_JORtext",
+        "in_JobNumber",
+        "io_listBRE",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -315,12 +324,12 @@
         "outputFile&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_Config",
         "in_dsClientSecVal",
         "in_dsClientID",
         "in_spectrumBrowser",
         "out_JORText",
-        "out_JORfilePath",
-        "in_Config"
+        "out_JORfilePath"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -333,6 +342,8 @@
         "outputFile&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_JORText",
+        "out_JORfilePath",
         "in_Config",
         "in_dsClientSecVal",
         "in_dsClientID",
@@ -347,12 +358,28 @@
       "Path": "Workflows/DataService/BFRTemplateMappingDS.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "sec_ClientSecretValue&Sequence_1",
+        "str_dsClientID&Sequence_1",
+        "out_ReadyToExport&Sequence_1",
+        "str_downloadedFilePath&Sequence_1",
+        "dt_BFTemplate&Sequence_1",
+        "str_SPReportPath&Sequence_1",
         "str_DSClientID&Sequence_3",
         "sec_DSClientSecret&Sequence_3"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_Config",
-        "out_dtBFTemplate"
+        "in_SpectrumBrowser",
+        "in_JORText",
+        "in_CTSRText",
+        "in_BHRText",
+        "in_dtEmailTable",
+        "in_dtExceptionTable",
+        "out_listBRE",
+        "in_JORfilePath",
+        "in_CTSRfilePath",
+        "in_BHRfilePath",
+        "in_MailMeetaData",
+        "in_Config"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -410,6 +437,93 @@
       "Path": "Workflows/Framework/CloseAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/BillingForecast/TC_01_JORToBillingForcast.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str_JORfilepath&Sequence_1",
+        "str_BFRfilepath&Sequence_1",
+        "str_JORtextFilePath&Sequence_1",
+        "str_JORText&Sequence_1",
+        "Config&Sequence_1",
+        "JobData&Sequence_1",
+        "dt_ExceptionEmail&Sequence_1",
+        "dt_EmailTable&Sequence_1",
+        "str_CTSRTextFilePath&Sequence_1",
+        "str_CTSRText&Sequence_1",
+        "str_BHRTextFilePath&Sequence_1",
+        "str_BHRText&Sequence_1",
+        "io_listBRE&Sequence_1",
+        "str_JobNumber&Sequence_1",
+        "dt_EntityReponse&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "io_dt_TransactionData",
+        "out_TransactionField2",
+        "out_TransactionField1",
+        "out_TransactionID",
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Spectrum/Spectrum_DownloadReports.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "sec_dsClientSecVal&Sequence_1",
+        "str_dsClientId&Sequence_1",
+        "str_SpectrumUserName&Sequence_1",
+        "sec_SpectrumPassword&Sequence_1",
+        "sec_O365ClientSecretId&Sequence_1",
+        "str_O365AClientId&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/BillingForecast/TC_05_Spectrum_DownloadReports.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_EmailTable&Sequence_1",
+        "dt_ExceptionEmail&Sequence_1",
+        "Config&Sequence_1",
+        "JobData&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/BillingForecast/TC_02_CTSRToBillingForecast.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str_CTSRPDF&Sequence_1",
+        "str_CTSRText&Sequence_1",
+        "in_BFRfilepath&Sequence_1",
+        "in_JobNumber&Sequence_1",
+        "dt_EntityResponse&Sequence_1",
+        "str_CTSRfileTextPath&Sequence_1",
+        "JobData&Sequence_1",
+        "Config&Sequence_1",
+        "dt_ExceptionEmail&Sequence_1",
+        "dt_EmailTable&Sequence_1"
+      ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

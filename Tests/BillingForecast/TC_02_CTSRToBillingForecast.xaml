@@ -154,7 +154,7 @@
       <AssemblyReference>InPwr.CoE.CustomComponent.Mail.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_02_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="1059,1175" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_02_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="1101,1175" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_CTSRPDF" />
       <Variable x:TypeArguments="x:String" Name="str_CTSRText" />
@@ -180,7 +180,7 @@
               <OutArgument x:TypeArguments="x:String">[in_BFRfilepath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\24114\06_05_26\24114_BillingForecastTemplate_060526.xlsx</InArgument>
+              <InArgument x:TypeArguments="x:String">C:\Users\Dev2Mercury\OneDrive - InPwr, Inc\Desktop\Billing Forecast Template.xlsx</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -188,7 +188,7 @@
               <OutArgument x:TypeArguments="x:String">[in_JobNumber]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">24114</InArgument>
+              <InArgument x:TypeArguments="x:String">BE24025</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -196,7 +196,7 @@
               <OutArgument x:TypeArguments="x:String">[str_CTSRPDF]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\24114\06_05_26\24114_Cost Type Summary Report_07_05_2026.pdf</InArgument>
+              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\TestData_12_06_26\BE24025\12_06_26\BE24025_Cost Type Summary Report_12_06_2026.pdf</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -204,7 +204,7 @@
               <OutArgument x:TypeArguments="x:String">[str_CTSRfileTextPath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\24114\06_05_26\24114_Cost Type Summary Report_07_05_2026.txt</InArgument>
+              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\TestData_12_06_26\BE24025\12_06_26\BE24025_Cost Type Summary Report_120626.txt</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -214,7 +214,7 @@
     <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="479,275" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_2" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx" />
     <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[str_CTSRPDF]" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_CTSRText]" />
     <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File" FileName="[str_CTSRfileTextPath]" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str_CTSRText]" />
-    <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_EntityResponse]" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.E43316A056FB7A1C44E88D24F4BAE2BBDF7C62E025752BA0FD12B6BA02D8768D" />
+    <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_EntityResponse]" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.9E30C45D9E0FD8A0E962D18264F9BCAAE0F6B3B07AD445D05303E70663473826" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFRfilepath]</InArgument>

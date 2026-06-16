@@ -201,7 +201,12 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="JORToBillingForecast" sap:VirtualizedContainerService.HintSize="1059,6299" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="JORToBillingForecast" sap:VirtualizedContainerService.HintSize="1276,6301" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="ls_VendorType" />
       <Variable x:TypeArguments="x:Boolean" Name="bol_JORTextFile" />
@@ -215,8 +220,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="654,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;JORToBillingForecast : Started&quot;]" />
-    <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="654,262" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Started&quot;" sap:VirtualizedContainerService.HintSize="803,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;JORToBillingForecast : Started&quot;]" />
+    <Sequence DisplayName="Input Vaidation Stage" sap:VirtualizedContainerService.HintSize="803,262" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -230,7 +235,7 @@
                 <OutArgument x:TypeArguments="scg:List(x:String)">[ls_VendorType]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="scg:List(x:String)">[New System.Collections.Generic.List(Of System.String) From {"E Equipment", "L Labor", "M Material","O Other Direct", "S Subcontract"}]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)">[New System.Collections.Generic.List(Of System.String) From {"E Equipment", "L Labor", "M Material","O Other Direct", "S Subcontract","T Travel","B Burden","W PW Fringe"}]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -245,7 +250,7 @@
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
     </Sequence>
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="654,5677" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="803,5679" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="str_contAmt" />
         <Variable x:TypeArguments="x:String" Name="str_reprtGProfit" />
@@ -264,7 +269,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Sequence - JOR Data Scrapping from Text File" sap:VirtualizedContainerService.HintSize="620,2334" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence DisplayName="Sequence - JOR Data Scrapping from Text File" sap:VirtualizedContainerService.HintSize="769,1790" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="str_subTotallLines" />
           <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="allCost" />
@@ -280,31 +285,982 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each  Vendor Type to get the Projected Value" sap:VirtualizedContainerService.HintSize="513,1014" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ls_VendorType]">
+        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each  Vendor Type to get the Projected Value" sap:VirtualizedContainerService.HintSize="564,684" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ls_VendorType]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="x:String">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,868" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530,538" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:Matches BuilderPattern="Subtotal for: L Labor\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
-                <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]" />
-                <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]" />
-                <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]" />
-                <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]" />
-                <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
-                  </Assign.Value>
-                </Assign>
+                <Switch x:TypeArguments="x:String" DisplayName="Switch - Choose right vendor type" Expression="[currentText]" sap:VirtualizedContainerService.HintSize="496,430" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <Sequence x:Key="E Equipment" DisplayName="Sequence - Equipment" sap:VirtualizedContainerService.HintSize="536,1600" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: E Equipment\s[-\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: E Equipment\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" DisplayName="If- SubTotal has value?" sap:VirtualizedContainerService.HintSize="502,1275" sap2010:WorkflowViewState.IdRef="If_8">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,776" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_11" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="L Labor" DisplayName="Sequence - Labor" sap:VirtualizedContainerService.HintSize="536,1600" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: L Labor\s[-\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_12" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" sap:VirtualizedContainerService.HintSize="502,1275" sap2010:WorkflowViewState.IdRef="If_9">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,776" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_42" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_13" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_43" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_44" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="M Material" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="536,1600" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: M Material\s[-\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_14" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: M Material\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" DisplayName="If - Check Sub total has value?" sap:VirtualizedContainerService.HintSize="502,1275" sap2010:WorkflowViewState.IdRef="If_10">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_41" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,776" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_15" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_46" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_12">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="O Other Direct" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="536,1565" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: O Other Direct\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_16" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: O Other Direct\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" sap:VirtualizedContainerService.HintSize="502,1240" sap2010:WorkflowViewState.IdRef="If_11">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_13">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,741" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_52" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="Matches_17" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_14">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="S Subcontract" DisplayName="Sequence - Sub Contract" sap:VirtualizedContainerService.HintSize="536,1565" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: L Labor\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_18" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" sap:VirtualizedContainerService.HintSize="502,1240" sap2010:WorkflowViewState.IdRef="If_12">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_15">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,741" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="Matches_19" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_16">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="T Travel" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="536,1565" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_58" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: L Labor\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_20" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" sap:VirtualizedContainerService.HintSize="502,1240" sap2010:WorkflowViewState.IdRef="If_13">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_59" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,741" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_60" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="Matches_21" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_61" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_62" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="B Burden" DisplayName="Sequence - Burden" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_63" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: B Burden\s[-\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_25" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: B Burden\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" DisplayName="If - Check SubTotal has Value?" sap:VirtualizedContainerService.HintSize="502,1275" sap2010:WorkflowViewState.IdRef="If_15">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_64" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_22">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,776" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_65" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_26" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_66" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_67" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_23">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence x:Key="W PW Fringe" DisplayName="Sequence - Fringe" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_68" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:Matches BuilderPattern="Subtotal for: B Burden\s[-\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_27" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: B Burden\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[-\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                    <If Condition="[str_subTotallLines Is Nothing]" DisplayName="If - Check SubTotal has Value?" sap:VirtualizedContainerService.HintSize="502,1275" sap2010:WorkflowViewState.IdRef="If_16">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_69" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_24">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">0</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,776" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_70" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Matches_28" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_71" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_72" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_25">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </Switch>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="496,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="570,1648" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence sap:VirtualizedContainerService.HintSize="536,1588" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;]&quot;]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <ui:Matches BuilderPattern="Subtotal for: L Labor\s[\d.,\s]*" DisplayName="Get Subtotal Line from the Text file" FirstMatch="[str_subTotallLines]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Subtotal for: L Labor\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[&quot;Subtotal for: &quot;+currentText.ToString+&quot;\s[\d.,\s]*&quot;]" RegexOption="IgnoreCase, Compiled" />
+                        <If Condition="[str_subTotallLines Is Nothing]" sap:VirtualizedContainerService.HintSize="502,1240" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;JORToBillingForecast : Type [&quot; + currentText +&quot;] is not in the PDF | Defaulted to 0&quot;]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:LogMessage>
+                              <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">0</InArgument>
+                                </Assign.Value>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,741" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;JORToBillingForecast : SubTotal of Lines :&quot; +str_subTotallLines.ToString]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:LogMessage>
+                              <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Projected cost from SubTotal" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[str_subTotallLines]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allCost]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:Matches>
+                              <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;JORToBillingForecast : Projected All Cost -  &quot; + String.Join(&quot; | &quot;, allCost.Select(Function(m) m.Value))]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:LogMessage>
+                              <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;JORToBillingForecast : Projected Cost [&quot; + currentText +&quot;] | [&quot;+allCost(6).Value.ToString +&quot;]&quot;]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:LogMessage>
+                              <Assign DisplayName="Assign - dic_ProjectedCost(currentText)" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[dic_JORProjectedCost(currentText)]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[allCost(6).Value.ToString]</InArgument>
+                                </Assign.Value>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
               </Sequence>
             </ActivityAction>
           </ui:ForEach.Body>
@@ -315,16 +1271,16 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:ForEach>
-        <Sequence DisplayName="Sequence -  Totals Cost, Gross Percentage and Profit" sap:VirtualizedContainerService.HintSize="513,1228" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <Sequence DisplayName="Sequence -  Totals Cost, Gross Percentage and Profit" sap:VirtualizedContainerService.HintSize="564,1014" sap2010:WorkflowViewState.IdRef="Sequence_35">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Matches BuilderPattern="Totals:\s[\d.,\s]*" DisplayName="Get totals" FirstMatch="[str_TotalAmount]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Totals:\\s[\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Totals:\s[\d.,\s]*" RegexOption="IgnoreCase, Compiled" />
-          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Total cost from Total" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[str_TotalAmount]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allTotalAmount]" />
-          <Assign DisplayName="Assign - str_jobTotal" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <ui:Matches BuilderPattern="Totals:\s[-\d.,\s]*" DisplayName="Get totals" FirstMatch="[str_TotalAmount]" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Totals:\\s[-\\d.,\\s]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Totals:\s[-\d.,\s]*" RegexOption="IgnoreCase, Compiled" />
+          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" DisplayName="Get Total cost from Total" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[str_TotalAmount]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;-?\\d{1,3}(?:,\\d{3})*\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="-?\d{1,3}(?:,\d{3})*\.\d{2}" RegexOption="IgnoreCase, Compiled" Result="[allTotalAmount]" />
+          <Assign DisplayName="Assign - str_jobTotal" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[str_jobTotal]</OutArgument>
             </Assign.To>
@@ -332,8 +1288,8 @@
               <InArgument x:TypeArguments="x:String">[allTotalAmount(6).Value.ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:Matches BuilderPattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" DisplayName="Get Contract Value" FirstMatch="[str_contAmt]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Revised\\s+Contract:\\s*(?&lt;Revised&gt;\\d{1,3}(?:,\\d{3})*\\.\\d{2})&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
-          <Assign DisplayName="Assign -str_contractAmount" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <ui:Matches BuilderPattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" DisplayName="Get Contract Value" FirstMatch="[str_contAmt]" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Revised\\s+Contract:\\s*(?&lt;Revised&gt;\\d{1,3}(?:,\\d{3})*\\.\\d{2})&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Revised\s+Contract:\s*(?&lt;Revised&gt;\d{1,3}(?:,\d{3})*\.\d{2})" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
+          <Assign DisplayName="Assign -str_contractAmount" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[str_contAmt]</OutArgument>
             </Assign.To>
@@ -341,30 +1297,144 @@
               <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(str_contAmt, "\d{1,3}(?:,\d{3})*(?:\.\d+)?").Value]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" DisplayName="Get Gross Profit &amp; Percentage" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gross Profit:\\r?\\nGross Profit %:\\r?\\n\\d{1,3}(?:,\\d{3})*\\.\\d+\\r?\\n\\d+(?:\\.\\d+)?%\\r?\\n(?&lt;SecondAmount&gt;\\d{1,3}(?:,\\d{3})*\\.\\d+)\\r?\\n(?&lt;SecondPercent&gt;\\d+(?:\\.\\d+)?%)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign - Gross Profit/Percentage - Second Part" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-            <ui:MultipleAssign.AssignOperations>
-              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondAmount").Value]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondPercent").Value]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-              </scg:List>
-            </ui:MultipleAssign.AssignOperations>
-          </ui:MultipleAssign>
-          <Assign DisplayName="Assign - Str_Complete Date" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Sequence DisplayName="Sequence - Get Profit/Percentage" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_62">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ProfitMatch" />
+              <Variable x:TypeArguments="x:String" Name="str_ProfitMatch" />
+              <Variable x:TypeArguments="x:String" Name="str_grossProfit_1" />
+              <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="grossprofitMatch" />
+              <Variable x:TypeArguments="x:String" Name="str_PercentageMatch" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Regex.IsMatch(in_JORtext, &quot;Gross Profit:\s*\d&quot;)]" DisplayName="If - Record in vertical or horizontal" sap:VirtualizedContainerService.HintSize="547,630" sap2010:WorkflowViewState.IdRef="If_14">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,230" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign - Horizontal" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[Regex.Match(in_JORtext, "Gross Profit:[^\d]+(?:\d{1,3}(?:,\d{3})*\.\d+)[^\d]+(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)").Groups("SecondAmount").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[Regex.Match(in_JORtext, "Gross Profit %:[^\d]+(?:[\d\.]+%)[^\d]+(?&lt;SecondPercent&gt;[\d\.]+%)").Groups("SecondPercent").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,230" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign - vertical" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[Regex.Match(in_JORtext, "Gross Profit:[^\d]+(?:\d{1,3}(?:,\d{3})*\.\d+)[^\d]+(?:\d{1,3}(?:,\d{3})*\.\d+)[^\d]+(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)").Groups("SecondAmount").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[Regex.Match(in_JORtext, "Gross Profit %:[\s\S]+?[\d,\.]+\r?\n[\d,\.]+%\r?\n[\d,\.]+\r?\n(?&lt;SecondPercent&gt;[\d\.]+%)").Groups("SecondPercent").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="547,48" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="513,734" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Matches BuilderPattern="Gross Profit:\s+([\d,\.]+)\s+([\d,\.]+)\s+([\d,\.]+)" DisplayName="Get Profit" FirstMatch="[str_ProfitMatch]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_22" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gross Profit:\\s+([\\d,\\.]+)\\s+([\\d,\\.]+)\\s+([\\d,\\.]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gross Profit:\s+([\d,\.]+)\s+([\d,\.]+)\s+([\d,\.]+)" RegexOption="IgnoreCase, Compiled" Result="[ProfitMatch]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Regex.Match(str_ProfitMatch, "Gross Profit:[^\d]+(?:\d{1,3}(?:,\d{3})*\.\d+)[^\d]+(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)").Groups("SecondAmount").Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches BuilderPattern="Gross Profit:\s+([\d,\.]+)\s+([\d,\.]+)\s+([\d,\.]+)" DisplayName="Get Percentage" FirstMatch="[str_PercentageMatch]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_24" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gross Profit:\\s+([\\d,\\.]+)\\s+([\\d,\\.]+)\\s+([\\d,\\.]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gross Profit:\s+([\d,\.]+)\s+([\d,\.]+)\s+([\d,\.]+)" RegexOption="IgnoreCase, Compiled" />
+                  <Assign sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_21">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Regex.Match(str_PercentageMatch, "Gross Profit %:\s+(?:\d+(?:\.\d+)?%)\s+(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)").Groups("SecondAmount").Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" DisplayName="Get Gross Profit &amp; Percentage" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gross Profit:\\r?\\nGross Profit %:\\r?\\n\\d{1,3}(?:,\\d{3})*\\.\\d+\\r?\\n\\d+(?:\\.\\d+)?%\\r?\\n(?&lt;SecondAmount&gt;\\d{1,3}(?:,\\d{3})*\\.\\d+)\\r?\\n(?&lt;SecondPercent&gt;\\d+(?:\\.\\d+)?%)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gross Profit:\r?\nGross Profit %:\r?\n\d{1,3}(?:,\d{3})*\.\d+\r?\n\d+(?:\.\d+)?%\r?\n(?&lt;SecondAmount&gt;\d{1,3}(?:,\d{3})*\.\d+)\r?\n(?&lt;SecondPercent&gt;\d+(?:\.\d+)?%)" RegexOption="IgnoreCase, Compiled" Result="[allProfit]" />
+                  <ui:MultipleAssign DisplayName="Multiple Assign - Gross Profit/Percentage - Second Part" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossProfit]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondAmount").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_grossPercentage]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[allProfit(0).Groups("SecondPercent").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+          </Sequence>
+          <Assign DisplayName="Assign - Str_Complete Date" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[str_completeDate]</OutArgument>
             </Assign.To>
@@ -372,49 +1442,49 @@
               <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(in_JORtext, "Complete\sDate:\s*(\d{1,2}/\d{1,2}/\d{2})").Groups(1).Value]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:Matches BuilderPattern="(?&lt;=Billed To Date:\s*)[\d,]+\.\d{2}" DisplayName="Get Billed To Date Amount" FirstMatch="[str_billedToDate]" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Billed To Date:\\s*)[\\d,]+\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Billed To Date:\s*)[\d,]+\.\d{2}" RegexOption="IgnoreCase, Compiled" />
-          <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : Total Amount [&quot;+str_jobTotal+&quot;] | Contract Amount [&quot;+str_contAmt+&quot;] | Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;] | Billed To Date: [&quot;+str_billedToDate +&quot;] | Complete Date : [&quot;+str_completeDate +&quot;].&quot;" sap:VirtualizedContainerService.HintSize="479,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;JORToBillingForecast : Total Amount [&quot;+str_jobTotal+&quot;] | Contract Amount [&quot;+str_contAmt+&quot;] | Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;] | Billed To Date: [&quot;+str_billedToDate +&quot;] | Complete Date : [&quot;+str_completeDate +&quot;].&quot;]" />
+          <ui:Matches BuilderPattern="(?&lt;=Billed To Date:\s*)[\d,]+\.\d{2}" DisplayName="Get Billed To Date Amount" FirstMatch="[str_billedToDate]" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[in_JORtext]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Billed To Date:\\s*)[\\d,]+\\.\\d{2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Billed To Date:\s*)[\d,]+\.\d{2}" RegexOption="IgnoreCase, Compiled" />
+          <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : Total Amount [&quot;+str_jobTotal+&quot;] | Contract Amount [&quot;+str_contAmt+&quot;] | Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;] | Billed To Date: [&quot;+str_billedToDate +&quot;] | Complete Date : [&quot;+str_completeDate +&quot;].&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;JORToBillingForecast : Total Amount [&quot;+str_jobTotal+&quot;] | Contract Amount [&quot;+str_contAmt+&quot;] | Gross Profit [&quot;+str_grossProfit + &quot;] | Gross Percentage [&quot;+str_grossPercentage+&quot;] | Billed To Date: [&quot;+str_billedToDate +&quot;] | Complete Date : [&quot;+str_completeDate +&quot;].&quot;]" />
         </Sequence>
       </Sequence>
-      <Sequence DisplayName="Sequence - Excel sheet filling/Validation" sap:VirtualizedContainerService.HintSize="620,3251" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <Sequence DisplayName="Sequence - Excel sheet filling/Validation" sap:VirtualizedContainerService.HintSize="769,3797" sap2010:WorkflowViewState.IdRef="Sequence_9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="586,1386" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+        <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="735,3412" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
           <ueab:ExcelProcessScopeX.Body>
             <ActivityAction x:TypeArguments="ui:IExcelProcess">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1267" sap2010:WorkflowViewState.IdRef="Sequence_29">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="701,3293" sap2010:WorkflowViewState.IdRef="Sequence_29">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="518,1207" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" TemplatePath="C:\Users\Dev2Mercury\Documents\Projects\BillingForecast\24114_BillingForecast.xlsx" WorkbookPath="[in_BFRfilepath]">
+                <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="667,3233" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" TemplatePath="C:\Users\Dev2Mercury\Documents\Projects\BillingForecast\24114_BillingForecast.xlsx" WorkbookPath="[in_BFRfilepath]">
                   <ueab:ExcelApplicationCard.Body>
                     <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,915" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="633,2941" sap2010:WorkflowViewState.IdRef="Sequence_12">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Projected Cost and Fill the Vendor Type Column values" sap:VirtualizedContainerService.HintSize="450,254" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dic_JORProjectedCost]">
+                        <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Projected Cost and Fill the Vendor Type Column values" sap:VirtualizedContainerService.HintSize="599,1744" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dic_JORProjectedCost]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="currentKeyValuePairOfTextAndText" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="565,1598" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:String" Name="str_CellValue" />
                                 </Sequence.Variables>
@@ -423,7 +1493,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:IfElseIfV2 Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Equipment&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                                <ui:IfElseIfV2 Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Equipment&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="531,1538" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
                                   <ui:IfElseIfV2.Else>
                                     <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="497,89" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -443,7 +1513,7 @@
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:LogMessage DisplayName="Log Message -&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ui:LogMessage DisplayName="Log Message -&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
                                             <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_Labor_Projection&quot;).ToString)]" DisplayName="Write Cell - JOR Labor" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[currentKeyValuePairOfTextAndText.Value]" />
                                           </Sequence>
                                         </ui:IfElseIfBlock.Then>
@@ -493,6 +1563,7 @@
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:LogMessage DisplayName="Log Message -&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
@@ -500,11 +1571,37 @@
                                           </Sequence>
                                         </ui:IfElseIfBlock.Then>
                                       </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Burden&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_6">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="497,415" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_73" Level="Info" Message="[&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_Burden_Projection&quot;).ToString)]" DisplayName="Write Cell - Burden" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_11" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentKeyValuePairOfTextAndText.Key.Contains(&quot;Fringe&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_7">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="497,415" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message -&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_75" Level="Info" Message="[&quot;JORToBillingForecast : &quot;+currentKeyValuePairOfTextAndText.Key +&quot;=&quot;+currentKeyValuePairOfTextAndText.Value]" />
+                                            <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_Fringe_Projection&quot;).ToString)]" DisplayName="Write Cell - Burden" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[currentKeyValuePairOfTextAndText.Value]" />
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
                                     </sc:BindingList>
                                   </ui:IfElseIfV2.ElseIfs>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
@@ -531,23 +1628,23 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEach>
-                        <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_ContractAmount&quot;).ToString)]" DisplayName="Write Cell - Fill in the Contract Amount" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[str_contAmt]">
+                        <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_ContractAmount&quot;).ToString)]" DisplayName="Write Cell - Fill in the Contract Amount" sap:VirtualizedContainerService.HintSize="599,191" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[str_contAmt]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ueab:WriteCellX>
-                        <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_CompletionDate&quot;).ToString)]" DisplayName="Write Cell - &quot;Substantial Completion : &quot;+str_completeDate" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[&quot;Substantial Completion : &quot;+str_completeDate]">
+                        <ueab:WriteCellX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_CompletionDate&quot;).ToString)]" DisplayName="Write Cell - &quot;Substantial Completion : &quot;+str_completeDate" sap:VirtualizedContainerService.HintSize="599,191" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[&quot;Substantial Completion : &quot;+str_completeDate]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ueab:WriteCellX>
-                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_Total_Projection&quot;).ToString)]" DisplayName="Read Cell Value - Get Current Projected Totals" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="450,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_4">
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_Total_Projection&quot;).ToString)]" DisplayName="Read Cell Value - Get Current Projected Totals" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="599,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_4">
                           <ueab:ReadCellValueX.SaveTo>
                             <OutArgument x:TypeArguments="x:String">[str_Totals]</OutArgument>
                           </ueab:ReadCellValueX.SaveTo>
@@ -558,29 +1655,29 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ueab:ReadCellValueX>
-                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_GrossProfit&quot;).ToString)]" DisplayName="Read Cell Value - Report Gross Profit for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_GrossProfit&quot;).ToString)]" DisplayName="Read Cell Value - Report Gross Profit for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="599,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
                           <ueab:ReadCellValueX.SaveTo>
                             <OutArgument x:TypeArguments="x:String">[str_reprtGProfit]</OutArgument>
                           </ueab:ReadCellValueX.SaveTo>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ueab:ReadCellValueX>
-                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_GrossPercenrtage&quot;).ToString)]" DisplayName="Read Cell Value - Report Gross Percentage for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="ReadCellValueX_3">
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_GrossPercenrtage&quot;).ToString)]" DisplayName="Read Cell Value - Report Gross Percentage for Verification" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="599,191" sap2010:WorkflowViewState.IdRef="ReadCellValueX_3">
                           <ueab:ReadCellValueX.SaveTo>
                             <OutArgument x:TypeArguments="x:String">[str_reprtGPercentage]</OutArgument>
                           </ueab:ReadCellValueX.SaveTo>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ueab:ReadCellValueX>
-                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_BillingForeCastAmount&quot;).ToString)]" DisplayName="Read Cell Value - Get Billing Forecast Amount" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="450,182" sap2010:WorkflowViewState.IdRef="ReadCellValueX_5">
+                        <ueab:ReadCellValueX Cell="[Excel.Sheet(in_jobNumber).Cell(in_Config(&quot;JOR_BillingForeCastAmount&quot;).ToString)]" DisplayName="Read Cell Value - Get Billing Forecast Amount" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="599,182" sap2010:WorkflowViewState.IdRef="ReadCellValueX_5">
                           <ueab:ReadCellValueX.SaveTo>
                             <OutArgument x:TypeArguments="x:String">[str_billingForecastAmount]</OutArgument>
                           </ueab:ReadCellValueX.SaveTo>
@@ -611,13 +1708,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ueab:ExcelProcessScopeX>
-        <Sequence DisplayName="Sequence - Data Validation" sap:VirtualizedContainerService.HintSize="586,1782" sap2010:WorkflowViewState.IdRef="Sequence_39">
+        <Sequence DisplayName="Sequence - Data Validation" sap:VirtualizedContainerService.HintSize="735,302" sap2010:WorkflowViewState.IdRef="Sequence_39">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[str_jobTotal.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim = str_Totals.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Current Project Amount with Total" sap:VirtualizedContainerService.HintSize="547,57" sap2010:WorkflowViewState.IdRef="If_4">
+          <If Condition="[str_jobTotal.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim = str_Totals.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Current Projection Amount with Total" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="If_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -631,7 +1728,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Current Projection Totals  [&quot;+str_jobTotal.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] = Report Current Projection Totals [&quot;+dec_Totals.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;JORToBillingForecast : JOR Current Projection Totals  [&quot;+str_jobTotal + &quot;] = Report Current Projection Totals [&quot;+str_Totals+&quot;]&quot;]" />
+                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Current Projection Totals  [&quot;+str_jobTotal.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] = Report Current Projection Totals [&quot;+dec_Totals.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;JORToBillingForecast : JOR Current Projection Totals [$&quot;+str_jobTotal + &quot;] = Report Current Projection Totals [&quot;+str_Totals+&quot;]&quot;]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -658,7 +1755,7 @@
                           <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt;Extracted Current Projection Totals  ["+str_jobTotal + "] is not matching with Billing Forecast Report Current Projection Totals ["+str_Totals+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
+                          <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt;Extracted Current Projection Totals  [$"+str_jobTotal + "] is not matching with Billing Forecast Report Current Projection Totals ["+str_Totals+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -673,7 +1770,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <If Condition="[str_grossProfit.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim = str_reprtGProfit.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Gross Profit Amount" sap:VirtualizedContainerService.HintSize="547,57" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[str_grossProfit.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim = str_reprtGProfit.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Gross Profit Amount" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -687,7 +1784,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] = Report Gross Profit [&quot;+dec_reprtGProfit.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit + &quot;] = Report Gross Profit [&quot;+str_reprtGProfit+&quot;]&quot;]" />
+                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] = Report Gross Profit [&quot;+dec_reprtGProfit.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;JORToBillingForecast : JOR Gross Profit [$&quot;+str_grossProfit + &quot;] = Report Gross Profit [&quot;+str_reprtGProfit+&quot;]&quot;]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -697,7 +1794,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] != Report Gross Profit [&quot;+dec_reprtGProfit.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit+ &quot;] != Report Gross Profit [&quot;+str_reprtGProfit+&quot;]&quot;]" />
+                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Gross Profit [&quot;+str_grossProfit.Trim.Replace(&quot;,&quot;,&quot;&quot;) + &quot;] != Report Gross Profit [&quot;+dec_reprtGProfit.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;JORToBillingForecast : JOR Gross Profit [$&quot;+str_grossProfit+ &quot;] != Report Gross Profit [&quot;+str_reprtGProfit+&quot;]&quot;]" />
                 <ui:MultipleAssign DisplayName="Multiple Assign - Add to BRE" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -714,7 +1811,7 @@
                           <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt; Exrtracted Gross Profit ["+str_grossProfit + "] is not matching with Billing Forecast Report Gross Profit ["+str_reprtGProfit+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt; Exrtracted Gross Profit [$"+str_grossProfit + "] is not matching with Billing Forecast Report Gross Profit ["+str_reprtGProfit+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -723,10 +1820,10 @@
               </Sequence>
             </If.Else>
           </If>
-          <If Condition="[Math.Round(CDbl(str_grossPercentage.Replace(&quot;%&quot;,&quot;&quot;)), 1) = Math.Round(CDbl(str_reprtGPercentage.Replace(&quot;%&quot;,&quot;&quot;)), 1)]" DisplayName="If - Gross Percentage" sap:VirtualizedContainerService.HintSize="547,797" sap2010:WorkflowViewState.IdRef="If_5">
+          <If Condition="[Math.Round(CDbl(str_grossPercentage.Replace(&quot;%&quot;,&quot;&quot;)), 1) = Math.Round(CDbl(str_reprtGPercentage.Replace(&quot;%&quot;,&quot;&quot;)), 1)]" DisplayName="If - Gross Percentage" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -769,14 +1866,19 @@
                       </ui:AssignOperation>
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
               </Sequence>
             </If.Else>
           </If>
-          <If Condition="[str_billedToDate.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim=str_billingForecastAmount.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Billed To Date with BHR Total" sap:VirtualizedContainerService.HintSize="547,788" sap2010:WorkflowViewState.IdRef="If_6">
+          <If Condition="[str_billedToDate.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim=str_billingForecastAmount.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Trim]" DisplayName="If - Billed To Date with BFR Total" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="If_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -787,7 +1889,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] = Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] = Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;]" />
+                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] = Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;JORToBillingForecast : JOR Billed To Date Amount [$&quot;+str_billedToDate + &quot;] = Report Billing Forecast Amount [$&quot;+str_billingForecastAmount+&quot;]&quot;]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -797,7 +1899,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] != Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] != Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;]" />
+                <ui:LogMessage DisplayName="Log Message -  &quot;JORToBillingForecast : JOR Billed To Date Amount [&quot;+str_billedToDate + &quot;] != Report Billing Forecast Amount [&quot;+str_billingForecastAmount+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;JORToBillingForecast : JOR Billed To Date Amount [$&quot;+str_billedToDate + &quot;] != Report Billing Forecast Amount [$&quot;+str_billingForecastAmount+&quot;]&quot;]" />
                 <ui:MultipleAssign DisplayName="Multiple Assign - Add to BRE" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -814,11 +1916,16 @@
                           <OutArgument x:TypeArguments="scg:List(x:String)">[io_listBRE]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt; Extracted Billed To Date Amount ["+str_billedToDate + "] is not matching with Billing Forecast Report Contract Amount ["+str_billingForecastAmount+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[io_listBRE.Concat({"&lt;tr&gt;&lt;td&gt;Job Overview Report &lt;/td&gt;&lt;td&gt; Extracted Billed To Date Amount [$"+str_billedToDate + "] is not matching with Billing Forecast Report Amount [$"+str_billingForecastAmount+"]&lt;/td&gt;&lt;/tr&gt;"}).ToList()]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
               </Sequence>
             </If.Else>
@@ -826,6 +1933,6 @@
         </Sequence>
       </Sequence>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Ended&quot;" sap:VirtualizedContainerService.HintSize="654,164" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;JORToBillingForecast : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;JORToBillingForecast : Ended&quot;" sap:VirtualizedContainerService.HintSize="803,164" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;JORToBillingForecast : Ended&quot;]" />
   </Sequence>
 </Activity>
