@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TC_01_Spec_JobOverviewReportToBillingForcast" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="901,812" sap2010:WorkflowViewState.IdRef="TC_01_Spec_JobOverviewReportToBillingForcast_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:id="clr-namespace:InPwr_CoE_CustomComponent_DataServices.Data_Services;assembly=InPwr.CoE.CustomComponent.DataServices" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_01_Spec_JobOverviewReportToBillingForcast" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="901,812" sap2010:WorkflowViewState.IdRef="TC_01_Spec_JobOverviewReportToBillingForcast_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -59,6 +59,7 @@
       <x:String>UiPath.DataService.Definition</x:String>
       <x:String>UiPath.Web</x:String>
       <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -154,7 +155,7 @@
       <AssemblyReference>UiPath.Web</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_01_JORToBillingForcast" sap:VirtualizedContainerService.HintSize="1276,1643" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_01_JORToBillingForcast" sap:VirtualizedContainerService.HintSize="1128,1929" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_JORfilepath" />
       <Variable x:TypeArguments="x:String" Name="str_BFRfilepath" />
@@ -171,13 +172,14 @@
       <Variable x:TypeArguments="scg:List(x:String)" Name="io_listBRE" />
       <Variable x:TypeArguments="x:String" Name="str_JobNumber" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_EntityReponse" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_BFRData" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -185,31 +187,7 @@
               <OutArgument x:TypeArguments="x:String">[str_BFRfilepath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\Users\Dev2Mercury\OneDrive - InPwr, Inc\Desktop\Billing Forecast Template.xlsx</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[str_JORtextFilePath]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\TestData_12_06_26\25114\12_06_26\25114_Job Overview Report_120626.txt</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[str_BHRTextFilePath]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\TestData_12_06_26\25114\12_06_26\25114_Billing History Report_12442026.txt</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[str_CTSRTextFilePath]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\TestData_12_06_26\25114\12_06_26\25114_Cost Type Summary Report_120626.txt</InArgument>
+              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007 - Billing Forecast_06_07_2026.xlsx</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -217,7 +195,7 @@
               <OutArgument x:TypeArguments="x:String">[str_JobNumber]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">25114</InArgument>
+              <InArgument x:TypeArguments="x:String">25007</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -232,37 +210,56 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </iu:Initialise_Configuration>
-    <ui:ReadTextFile File="{x:Null}" Content="[str_JORText]" DisplayName="Read Text File" FileName="[str_JORtextFilePath]" sap:VirtualizedContainerService.HintSize="479,124" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:ReadTextFile File="{x:Null}" Content="[str_CTSRText]" DisplayName="Read Text File" FileName="[str_CTSRTextFilePath]" sap:VirtualizedContainerService.HintSize="479,124" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-    <ui:ReadTextFile File="{x:Null}" Content="[str_BHRText]" DisplayName="Read Text File" FileName="[str_BHRTextFilePath]" sap:VirtualizedContainerService.HintSize="479,124" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-    <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_EntityReponse]" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.9E30C45D9E0FD8A0E962D18264F9BCAAE0F6B3B07AD445D05303E70663473826" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Job Overview Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORText]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Cost Type Summary Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[str_CTSRText]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Billing History Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[str_BHRText]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_Template - Invoke Workflow File (BillingForecast\BillingForecast_Template.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_Template.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[str_BFRfilepath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[str_CTSRText]</InArgument>
-        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_EntityReponse]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRFilePath">[str_BFRfilepath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_BFRData">[dt_BFRData]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BHRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\BHRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BHRToBillingForecast.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\CTSRToBillingForecast.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[str_CTSRText]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRReportPath">[str_BFRfilepath]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_BFRData">[dt_BFRData]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BHRToBillingForecast - Invoke Workflow File (BillingForecast\BHRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BHRToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[str_BFRfilepath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_BHRText">[str_BHRText]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_EntityReponse]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_BFRData">[dt_BFRData]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JobOveriewReportToBillingForecast - Invoke Workflow File (Workflows\Spectrum\Spec_JobOveriewReportToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="JORToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\JORToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\JORToBillingForecast.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[str_BFRfilepath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JORtext">[str_JORText]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
-        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_FormulaCalculator - Invoke Workflow File (BillingForecast\BillingForecast_FormulaCalculator.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_FormulaCalculator.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRReportPath">[str_BFRfilepath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[str_JobNumber]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_BRE_Validation - Invoke Workflow File (Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRFilePath">[str_BFRfilepath]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_jobNumber">[str_JobNumber]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JORtext">[str_JORText]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

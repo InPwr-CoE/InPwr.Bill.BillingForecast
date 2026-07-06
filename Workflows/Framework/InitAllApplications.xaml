@@ -2,12 +2,6 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_spectrumBrowser" Type="OutArgument(ui:UiElement)" />
-    <x:Property Name="out_JORText" Type="OutArgument(x:String)" />
-    <x:Property Name="out_CTSRText" Type="OutArgument(x:String)" />
-    <x:Property Name="out_BHRText" Type="OutArgument(x:String)" />
-    <x:Property Name="out_CTSRfilePath" Type="OutArgument(x:String)" />
-    <x:Property Name="out_JORfilePath" Type="OutArgument(x:String)" />
-    <x:Property Name="out_BHRfilePath" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -195,7 +189,7 @@
       <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1566,1126" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1128,645" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_O365AClientId" />
       <Variable x:TypeArguments="ss:SecureString" Name="sec_O365ClientSecretId" />
@@ -218,8 +212,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="486,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
-    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="486,57" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
+    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -449,13 +443,14 @@
         </TryCatch.Catches>
       </TryCatch>
     </Sequence>
-    <Sequence DisplayName="Spectrum Login/Logout and Download Reports" sap:VirtualizedContainerService.HintSize="486,678" sap2010:WorkflowViewState.IdRef="Sequence_31">
+    <Sequence DisplayName="Spectrum Login/Logout and Download Reports" sap:VirtualizedContainerService.HintSize="450,197" sap2010:WorkflowViewState.IdRef="Sequence_31">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <is:Spec_Login ChangeToEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" DisplayName="Spectum Login" EmailCount="1" EmailFolder="[in_Config(&quot;Spectrum_MailFolder_MFA&quot;).ToString]" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="Spec_Login_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString()]" O365ApplicationSecret="[sec_O365ClientSecretId]" O365MailAccount="[str_SpectrumUserName]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" RetryInterval="[CInt(in_Config(&quot;O365_RetryInterval&quot;))]" SpectrumLoginMail="[in_Config(&quot;Spectrum_ApplicationUserName&quot;).ToString]" SpectrumLoginPwd="[sec_SpectrumPassword]" SpectrumURL="[in_Config(&quot;SpectrumLogin_URL&quot;).ToString]" out_spectrumBrowser="[out_spectrumBrowser]">
+      <is:Spec_Login ChangeToEnv="[in_Config(&quot;Spectrum_Environment_Code&quot;).ToString]" DisplayName="Spectum Login" EmailCount="1" EmailFolder="[in_Config(&quot;Spectrum_MailFolder_MFA&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="Spec_Login_2" O365ApplicationId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString()]" O365ApplicationSecret="[sec_O365ClientSecretId]" O365MailAccount="[str_SpectrumUserName]" O365Tenant="[in_Config(&quot;O365_TenantId&quot;).ToString]" RetryInterval="[CInt(in_Config(&quot;O365_RetryInterval&quot;))]" SpectrumLoginMail="[in_Config(&quot;Spectrum_ApplicationUserName&quot;).ToString]" SpectrumLoginPwd="[sec_SpectrumPassword]" SpectrumURL="[in_Config(&quot;SpectrumLogin_URL&quot;).ToString]" out_spectrumBrowser="[out_spectrumBrowser]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -463,188 +458,194 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </is:Spec_Login>
-      <Sequence DisplayName="Sequence- Download JOR, CTSR, BHR from Spectrum" sap:VirtualizedContainerService.HintSize="452,254" sap2010:WorkflowViewState.IdRef="Sequence_21">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - JOR" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,968" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JOR_ReportDownload - Invoke Workflow File (Workflows\Spectrum\Spec_JOR_ReportDownload.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_JOR_Download.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                    <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
-                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_JORText">[out_JORText]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_JORfilePath">[out_JORfilePath]</OutArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <If Condition="[String.IsNullOrEmpty(out_JORText)]" sap:VirtualizedContainerService.HintSize="450,731" sap2010:WorkflowViewState.IdRef="If_1">
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,346" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - JOR Report has nothing" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;JOR Report has nothing&quot;]" />
-                      <Throw DisplayName="Throw - New BusinessRuleException (&quot;JOR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;JOR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_24">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - &quot;JOR--&gt;&quot; + out_JORText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;JOR--&gt;&quot; + out_JORText]" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:RetryScope>
-        <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - CTSR" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="RetryScope_7">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,796" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_CTSR_Download - Invoke Workflow File (Workflows\Spectrum\Spec_CTSR_Download.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_CTSR_Download.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                    <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
-                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_CTSR_Text">[out_CTSRText]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_CTSRfilePath">[out_CTSRfilePath]</OutArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <If Condition="[String.IsNullOrEmpty(out_CTSRText)]" DisplayName="If - out_CTSRText" sap:VirtualizedContainerService.HintSize="450,559" sap2010:WorkflowViewState.IdRef="If_3">
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173.6" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Throw DisplayName="Throw - New BusinessRuleException (&quot;CTSR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;CTSR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="Throw_5" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_30">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - &quot;CTSR --&gt;&quot; + out_CTSRText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;CTSR --&gt;&quot; + out_CTSRText]" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:RetryScope>
-        <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - BHR" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="RetryScope_6" NumberOfRetries="3">
-          <ui:RetryScope.ActivityBody>
-            <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,795" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_BHR_Download - Invoke Workflow File (Workflows\Spectrum\Spec_BHR_Download.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_BHR_Download.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_BHRText">[out_BHRText]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_BHRfilePath">[out_BHRfilePath]</OutArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <If Condition="[String.IsNullOrEmpty(out_BHRText)]" DisplayName="If - out_BHRText" sap:VirtualizedContainerService.HintSize="450,558" sap2010:WorkflowViewState.IdRef="If_2">
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Throw DisplayName="Throw - New BusinessRuleException (&quot;BHR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;BHR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_4" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - &quot;BHR --&gt;&quot; + out_BHRText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;BHR --&gt;&quot; + out_BHRText]" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
-            </ActivityAction>
-          </ui:RetryScope.ActivityBody>
-          <ui:RetryScope.Condition>
-            <ActivityFunc x:TypeArguments="x:Boolean" />
-          </ui:RetryScope.Condition>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:RetryScope>
-      </Sequence>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,275" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="Sequence_32">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <is:Spec_Logout DisplayName="Spectrum Logout" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Spec_Logout_2" in_spectrumBrowser="[out_spectrumBrowser]" />
+            <Sequence DisplayName="Sequence- Download JOR, CTSR, BHR from Spectrum" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - JOR" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,968" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_JOR_ReportDownload - Invoke Workflow File (Workflows\Spectrum\Spec_JOR_ReportDownload.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_JOR_Download.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
+                          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_JORText">[out_JORText]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_JORfilePath">[out_JORfilePath]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <If Condition="[String.IsNullOrEmpty(out_JORText)]" sap:VirtualizedContainerService.HintSize="450,731" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,346" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message - JOR Report has nothing" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;JOR Report has nothing&quot;]" />
+                            <Throw DisplayName="Throw - New BusinessRuleException (&quot;JOR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;JOR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message - &quot;JOR--&gt;&quot; + out_JORText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;JOR--&gt;&quot; + out_JORText]" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:RetryScope>
+              <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - CTSR" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="RetryScope_7">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,796" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_CTSR_Download - Invoke Workflow File (Workflows\Spectrum\Spec_CTSR_Download.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_CTSR_Download.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="ss:SecureString" x:Key="in_dsClientSecVal">[sec_dsClientSecVal]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_dsClientID">[str_dsClientId]</InArgument>
+                          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_CTSR_Text">[out_CTSRText]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_CTSRfilePath">[out_CTSRfilePath]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <If Condition="[String.IsNullOrEmpty(out_CTSRText)]" DisplayName="If - out_CTSRText" sap:VirtualizedContainerService.HintSize="450,559" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173.6" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw DisplayName="Throw - New BusinessRuleException (&quot;CTSR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;CTSR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message - &quot;CTSR --&gt;&quot; + out_CTSRText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;CTSR --&gt;&quot; + out_CTSRText]" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:RetryScope>
+              <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - BHR" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="RetryScope_6" NumberOfRetries="3">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,795" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spec_BHR_Download - Invoke Workflow File (Workflows\Spectrum\Spec_BHR_Download.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spec_BHR_Download.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser">[out_spectrumBrowser]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_BHRText">[out_BHRText]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_BHRfilePath">[out_BHRfilePath]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <If Condition="[String.IsNullOrEmpty(out_BHRText)]" DisplayName="If - out_BHRText" sap:VirtualizedContainerService.HintSize="450,558" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw DisplayName="Throw - New BusinessRuleException (&quot;BHR Report has nothing&quot;)" Exception="[New BusinessRuleException (&quot;BHR Report has nothing&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message - &quot;BHR --&gt;&quot; + out_BHRText" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;BHR --&gt;&quot; + out_BHRText]" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:RetryScope>
+            </Sequence>
+            <is:Spec_Logout DisplayName="Spectrum Logout" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="Spec_Logout_2" in_spectrumBrowser="[out_spectrumBrowser]" />
           </Sequence>
         </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;Opening applications : Ended&quot;" sap:VirtualizedContainerService.HintSize="486,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening applications : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;Opening applications : Ended&quot;" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening applications : Ended&quot;]" />
   </Sequence>
 </Activity>

@@ -1,4 +1,5 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TC_05_Spectrum_DownloadReports" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="TC_05_Spectrum_DownloadReports_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_08_BillingForecast_FormulaCalculator" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="TC_08_BillingForecast_FormulaCalculator_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -25,16 +26,16 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
-      <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>InPwr_CoE_CustomComponent_Utility.Utility</x:String>
-      <x:String>System.Reflection</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
-      <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
@@ -71,55 +72,55 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
-      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>System.ComponentModel</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
-      <AssemblyReference>System.Private.Xml</AssemblyReference>
-      <AssemblyReference>InPwr.CoE.CustomComponent.Utility</AssemblyReference>
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
       <AssemblyReference>System.Security.Permissions</AssemblyReference>
-      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>InPwr.CoE.CustomComponent.Utility</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
       <AssemblyReference>InPwr.CoE.CustomComponent.Utility.Core</AssemblyReference>
       <AssemblyReference>InPwr.CoE.CustomComponent.Mail.Core</AssemblyReference>
       <AssemblyReference>InPwr.CoE.CustomComponent.DataServices.Core</AssemblyReference>
-      <AssemblyReference>System.Memory.Data</AssemblyReference>
-      <AssemblyReference>System.Console</AssemblyReference>
-      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.Private.Uri</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>System.Linq.Async</AssemblyReference>
-      <AssemblyReference>System.Collections</AssemblyReference>
-      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_05_Spectrum_DownloadReports" sap:VirtualizedContainerService.HintSize="744.0000000000001,525.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_08_BillingForecast_FormulaCalculator" sap:VirtualizedContainerService.HintSize="1145,778.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="BFRReportPath" />
+      <Variable x:TypeArguments="x:String" Name="JobNumber" />
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ExceptionEmail" />
@@ -130,8 +131,36 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[JobData]" />
-    <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="416,278.4" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_2" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[BFRReportPath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\23018\02_07_26\23018 - Billing Forecast_02_07_2026.xlsx</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[JobNumber]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">23018</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[JobData]" />
+    <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="479,275" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_1" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,16 +168,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </iu:Initialise_Configuration>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Spectrum_DownloadReports - Invoke Workflow File (Workflows\Spectrum\Spectrum_DownloadReports.xaml)" sap:VirtualizedContainerService.HintSize="416,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Spectrum\Spectrum_DownloadReports.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_FormulaCalculator - Invoke Workflow File (BillingForecast\BillingForecast_FormulaCalculator.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_FormulaCalculator.xaml">
       <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BFRReportPath">[BFRReportPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[JobNumber]</InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_JORText" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_JORfilePath" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_CTSRText" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_CTSRfilePath" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_BHRText" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_BHRfilePath" />
-        <InArgument x:TypeArguments="ui:UiElement" x:Key="in_spectrumBrowser" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
