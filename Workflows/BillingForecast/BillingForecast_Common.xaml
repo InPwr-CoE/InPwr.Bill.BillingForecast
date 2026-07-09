@@ -137,14 +137,14 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BillingForecast_Common" sap:VirtualizedContainerService.HintSize="744.0000000000001,2660" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BillingForecast_Common" sap:VirtualizedContainerService.HintSize="1007,2597" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - &quot;Billing Forecast Common : Started&quot;" sap:VirtualizedContainerService.HintSize="537.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Billing Forecast Common : Started&quot;]" />
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="537.6,2296.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message - &quot;Billing Forecast Common : Started&quot;" sap:VirtualizedContainerService.HintSize="540,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Billing Forecast Common : Started&quot;]" />
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="540,2237" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_emptyData" />
       </Sequence.Variables>
@@ -153,25 +153,25 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - Report Local Folder" sap:VirtualizedContainerService.HintSize="504,690.4" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - Report Local Folder" sap:VirtualizedContainerService.HintSize="506,687" sap2010:WorkflowViewState.IdRef="RetryScope_2">
         <ui:RetryScope.ActivityBody>
           <ActivityAction>
-            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="470.4,457.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="472,454" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,397.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,394" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
-                  <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Local_ReportsFolder_Name&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset - Local Report Folder" FolderPath="[in_Config(&quot;Local_ReportsFolder_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="400,143.2" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+                  <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Local_ReportsFolder_Name&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset - Local Report Folder" FolderPath="[in_Config(&quot;Local_ReportsFolder_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="400,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
                     <ui:GetRobotAsset.Value>
                       <OutArgument x:TypeArguments="x:Object">[in_Config("Local_ReportsFolder")]</OutArgument>
                     </ui:GetRobotAsset.Value>
                   </ui:GetRobotAsset>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -200,25 +200,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:RetryScope>
-      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - Report Name" sap:VirtualizedContainerService.HintSize="504,690.4" sap2010:WorkflowViewState.IdRef="RetryScope_3">
+      <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - Report Name" sap:VirtualizedContainerService.HintSize="506,687" sap2010:WorkflowViewState.IdRef="RetryScope_3">
         <ui:RetryScope.ActivityBody>
           <ActivityAction>
-            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="470.4,457.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="472,454" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,397.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,394" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                 <TryCatch.Try>
-                  <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;JobReportName&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset - Report Name" FolderPath="[in_Config(&quot;Local_ReportsFolder_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="400,143.2" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+                  <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;JobReportName&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset - Report Name" FolderPath="[in_Config(&quot;Local_ReportsFolder_AssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="400,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
                     <ui:GetRobotAsset.Value>
                       <OutArgument x:TypeArguments="x:Object">[in_Config("ReportName")]</OutArgument>
                     </ui:GetRobotAsset.Value>
                   </ui:GetRobotAsset>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -229,7 +229,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Rethrow sap:VirtualizedContainerService.HintSize="398.4,24.8" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+                      <Rethrow sap:VirtualizedContainerService.HintSize="398,25" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
                     </ActivityAction>
                   </Catch>
                 </TryCatch.Catches>
@@ -247,7 +247,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:RetryScope>
-      <ui:MultipleAssign DisplayName="Multiple Assign - Replace Dynamic value" sap:VirtualizedContainerService.HintSize="504,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign DisplayName="Multiple Assign - Replace Dynamic value" sap:VirtualizedContainerService.HintSize="506,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -275,8 +275,8 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
-      <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_Common : Job Number is [&quot; +in_Config(&quot;Job_Number&quot;).ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="504,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecast_Common : Job Number is [&quot; +in_Config(&quot;Job_Number&quot;).ToString+&quot;]&quot;]" />
-      <iu:Manage_Folder DisplayName="Manage Folder" FolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" FolderPathCollection="[New List(Of string)]" sap:VirtualizedContainerService.HintSize="504,251.2" sap2010:WorkflowViewState.IdRef="Manage_Folder_1" TargetAction="Both">
+      <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_Common : Job Number is [&quot; +in_Config(&quot;Job_Number&quot;).ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="506,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecast_Common : Job Number is [&quot; +in_Config(&quot;Job_Number&quot;).ToString+&quot;]&quot;]" />
+      <iu:Manage_Folder DisplayName="Manage Folder" FolderPath="[in_Config(&quot;Local_ReportsFolder&quot;).ToString]" FolderPathCollection="[New List(Of string)]" sap:VirtualizedContainerService.HintSize="506,249" sap2010:WorkflowViewState.IdRef="Manage_Folder_1" TargetAction="Both">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,23 +284,29 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </iu:Manage_Folder>
-      <Assign sap:VirtualizedContainerService.HintSize="504,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:Object">[in_Config("ReportName")]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:Object">[in_Config("ReportName").ToString.Replace("&lt;JOBNUM&gt;",in_Config("Job_Number").ToString )]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign DisplayName="Assign - BFR Report Name Assign" sap:VirtualizedContainerService.HintSize="504,104.8" sap2010:WorkflowViewState.IdRef="Assign_3">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:Object">[in_Config("BFR_ReportPath")]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:Object">[in_Config("Local_ReportsFolder").ToString + in_Config("ReportName").ToString+"_"+Now().ToString("dd_MM_yyyy")+".xlsx"]</InArgument>
-        </Assign.Value>
-      </Assign>
+      <ui:MultipleAssign DisplayName="Configure billing forecast report name and path" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[in_Config("ReportName")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[in_Config("ReportName").ToString.Replace("&lt;JOBNUM&gt;",in_Config("Job_Number").ToString )]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[in_Config("BFR_ReportPath")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Object">[in_Config("Local_ReportsFolder").ToString + in_Config("ReportName").ToString+"_"+Now().ToString("dd_MM_yyyy")+".xlsx"]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;Billing Forecast Common : Started&quot;" sap:VirtualizedContainerService.HintSize="537.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Billing Forecast Common : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;Billing Forecast Common : Started&quot;" sap:VirtualizedContainerService.HintSize="540,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Billing Forecast Common : Ended&quot;]" />
   </Sequence>
 </Activity>

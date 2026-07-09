@@ -165,7 +165,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BillingForecastSendMail" sap:VirtualizedContainerService.HintSize="1270,2873" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BillingForecastSendMail" sap:VirtualizedContainerService.HintSize="1007,2839" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_OverwriteBody" />
       <Variable x:TypeArguments="x:String" Name="str_EmailCode" />
@@ -175,8 +175,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Started&quot;" sap:VirtualizedContainerService.HintSize="653,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;BillingForecastSendMail : Started&quot;]" />
-    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="653,140" sap2010:WorkflowViewState.IdRef="Sequence_25">
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Started&quot;" sap:VirtualizedContainerService.HintSize="608,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;BillingForecastSendMail : Started&quot;]" />
+    <Sequence DisplayName="Get Client details from Assets" sap:VirtualizedContainerService.HintSize="608,140" sap2010:WorkflowViewState.IdRef="Sequence_25">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -269,14 +269,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
     </Sequence>
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="653,2373" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="608,2339" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[ls_BRE is Nothing]" DisplayName="Check If BRE is exist?" sap:VirtualizedContainerService.HintSize="619,2281" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[ls_BRE is Nothing]" DisplayName="Check If BRE is exist?" sap:VirtualizedContainerService.HintSize="574,2247" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,15 +284,15 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then - BRE Not exist" sap:VirtualizedContainerService.HintSize="585,958" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <Sequence DisplayName="Then - BRE Not exist" sap:VirtualizedContainerService.HintSize="540,924" sap2010:WorkflowViewState.IdRef="Sequence_20">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Report log file exist | Report Date : [&quot;+in_ReportDate+&quot;] | BRE is nothing&quot;" sap:VirtualizedContainerService.HintSize="551,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;BillingForecastSendMail : Report log file exist | Report Date : [&quot;+in_ReportDate+&quot;] | BRE is nothing&quot;]" />
-            <TryCatch DisplayName="Try Catch - Send Mail with Attachment" sap:VirtualizedContainerService.HintSize="551,725" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Report log file exist | Report Date : [&quot;+in_ReportDate+&quot;] | BRE is nothing&quot;" sap:VirtualizedContainerService.HintSize="506,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;BillingForecastSendMail : Report log file exist | Report Date : [&quot;+in_ReportDate+&quot;] | BRE is nothing&quot;]" />
+            <TryCatch DisplayName="Try Catch - Send Mail with Attachment" sap:VirtualizedContainerService.HintSize="506,691" sap2010:WorkflowViewState.IdRef="TryCatch_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -300,28 +300,22 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence DisplayName="Try - Send Mail with Attachment" sap:VirtualizedContainerService.HintSize="513,474" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Try - Send Mail with Attachment" sap:VirtualizedContainerService.HintSize="468,440" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[str_OverwriteBody]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(0)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath).Replace("{1}",in_Config("ReportName").ToString)]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
-                  <iu:Bot_Correspondence Attachment="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail with Attachment" EmailCode="EM0001" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="479,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_1" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" OverwriteSubject="[in_dtEmailTable.Rows(0)(&quot;EmailSubject&quot;).ToString.Replace(&quot;&lt;JOBNUM&gt;&quot;, in_Config(&quot;Job_Number&quot;).ToString)]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
+                  <Assign DisplayName="Assign - str_OverwriteBody" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_OverwriteBody]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_dtEmailTable.Rows(0)("EmailBody").ToString.Replace("{0}", DateTime.ParseExact(in_ReportDate, "MM/dd/yy", System.Globalization.CultureInfo.InvariantCulture).ToString("MMMM-yyyy")).Replace("{Path}", in_SP_ReportsPath).Replace("{1}",in_Config("ReportName").ToString)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <iu:Bot_Correspondence Attachment="{x:Null}" TimeoutMS="{x:Null}" ApplicationClientId="[in_Config(&quot;O365_ApplicationClientId&quot;).ToString]" ApplicationClientSecretId="[in_Config(&quot;O365_ApplicationClientSecretId&quot;).ToString]" AttachementCollection="[New List(Of String) From {in_BFRfilePath, in_BHRfilePath, in_CTSRfilePath, in_JORfilePath}]" BusinessProcessName="[in_Config(&quot;logF_BusinessProcessName&quot;).ToString]" DisplayName="Bot Correspondence - Send Mail with Attachment" EmailCode="EM0001" EmailPropertiesDatatable="[in_dtEmailTable]" sap:VirtualizedContainerService.HintSize="434,266" sap2010:WorkflowViewState.IdRef="Bot_Correspondence_1" IsBodyHTML="True" OverwriteBody="[str_OverwriteBody]" OverwriteSubject="[in_dtEmailTable.Rows(0)(&quot;EmailSubject&quot;).ToString.Replace(&quot;&lt;JOBNUM&gt;&quot;, in_Config(&quot;Job_Number&quot;).ToString)]" TenantId="[in_Config(&quot;O365_TenantId&quot;).ToString]" in_MailAccount="[in_Config(&quot;Bot_MailID&quot;).ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -332,7 +326,7 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="517,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="472,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -366,7 +360,7 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else - BRE exist" sap:VirtualizedContainerService.HintSize="585,1162" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <Sequence DisplayName="Else - BRE exist" sap:VirtualizedContainerService.HintSize="540,1162" sap2010:WorkflowViewState.IdRef="Sequence_21">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -382,7 +376,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+            <ui:MultipleAssign DisplayName="Format email body for billing forecast report" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -465,6 +459,6 @@
         </If.Else>
       </If>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Ended&quot;" sap:VirtualizedContainerService.HintSize="653,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecastSendMail : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecastSendMail : Ended&quot;" sap:VirtualizedContainerService.HintSize="608,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecastSendMail : Ended&quot;]" />
   </Sequence>
 </Activity>

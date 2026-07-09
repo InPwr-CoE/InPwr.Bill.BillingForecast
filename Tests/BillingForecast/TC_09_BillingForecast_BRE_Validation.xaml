@@ -94,13 +94,13 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_09_BillingForecast_BRE_Validation" sap:VirtualizedContainerService.HintSize="1128,1127" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_09_BillingForecast_BRE_Validation" sap:VirtualizedContainerService.HintSize="1007,1220" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="TC_01_JORToBillingForcast" sap:VirtualizedContainerService.HintSize="513,1104" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="TC_09_BillingForecast_BRE_Validation" sap:VirtualizedContainerService.HintSize="513,1197" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="str_JORfilepath" />
         <Variable x:TypeArguments="x:String" Name="str_BFRfilepath" />
@@ -110,9 +110,9 @@
         <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_ExceptionEmail" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_EmailTable" />
-        <Variable x:TypeArguments="x:String" Name="str_CTSRTextFilePath" />
+        <Variable x:TypeArguments="x:String" Name="str_CTSRFilePath" />
         <Variable x:TypeArguments="x:String" Name="str_CTSRText" />
-        <Variable x:TypeArguments="x:String" Name="str_BHRTextFilePath" />
+        <Variable x:TypeArguments="x:String" Name="str_BHRFilePath" />
         <Variable x:TypeArguments="x:String" Name="str_BHRText" />
         <Variable x:TypeArguments="scg:List(x:String)" Name="io_listBRE" />
         <Variable x:TypeArguments="x:String" Name="str_JobNumber" />
@@ -124,7 +124,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -132,7 +132,7 @@
                 <OutArgument x:TypeArguments="x:String">[str_BFRfilepath]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\23018\02_07_26\23018 - Billing Forecast_02_07_2026.xlsx</InArgument>
+                <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\26063\26063 - Billing Forecast_08_07_2026.xlsx</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -140,7 +140,31 @@
                 <OutArgument x:TypeArguments="x:String">[str_JobNumber]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">23018</InArgument>
+                <InArgument x:TypeArguments="x:String">26063</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_JORfilepath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\26063\26063_Job Overview Report_08_07_2026.pdf</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_CTSRFilePath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\26063\26063_Cost Type Summary Report_08_07_2026.pdf</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_BHRFilePath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\26063\26063_Billing History Report_08_07_2026.pdf</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
@@ -155,10 +179,10 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </iu:Initialise_Configuration>
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Job Overview Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORText]" />
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Cost Type Summary Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[str_CTSRText]" />
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Billing History Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[str_BHRText]" />
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_BRE_Validation - Invoke Workflow File (Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml">
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[str_JORfilepath]" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORText]" />
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[str_CTSRFilePath]" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[str_CTSRText]" />
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[str_BHRFilePath]" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[str_BHRText]" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_BRE_Validation - Invoke Workflow File (Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_BRE_Validation.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE">[io_listBRE]</InOutArgument>
           <InArgument x:TypeArguments="x:String" x:Key="in_BFRFilePath">[str_BFRfilepath]</InArgument>
