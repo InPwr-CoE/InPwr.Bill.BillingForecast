@@ -155,7 +155,7 @@
       <AssemblyReference>UiPath.Web</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_01_JORToBillingForcast" sap:VirtualizedContainerService.HintSize="1128,1929" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_01_JORToBillingForcast" sap:VirtualizedContainerService.HintSize="1446,1929" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_JORfilepath" />
       <Variable x:TypeArguments="x:String" Name="str_BFRfilepath" />
@@ -187,7 +187,7 @@
               <OutArgument x:TypeArguments="x:String">[str_BFRfilepath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007 - Billing Forecast_06_07_2026.xlsx</InArgument>
+              <InArgument x:TypeArguments="x:String">C:\RPA\BillingForecast\dev\23018\02_07_26\23018 - Billing Forecast_02_07_2026.xlsx</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -195,7 +195,7 @@
               <OutArgument x:TypeArguments="x:String">[str_JobNumber]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">25007</InArgument>
+              <InArgument x:TypeArguments="x:String">23018</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -210,9 +210,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </iu:Initialise_Configuration>
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Job Overview Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORText]" />
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Cost Type Summary Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[str_CTSRText]" />
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\25007-del\06_07_26\25007_Billing History Report_06_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[str_BHRText]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Job Overview Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_JORText]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Cost Type Summary Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[str_CTSRText]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\RPA\BillingForecast\dev\23018\02_07_26\23018_Billing History Report_02_07_2026.pdf" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[str_BHRText]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BillingForecast_Template - Invoke Workflow File (BillingForecast\BillingForecast_Template.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\BillingForecast\BillingForecast_Template.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[str_CTSRText]</InArgument>

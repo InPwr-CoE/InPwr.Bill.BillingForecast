@@ -96,7 +96,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Verify if the Process workflow works as expected.&#xA;The verification should check whether the output of the Process workflow is the expected one." DisplayName="ProcessTestCase" sap:VirtualizedContainerService.HintSize="1128,1357" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Verify if the Process workflow works as expected.&#xA;The verification should check whether the output of the Process workflow is the expected one." DisplayName="ProcessTestCase" sap:VirtualizedContainerService.HintSize="1007,1357" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
@@ -152,7 +152,6 @@
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtExceptionTable" />
           <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_listBRE" />
           <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_MailMetaData" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>

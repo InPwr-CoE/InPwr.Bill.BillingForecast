@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TC_01_Spec_JobOverviewReportToBillingForcast" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="901,812" sap2010:WorkflowViewState.IdRef="TC_01_Spec_JobOverviewReportToBillingForcast_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:id="clr-namespace:InPwr_CoE_CustomComponent_DataServices.Data_Services;assembly=InPwr.CoE.CustomComponent.DataServices" xmlns:iu="clr-namespace:InPwr_CoE_CustomComponent_Utility.Utility;assembly=InPwr.CoE.CustomComponent.Utility" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -155,7 +154,7 @@
       <AssemblyReference>InPwr.CoE.CustomComponent.Mail.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_02_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="1101,1175" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_02_CTSRToBillingForecast" sap:VirtualizedContainerService.HintSize="1007,998" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_CTSRPDF" />
       <Variable x:TypeArguments="x:String" Name="str_CTSRText" />
@@ -215,16 +214,6 @@
     <iu:Initialise_Configuration DownloadResponse="{x:Null}" TimeoutMS="{x:Null}" ConfigurationOutput="[Config]" DestinationFolderPath="[UiPath.Constants.Project.Location+&quot;Data\&quot;]" DisplayName="Initialize Configuration" EmailTableOutput="[dt_EmailTable]" ExceptionTableOutput="[dt_ExceptionEmail]" sap:VirtualizedContainerService.HintSize="479,275" sap2010:WorkflowViewState.IdRef="Initialise_Configuration_2" OrchestratorFolderPath="[JobData.FolderName]" StorageBucketName="[JobData.ProcessName]" StorageFileName="Config.xlsx" />
     <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[str_CTSRPDF]" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[str_CTSRText]" />
     <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File" FileName="[str_CTSRfileTextPath]" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str_CTSRText]" />
-    <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_EntityResponse]" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.9E30C45D9E0FD8A0E962D18264F9BCAAE0F6B3B07AD445D05303E70663473826" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CTSRToBillingForecast - Invoke Workflow File (Workflows\BillingForecast\CTSRToBillingForecast.xaml)" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\NotUsed\CTSRToBillingForecast.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BFRfilepath">[in_BFRfilepath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_JobNumber">[in_JobNumber]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_CTSRText">[str_CTSRText]</InArgument>
-        <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_listBRE" />
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBFTemplate">[dt_EntityResponse]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <id:List_All_Records MaxRetries="{x:Null}" RetryInterval="{x:Null}" ClientId="06f8ec59-0f32-4460-98cd-7c9327aad9ef" ClientSecret="JUF*v6IUub6er2ba" DisplayName="List All Records" EntityName="BillingForecastTemplateMap" EntityResponse="[dt_EntityResponse]" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="List_All_Records_1" RefreshToken="5bffca29-7328-42b3-9802-fe3226d5b33d.9E30C45D9E0FD8A0E962D18264F9BCAAE0F6B3B07AD445D05303E70663473826" />
   </Sequence>
 </Activity>

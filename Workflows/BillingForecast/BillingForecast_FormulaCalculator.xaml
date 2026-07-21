@@ -116,7 +116,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BillingForecast_FormulaCalculator" sap:VirtualizedContainerService.HintSize="1007,6980" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BillingForecast_FormulaCalculator" sap:VirtualizedContainerService.HintSize="1446,4703" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_BFRHeaders" />
       <Variable x:TypeArguments="x:Int32" Name="int_BOURowNum" />
@@ -127,23 +127,33 @@
       <Variable x:TypeArguments="x:Int32" Name="int_colIndex" />
       <Variable x:TypeArguments="s:String[]" Name="ls_VendorTypes" />
       <Variable x:TypeArguments="x:Int32" Name="int_PerecentageRowNum" />
+      <Variable x:TypeArguments="x:Int32" Name="int_totalRowNum" />
+      <Variable x:TypeArguments="x:Int32" Name="int_thirdLastColIndex" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Started&quot;" sap:VirtualizedContainerService.HintSize="819,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Started&quot;]" />
-    <Sequence DisplayName="Initial Validation/Assigning variables" sap:VirtualizedContainerService.HintSize="819,537" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Started&quot;" sap:VirtualizedContainerService.HintSize="780,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Started&quot;]" />
+    <Sequence DisplayName="Initial Validation/Assigning variables" sap:VirtualizedContainerService.HintSize="780,599" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_BFRHeaders]" DisplayName="Read Excel range into DataTable" sap:VirtualizedContainerService.HintSize="479,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="E2" SheetName="[in_JobNumber]" WorkbookPath="[in_BFRReportPath]" />
-      <ui:MultipleAssign DisplayName="Multiple Assign - Initialize row and column indices for billing forecast" sap:VirtualizedContainerService.HintSize="479,325" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign DisplayName="Multiple Assign - Initialize row and column indices for billing forecast" sap:VirtualizedContainerService.HintSize="479,387" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
         <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_totalRowNum]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">12</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:Int32">[int_revenueRowNum]</OutArgument>
@@ -200,6 +210,14 @@
                 <InArgument x:TypeArguments="s:String[]">[{"L","M","O","E","S","T","B","W PW","Total","Profit"}]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_71">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_thirdLastColIndex]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">[int_secondLastColIndex-1]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
         <sap:WorkflowViewStateService.ViewState>
@@ -210,47 +228,534 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
     </Sequence>
-    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="819,6083" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Core Process" sap:VirtualizedContainerService.HintSize="780,3744" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] | Billing Overview/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] | Starting Column Index [&quot;+colIndex.ToString+&quot;] | Last Column Index [&quot;+secondLastColIndex.ToString+&quot;] | Second Last Column Index [&quot;+secondLastColIndex.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="785,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] | Billing Overview/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] | Starting Column Index [&quot;+int_colIndex.ToString+&quot;] | Last Column Index [&quot;+int_lastColIndex.ToString+&quot;] | Second Last Column Index [&quot;+int_secondLastColIndex.ToString+&quot;]&quot;]" />
-      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="785,5818" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+      <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] | Billing Overview/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] | Starting Column Index [&quot;+colIndex.ToString+&quot;] | Last Column Index [&quot;+secondLastColIndex.ToString+&quot;] | Second Last Column Index [&quot;+secondLastColIndex.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="746,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] | Billing Overview/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] | Starting Column Index [&quot;+int_colIndex.ToString+&quot;] | Last Column Index [&quot;+int_lastColIndex.ToString+&quot;] | Second Last Column Index [&quot;+int_secondLastColIndex.ToString+&quot;]&quot;]" />
+      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="746,3479" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
         <ueab:ExcelProcessScopeX.Body>
           <ActivityAction x:TypeArguments="ui:IExcelProcess">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="751,5708" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="712,3369" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="717,5648" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_BFRReportPath]">
+              <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="678,3309" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_BFRReportPath]">
                 <ueab:ExcelApplicationCard.Body>
                   <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="683,5356" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="644,3017" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Sequence - Revenue, Percetage Complete, Billing Over/Under - Formula Calculation" sap:VirtualizedContainerService.HintSize="649,3488" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                      <Sequence DisplayName="Sequence - Last Column Changes" sap:VirtualizedContainerService.HintSize="610,2013" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="str_ETotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_Total_Cell" />
+                          <Variable x:TypeArguments="x:String" Name="str_OTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_LTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_MTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_STotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_TTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_BTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_PWFTotalFormula" />
+                          <Variable x:TypeArguments="x:String" Name="str_TotalFormula" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[int_colIndex &lt; dt_BFRHeaders.Columns.Count + 4]" DisplayName="Calculate and apply billing forecast formulas in Excel columns." sap:VirtualizedContainerService.HintSize="615,3396" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="576,197" sap2010:WorkflowViewState.IdRef="InvokeCode_8">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_secondLastColIndex]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                          </ui:InvokeCode.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeCode>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="576,396" sap2010:WorkflowViewState.IdRef="MultipleAssign_27">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_62">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_ETotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E4:"+str_colLetter+"4)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_63">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_LTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E5:"+str_colLetter+"5)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_64">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_MTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E6:"+str_colLetter+"6)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_65">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_OTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E7:"+str_colLetter+"7)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_66">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_STotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E8:"+str_colLetter+"8)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_67">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_TTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E9:"+str_colLetter+"9)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_68">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_BTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E10:"+str_colLetter+"10)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_69">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_PWFTotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E11:"+str_colLetter+"11)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_70">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_TotalFormula]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=Sum(E12:"+str_colLetter+"12)"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="576,1328" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ls_VendorTypes]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="x:String">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="542,1191" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Switch x:TypeArguments="x:String" DisplayName="Switch - Vendor Types" Expression="[currentText]" sap:VirtualizedContainerService.HintSize="508,1131" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Sequence x:Key="E" DisplayName="Sequence - Equipment" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_9">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"4"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_19" Value="[str_ETotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="L" DisplayName="Sequence - Labor" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_10">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"5"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_46" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_29" Value="[str_LTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="M" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_11">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"6"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_30" Value="[str_MTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="O" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_12">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"7"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_34" Value="[str_OTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="S" DisplayName="Sequence - Sub Contractor" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_13">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"8"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_35" Value="[str_STotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="T" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_14">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"9"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_36" Value="[str_TTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="B" DisplayName="Sequence - Burden" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_15">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"10"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_31" Value="[str_BTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="W PW" DisplayName="Sequence - Fringe" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_16">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"11"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_52" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_32" Value="[str_PWFTotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="Total" DisplayName="Sequence - Total" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_17">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                                      </ui:InvokeCode.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeCode>
+                                    <Assign DisplayName="Assigns a cell reference to a variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_Total_Cell]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[str_colLetter+"12"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_Total_Cell+&quot;] | Total Formula : [&quot; +str_ETotalFormula+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_Total_Cell)]" DisplayName="Write a formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_33" Value="[str_TotalFormula]" />
+                                  </Sequence>
+                                  <Sequence x:Key="Profit" DisplayName="Sequence - Profit" sap:VirtualizedContainerService.HintSize="468,89" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </Switch>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                      </Sequence>
+                      <Sequence DisplayName="Sequence -CTSR Range for font color change" sap:VirtualizedContainerService.HintSize="610,57" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="str_CTSR_Range" />
+                          <Variable x:TypeArguments="x:String" Name="str_CTSR_TotalRange" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="479,197" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_secondLastColIndex]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                          </ui:InvokeCode.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeCode>
+                        <ui:MultipleAssign DisplayName="Set billing forecast data ranges" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_CTSR_Range]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=E4:"+str_colLetter+"11"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_CTSR_TotalRange]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">["=E12:"+str_colLetter+"12"]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Changing the CTSR Amount Values font to Medium Blue and then Type to Currency&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Range [&quot;+str_CTSR_Range+&quot;] to Medium Blue Color and Bold and Type to Currencey &amp; Range [&quot;+str_CTSR_TotalRange+&quot;] to Black Color and Bold and Type to Currencey&quot;]" />
+                        <ueab:FormatRangeX DisplayName="Format Excel cell range with specific font and currency" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="FormatRangeX_3" Range="[Excel.SelectedSheet.Range(str_CTSR_Range)]">
+                          <ueab:FormatRangeX.Alignment>
+                            <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
+                          </ueab:FormatRangeX.Alignment>
+                          <ueab:FormatRangeX.Font>
+                            <ui:FontOptions Color="MediumBlue" FillColor="Transparent" FontFamilyName="Calibri" Size="11" Style="Bold" UnderlineStyle="None" />
+                          </ueab:FormatRangeX.Font>
+                          <ueab:FormatRangeX.Format>
+                            <ueab:CurrencyFormat Currency="$" DecimalPlaces="2" SetAtTheEnd="False" UseThousandSeparator="False" />
+                          </ueab:FormatRangeX.Format>
+                        </ueab:FormatRangeX>
+                        <ueab:FormatRangeX DisplayName="Format an Excel range as currency" sap:VirtualizedContainerService.HintSize="479,161" sap2010:WorkflowViewState.IdRef="FormatRangeX_5" Range="[Excel.SelectedSheet.Range(str_CTSR_TotalRange)]">
+                          <ueab:FormatRangeX.Alignment>
+                            <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
+                          </ueab:FormatRangeX.Alignment>
+                          <ueab:FormatRangeX.Font>
+                            <ui:FontOptions Color="Black" FillColor="Transparent" FontFamilyName="Calibri" Size="11" Style="Bold" UnderlineStyle="None" />
+                          </ueab:FormatRangeX.Font>
+                          <ueab:FormatRangeX.Format>
+                            <ueab:CurrencyFormat Currency="$" DecimalPlaces="2" SetAtTheEnd="False" UseThousandSeparator="False" />
+                          </ueab:FormatRangeX.Format>
+                        </ueab:FormatRangeX>
+                      </Sequence>
+                      <Sequence DisplayName="Sequence - Revenue, Percetage Complete, Billing Over/Under - Formula Calculation" sap:VirtualizedContainerService.HintSize="610,57" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[int_colIndex &lt; dt_BFRHeaders.Columns.Count + 4]" DisplayName="Calculate and apply billing forecast formulas in Excel columns." sap:VirtualizedContainerService.HintSize="615,4392" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                           <ui:InterruptibleWhile.Body>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="581,3259" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="581,4255" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="cellAddress" />
                                 <Variable x:TypeArguments="x:String" Name="str_revenueFormula" />
@@ -260,7 +765,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <If Condition="[int_colIndex = int_lastColIndex]" DisplayName="If - Find last column" sap:VirtualizedContainerService.HintSize="547,3094" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If Condition="[int_colIndex = int_lastColIndex]" DisplayName="If - Find last column" sap:VirtualizedContainerService.HintSize="547,4090" sap2010:WorkflowViewState.IdRef="If_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -268,10 +773,11 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,1550" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,2324" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="str_BFP_formula" />
                                       <Variable x:TypeArguments="x:String" Name="str_BFAmount_Range" />
+                                      <Variable x:TypeArguments="x:String" Name="str_totalFormula" />
                                     </Sequence.Variables>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -290,7 +796,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:InvokeCode>
-                                    <ui:MultipleAssign DisplayName="Assign formulas for billing forecast calculations" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                                    <ui:MultipleAssign DisplayName="Assign formulas for billing forecast calculations" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
                                       <ui:MultipleAssign.AssignOperations>
                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -315,6 +821,14 @@
                                             </ui:AssignOperation.To>
                                             <ui:AssignOperation.Value>
                                               <InArgument x:TypeArguments="x:String">["E20:"+str_colLetter+"20"]</InArgument>
+                                            </ui:AssignOperation.Value>
+                                          </ui:AssignOperation>
+                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
+                                            <ui:AssignOperation.To>
+                                              <OutArgument x:TypeArguments="x:String">[str_totalFormula]</OutArgument>
+                                            </ui:AssignOperation.To>
+                                            <ui:AssignOperation.Value>
+                                              <InArgument x:TypeArguments="x:String">["=Sum(E12:" +str_colLetter +"12)"]</InArgument>
                                             </ui:AssignOperation.Value>
                                           </ui:AssignOperation>
                                         </scg:List>
@@ -344,7 +858,9 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:InvokeCode>
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] | Column Index [&quot;+colIndex.ToString+&quot;] | Cell #[&quot;+colLetter + int_revenueRowNum.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Column Index [&quot;+int_colIndex.ToString+&quot;] | Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_revenueRowNum.ToString+&quot;]&quot;]" />
-                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_revenueRowNum.ToString())]" DisplayName="Write Cell - str_revenueFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[str_revenueFormula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_totalRowNum.ToString())]" DisplayName="Write Cell - str_totalFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[str_totalFormula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_revenueRowNum.ToString())]" DisplayName="Write Cell - str_revenueFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_18" Value="[str_revenueFormula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_revenueRowNum.ToString())]" DisplayName="Write Cell - str_revenueFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_17" Value="[str_revenueFormula]" />
                                     <ueab:FormatRangeX DisplayName="Format Excel range with currency, font, and alignment" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="FormatRangeX_6" Range="[Excel.SelectedSheet.Range(in_Config(&quot;JOR_BillingForeCastAmount&quot;).ToString())]">
                                       <ueab:FormatRangeX.Alignment>
                                         <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
@@ -356,14 +872,27 @@
                                         <ueab:CurrencyFormat Currency="$" DecimalPlaces="2" SetAtTheEnd="False" UseThousandSeparator="False" />
                                       </ueab:FormatRangeX.Format>
                                     </ueab:FormatRangeX>
-                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(in_Config(&quot;JOR_BillingForeCastAmount&quot;).ToString())]" DisplayName="Write Cell - Billing Forecast Projection Amount Formula" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_14" Value="[str_BFP_formula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(in_Config(&quot;JOR_BillingForeCastAmount&quot;).ToString())]" DisplayName="Write Cell - Billing Forecast Projection Amount Formula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_14" Value="[str_BFP_formula]" />
+                                    <ueab:FormatRangeX DisplayName="Format Cells" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="FormatRangeX_8" Range="[Excel.SelectedSheet.Range(in_Config(&quot;Percent Complete&quot;).ToString())]">
+                                      <ueab:FormatRangeX.Alignment>
+                                        <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
+                                      </ueab:FormatRangeX.Alignment>
+                                      <ueab:FormatRangeX.Font>
+                                        <ui:FontOptions Color="Black" FillColor="Transparent" FontFamilyName="Calibri" Size="11" Style="Regular" UnderlineStyle="None" />
+                                      </ueab:FormatRangeX.Font>
+                                      <ueab:FormatRangeX.Format>
+                                        <ueab:PercentageFormat DecimalPlaces="2" UseThousandSeparator="False" />
+                                      </ueab:FormatRangeX.Format>
+                                    </ueab:FormatRangeX>
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(in_Config(&quot;Percent Complete&quot;).ToString())]" DisplayName="Write Excel cell with billing forecast formula" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_38" Value="[in_Config(&quot;Percent Complete_Forumula&quot;).ToString.Replace(&quot;&amp;&quot;,&quot;&quot;)]" />
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,1374" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,1596" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="str_BOUFormula" />
                                       <Variable x:TypeArguments="x:String" Name="str_PercentageFormula" />
+                                      <Variable x:TypeArguments="x:String" Name="str_TotalFormula" />
                                     </Sequence.Variables>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -382,7 +911,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:InvokeCode>
-                                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+                                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
                                       <ui:MultipleAssign.AssignOperations>
                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
@@ -409,11 +938,20 @@
                                               <InArgument x:TypeArguments="x:String">["=SUM("+str_colLetter+"12:"+str_colLetter+"12/$C$12)"]</InArgument>
                                             </ui:AssignOperation.Value>
                                           </ui:AssignOperation>
+                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+                                            <ui:AssignOperation.To>
+                                              <OutArgument x:TypeArguments="x:String">[str_TotalFormula]</OutArgument>
+                                            </ui:AssignOperation.To>
+                                            <ui:AssignOperation.Value>
+                                              <InArgument x:TypeArguments="x:String">["=SUM("+str_colLetter+"3:"+str_colLetter+"11)"]</InArgument>
+                                            </ui:AssignOperation.Value>
+                                          </ui:AssignOperation>
                                         </scg:List>
                                       </ui:MultipleAssign.AssignOperations>
                                     </ui:MultipleAssign>
-                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] | Column Index [&quot;+colIndex.ToString+&quot;] | Cell #[&quot;+colLetter + int_revenueRowNum.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Column Index [&quot;+int_colIndex.ToString+&quot;] | Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_revenueRowNum.ToString+&quot;] | Billing Over/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] &amp; Formula [&quot;+str_BOUFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_BOURowNum.ToString+&quot;] | Percentage Row #[&quot;+int_PerecentageRowNum.ToString+&quot;] &amp; Formula [&quot;+str_PercentageFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_PerecentageRowNum.ToString+&quot;]&quot;]" />
-                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_revenueRowNum.ToString())]" DisplayName="Write Cell - str_revenueFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[str_revenueFormula]" />
+                                    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] | Column Index [&quot;+colIndex.ToString+&quot;] | Cell #[&quot;+colLetter + int_revenueRowNum.ToString+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Column Index [&quot;+int_colIndex.ToString+&quot;] | Total Formula Row#[&quot;+int_totalRowNum.ToString+&quot;] &amp; Formula [&quot;+str_TotalFormula+&quot;]&amp; Cell#[&quot;+str_colLetter+int_totalRowNum.ToString+&quot;] | Billing Forecast Revenue Row #[&quot;+int_revenueRowNum.ToString+&quot;] &amp; Formula [&quot;+str_revenueFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_revenueRowNum.ToString+&quot;] | Billing Over/Under Row #[&quot;+int_BOURowNum.ToString+&quot;] &amp; Formula [&quot;+str_BOUFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_BOURowNum.ToString+&quot;] | Percentage Row #[&quot;+int_PerecentageRowNum.ToString+&quot;] &amp; Formula [&quot;+str_PercentageFormula+&quot;] &amp; Cell #[&quot;+str_colLetter + int_PerecentageRowNum.ToString+&quot;]&quot;]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_totalRowNum.ToString())]" DisplayName="Write Cell - str_TotalFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[str_TotalFormula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_revenueRowNum.ToString())]" DisplayName="Write Cell - str_revenueFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_16" Value="[str_revenueFormula]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter &amp; int_BOURowNum.ToString())]" DisplayName="Write Cell - str_BOUFormula" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[str_BOUFormula]" />
                                     <ueab:FormatRangeX DisplayName="Format Excel cells as percentage" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="FormatRangeX_2" Range="[Excel.SelectedSheet.Range(str_colLetter &amp; int_PerecentageRowNum.ToString())]">
                                       <ueab:FormatRangeX.Alignment>
@@ -448,18 +986,18 @@
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InterruptibleWhile>
                       </Sequence>
-                      <Sequence DisplayName="Sequence - Amount To Allocate Column" sap:VirtualizedContainerService.HintSize="649,845" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Sequence - Amount To Allocate Column" sap:VirtualizedContainerService.HintSize="610,57" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="str_ATA_formula" />
                           <Variable x:TypeArguments="x:String" Name="str_ATA_Cell" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="564,197" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="416,197" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
                           <ui:InvokeCode.Arguments>
                             <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_lastColIndex]</InArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
@@ -471,7 +1009,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeCode>
-                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText - Amount To Allocate" sap:VirtualizedContainerService.HintSize="564,556" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ls_VendorTypes]">
+                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText - Amount To Allocate" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ls_VendorTypes]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="x:String">
                               <ActivityAction.Argument>
@@ -554,7 +1092,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="M" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <Sequence x:Key="M" DisplayName="Sequence - Material" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -586,7 +1124,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="O" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                  <Sequence x:Key="O" DisplayName="Sequence - Other Direct" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -618,7 +1156,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_7" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="S" DisplayName="Sequence - Sub Contractor" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                  <Sequence x:Key="S" DisplayName="Sequence - Sub Contractor" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -650,7 +1188,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="T" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                  <Sequence x:Key="T" DisplayName="Sequence - Travel" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -682,7 +1220,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="B" DisplayName="Sequence - Burden" sap:VirtualizedContainerService.HintSize="456,25" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                  <Sequence x:Key="B" DisplayName="Sequence - Burden" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_36">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -746,7 +1284,7 @@
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
                                     <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_11" Value="[str_ATA_formula]" />
                                   </Sequence>
-                                  <Sequence x:Key="Total" DisplayName="Sequence - Total" sap:VirtualizedContainerService.HintSize="514,594" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                  <Sequence x:Key="Total" DisplayName="Sequence - Total" sap:VirtualizedContainerService.HintSize="514,785" sap2010:WorkflowViewState.IdRef="Sequence_41">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -776,7 +1314,8 @@
                                       </ui:MultipleAssign.AssignOperations>
                                     </ui:MultipleAssign>
                                     <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+in_Config(&quot;Equip_AmountToAllocate&quot;).ToString+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Vendor Type : [&quot; + currentText +&quot;] | Cell #[&quot;+str_ATA_Cell+&quot;] | Amount To Allocate Formula : [&quot; +str_ATA_formula+&quot;]&quot;]" />
-                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[str_ATA_formula]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(in_Config(&quot;JOR_Total_Projection&quot;).ToString)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[in_Config(&quot;JOR_Total_Projection_Formula&quot;).ToString.Replace(&quot;&amp;&quot;,&quot;&quot;)]" />
+                                    <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_ATA_Cell)]" DisplayName="Write a formula to a specified Excel cell" sap:VirtualizedContainerService.HintSize="479,182" sap2010:WorkflowViewState.IdRef="WriteCellX_37" Value="[str_ATA_formula]" />
                                   </Sequence>
                                   <Sequence x:Key="Profit" DisplayName="Sequence - Profit" sap:VirtualizedContainerService.HintSize="514,25" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -827,27 +1366,29 @@
                           </ui:ForEach.Body>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEach>
                       </Sequence>
-                      <Sequence DisplayName="Sequence -CTSR Range for font color change" sap:VirtualizedContainerService.HintSize="649,963" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                      <Sequence DisplayName="Sequence - Billing Forecast Total" sap:VirtualizedContainerService.HintSize="610,773" sap2010:WorkflowViewState.IdRef="Sequence_57">
                         <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="str_CTSR_Range" />
-                          <Variable x:TypeArguments="x:String" Name="str_CTSR_TotalRange" />
+                          <Variable x:TypeArguments="x:String" Name="str_BF_TotalFormula" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="479,197" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_18">
                           <ui:InvokeCode.Arguments>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">[int_secondLastColIndex]</InArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="colLetter">[str_colLetter]</OutArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">
+                              <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="int_thirdLastColIndex" />
+                            </InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="colLetter">
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_colLetter" />
+                            </OutArgument>
                           </ui:InvokeCode.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -856,51 +1397,31 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeCode>
-                        <ui:MultipleAssign DisplayName="Set billing forecast data ranges" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
-                          <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
-                                <ui:AssignOperation.To>
-                                  <OutArgument x:TypeArguments="x:String">[str_CTSR_Range]</OutArgument>
-                                </ui:AssignOperation.To>
-                                <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">["=E4:"+str_colLetter+"11"]</InArgument>
-                                </ui:AssignOperation.Value>
-                              </ui:AssignOperation>
-                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
-                                <ui:AssignOperation.To>
-                                  <OutArgument x:TypeArguments="x:String">[str_CTSR_TotalRange]</OutArgument>
-                                </ui:AssignOperation.To>
-                                <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">["=E12:"+str_colLetter+"12"]</InArgument>
-                                </ui:AssignOperation.Value>
-                              </ui:AssignOperation>
-                            </scg:List>
-                          </ui:MultipleAssign.AssignOperations>
-                        </ui:MultipleAssign>
-                        <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Changing the CTSR Amount Values font to Medium Blue and then Type to Currency&quot;" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Range [&quot;+str_CTSR_Range+&quot;] to Medium Blue Color and Bold and Type to Currencey &amp; Range [&quot;+str_CTSR_TotalRange+&quot;] to Black Color and Bold and Type to Currencey&quot;]" />
-                        <ueab:FormatRangeX DisplayName="Format Excel cell range with specific font and currency" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="FormatRangeX_3" Range="[Excel.SelectedSheet.Range(str_CTSR_Range)]">
-                          <ueab:FormatRangeX.Alignment>
-                            <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
-                          </ueab:FormatRangeX.Alignment>
-                          <ueab:FormatRangeX.Font>
-                            <ui:FontOptions Color="MediumBlue" FillColor="Transparent" FontFamilyName="Calibri" Size="11" Style="Bold" UnderlineStyle="None" />
-                          </ueab:FormatRangeX.Font>
-                          <ueab:FormatRangeX.Format>
-                            <ueab:CurrencyFormat Currency="$" DecimalPlaces="2" SetAtTheEnd="False" UseThousandSeparator="False" />
-                          </ueab:FormatRangeX.Format>
-                        </ueab:FormatRangeX>
-                        <ueab:FormatRangeX DisplayName="Format an Excel range as currency" sap:VirtualizedContainerService.HintSize="479,161" sap2010:WorkflowViewState.IdRef="FormatRangeX_5" Range="[Excel.SelectedSheet.Range(str_CTSR_TotalRange)]">
-                          <ueab:FormatRangeX.Alignment>
-                            <ui:AlignmentOptions HorizontalAlignment="xlHAlignGeneral" VerticalAlignment="xlVAlignBottom" WrapText="False" />
-                          </ueab:FormatRangeX.Alignment>
-                          <ueab:FormatRangeX.Font>
-                            <ui:FontOptions Color="Black" FillColor="Transparent" FontFamilyName="Calibri" Size="11" Style="Bold" UnderlineStyle="None" />
-                          </ueab:FormatRangeX.Font>
-                          <ueab:FormatRangeX.Format>
-                            <ueab:CurrencyFormat Currency="$" DecimalPlaces="2" SetAtTheEnd="False" UseThousandSeparator="False" />
-                          </ueab:FormatRangeX.Format>
-                        </ueab:FormatRangeX>
+                        <Assign DisplayName="Assigns an Excel SUM formula to a string variable." sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_BF_TotalFormula]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["=SUM(E20:"+str_colLetter+"20)"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim index As Integer = colIndex&#xA;Dim result As String = &quot;&quot;&#xA;&#xA;index = index + 1 ' Excel columns are 1-based internally&#xA;&#xA;Do While index &gt; 0&#xA;    Dim remainder As Integer = (index - 1) Mod 26&#xA;    result = Chr(65 + remainder) &amp; result&#xA;    index = (index - remainder - 1) \ 26&#xA;Loop&#xA;&#xA;colLetter = result" DisplayName="Convert column index to Excel column letter" sap:VirtualizedContainerService.HintSize="434,197" sap2010:WorkflowViewState.IdRef="InvokeCode_19">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="colIndex">
+                              <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="int_lastColIndex" />
+                            </InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="colLetter">
+                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="str_colLetter" />
+                            </OutArgument>
+                          </ui:InvokeCode.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeCode>
+                        <ueab:WriteCellX Cell="[Excel.SelectedSheet.Cell(str_colLetter+&quot;20&quot;)]" DisplayName="Write formula to a specific Excel cell" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_39" Value="[str_BF_TotalFormula]" />
                       </Sequence>
                     </Sequence>
                   </ActivityAction>
@@ -917,6 +1438,6 @@
         </sap:WorkflowViewStateService.ViewState>
       </ueab:ExcelProcessScopeX>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Ended&quot;" sap:VirtualizedContainerService.HintSize="819,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - &quot;BillingForecast_FormulaCalculator : Ended&quot;" sap:VirtualizedContainerService.HintSize="780,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;BillingForecast_FormulaCalculator : Ended&quot;]" />
   </Sequence>
 </Activity>
