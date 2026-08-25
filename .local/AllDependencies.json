@@ -524,12 +524,12 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.9": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.1",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.9",
           "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
@@ -541,7 +541,7 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.9": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
@@ -556,31 +556,33 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14396975.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2209614.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22251608.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24456434.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2478558.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25125052.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26562026.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_28421651.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30039097.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30075894.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30779362.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31417447.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3203244.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36024225.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39304150.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3931112.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40638285.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_41302949.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43970798.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_45443293.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46857247.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48204561.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48542104.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55595606.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56152722.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64497419.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7534466.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -7639,12 +7641,12 @@
           }
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.9": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "[1.0.7]",
           "InPwr.CoE.CustomComponent.Mail": "1.0.14",
-          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.1",
+          "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime": "1.1.9",
           "UiPath.DataService.Activities": "25.9.3",
           "UiPath.System.Activities": "26.2.4",
           "UiPath.UIAutomation.Activities": "24.10.6"
@@ -7656,7 +7658,7 @@
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll": {}
         }
       },
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.9": {
         "type": "package",
         "dependencies": {
           "InPwr.CoE.CustomComponent.DataServices": "1.0.7",
@@ -7671,31 +7673,33 @@
         "runtime": {
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll": {},
           "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll": {},
-          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll": {}
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14396975.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2209614.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22251608.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24456434.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2478558.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25125052.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26562026.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_28421651.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30039097.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30075894.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30779362.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31417447.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3203244.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36024225.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39304150.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3931112.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40638285.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_41302949.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43970798.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_45443293.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46857247.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48204561.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48542104.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55595606.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56152722.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64497419.dll": {},
+          "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7534466.dll": {}
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -14889,10 +14893,10 @@
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SharePoint_Expressions_41183044.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.1": {
-      "sha512": "P8QhJxoOsQbzPt//Au3bMuDwUMH31fy0hWWHBPSHVSsBgscZ0jOxOIiDRhKPDzt/SgqpJ4Hm3SJYTiO4OGS8zQ==",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp/1.1.9": {
+      "sha512": "SvOuJcq8ASKlzjYjeGxcdXAfzjRNrHLd7w+C97cxDOiBuhjclgRjglWFI1RUG6XY5/klnlmFOxJCB3xbZ9GoEw==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.1.1",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp/1.1.9",
       "files": [
         ".nupkg.metadata",
         "content/.project/PackageBindingsMetadata.json",
@@ -14916,6 +14920,8 @@
         "content/Spectrum/Spec_Attach_Document.xaml.json",
         "content/Spectrum/Spec_Close_Tab.xaml",
         "content/Spectrum/Spec_Close_Tab.xaml.json",
+        "content/Spectrum/Spec_Export_BillingWorksheet.xaml",
+        "content/Spectrum/Spec_Export_BillingWorksheet.xaml.json",
         "content/Spectrum/Spec_Export_Report.xaml",
         "content/Spectrum/Spec_Export_Report.xaml.json",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml",
@@ -14938,6 +14944,8 @@
         "content/Spectrum/Spec_Switch_Tab.xaml.json",
         "content/Spectrum/Spectrum Handle ClosePOBox.xaml",
         "content/Spectrum/Spectrum Handle ClosePOBox.xaml.json",
+        "content/Spectrum/Spectrum_InvoiceDownload.xaml",
+        "content/Spectrum/Spectrum_InvoiceDownload.xaml.json",
         "content/TestCases/TC_01_Spec_Login.xaml",
         "content/TestCases/TC_02_Spec_Logout.xaml",
         "content/TestCases/TC_03_Spec_Navigation.xaml",
@@ -14955,16 +14963,17 @@
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.1.1.1.nupkg.sha512",
+        "content/project.uiproj",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.1.1.9.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.xml",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.ViewModels.dll"
       ]
     },
-    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.1": {
-      "sha512": "XBdwLTaKAD4vOA0ogh4EbHZ0+erf/KadEDOP/uK18Tal3EOICGK69VdusI7uK9iWGVkSWlBBH9gACI/K4v21XA==",
+    "InPwr.CoE.CustomComponent.SpectrumWebUIApp.Library.Runtime/1.1.9": {
+      "sha512": "ap4x1ngmaJU/RspHXaPilFWnCZvifB0xuyv1K3Xzc4AwEIUBBT55ro+7aZ1YJkQmlxhjPrlD1B4vcJJZ8Zwzig==",
       "type": "package",
-      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.1.1",
+      "path": "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime/1.1.9",
       "files": [
         ".nupkg.metadata",
         "content/.settings/Release/settings-1a5b880a.json",
@@ -14999,6 +15008,7 @@
         "content/.storage/.runtime/AncestryPersistenceService/5e95036c-06ac-447e-b5e3-29f582379de4",
         "content/.storage/.runtime/AncestryPersistenceService/5eeb301e-efff-45eb-b3cf-0fb8fb29c930",
         "content/.storage/.runtime/AncestryPersistenceService/60cca3b0-27e4-40b8-825c-96f9ba70547d",
+        "content/.storage/.runtime/AncestryPersistenceService/6581ed4a-1c8c-42ce-97c7-4ed7ddc90b21",
         "content/.storage/.runtime/AncestryPersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
         "content/.storage/.runtime/AncestryPersistenceService/67d9b96f-ad5f-4ef8-92a6-e9180640effa",
         "content/.storage/.runtime/AncestryPersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
@@ -15062,6 +15072,7 @@
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/5e95036c-06ac-447e-b5e3-29f582379de4",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/5eeb301e-efff-45eb-b3cf-0fb8fb29c930",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/60cca3b0-27e4-40b8-825c-96f9ba70547d",
+        "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/6581ed4a-1c8c-42ce-97c7-4ed7ddc90b21",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/66869d41-35aa-4940-90a7-429ecf81c22c",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/67d9b96f-ad5f-4ef8-92a6-e9180640effa",
         "content/.storage/.runtime/DesignTimeTargetImagePersistenceService/67e1fb59-51d7-4cc5-adc8-98cb95637cd4",
@@ -15108,6 +15119,8 @@
         "content/Spectrum/Spec_Attach_Document.xaml.json",
         "content/Spectrum/Spec_Close_Tab.xaml",
         "content/Spectrum/Spec_Close_Tab.xaml.json",
+        "content/Spectrum/Spec_Export_BillingWorksheet.xaml",
+        "content/Spectrum/Spec_Export_BillingWorksheet.xaml.json",
         "content/Spectrum/Spec_Export_Report.xaml",
         "content/Spectrum/Spec_Export_Report.xaml.json",
         "content/Spectrum/Spec_JobBillingHistoryReport.xaml",
@@ -15130,6 +15143,8 @@
         "content/Spectrum/Spec_Switch_Tab.xaml.json",
         "content/Spectrum/Spectrum Handle ClosePOBox.xaml",
         "content/Spectrum/Spectrum Handle ClosePOBox.xaml.json",
+        "content/Spectrum/Spectrum_InvoiceDownload.xaml",
+        "content/Spectrum/Spectrum_InvoiceDownload.xaml.json",
         "content/TestCases/TC_01_Spec_Login.xaml",
         "content/TestCases/TC_02_Spec_Logout.xaml",
         "content/TestCases/TC_03_Spec_Navigation.xaml",
@@ -15146,6 +15161,7 @@
         "content/TestCases/TC_14_Spec_MyReports_Selection.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
+        "content/project.uiproj",
         "contentFiles/any/any/.objects/.metadata",
         "contentFiles/any/any/.objects/.type",
         "contentFiles/any/any/.objects/6HCw/.data/ObjectSelectionName/.content",
@@ -15447,35 +15463,37 @@
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.data/ObjectRepositoryScreenData/.images/.design/0s3kjzn-MVUGArGknQbFTww",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.metadata",
         "contentFiles/any/any/.objects/BSZC/tF1Q/mXag/.type",
-        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.1.1.nupkg.sha512",
+        "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.1.1.9.nupkg.sha512",
         "inpwr.coe.customcomponent.spectrumwebuiapp.library.runtime.nuspec",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.Core.dll",
         "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10412671.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_10788763.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_18043033.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24798894.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_294684.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30150796.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30703860.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_35144879.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36631252.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3848625.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39139451.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40400231.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_42101573.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43306033.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43317334.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43885348.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_47864710.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55580463.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55894438.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_5657096.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_59893671.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_61516197.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64745832.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_65448986.dll",
-        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7511374.dll"
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_14396975.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2209614.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_22251608.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_24456434.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_2478558.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_25125052.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_26562026.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_28421651.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30039097.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30075894.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_30779362.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_31417447.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3203244.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_36024225.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_39304150.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_3931112.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_40638285.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_41302949.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_43970798.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_45443293.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_46857247.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48204561.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_48542104.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_55595606.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_56152722.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_64497419.dll",
+        "lib/net8.0-windows7.0/InPwr.CoE.CustomComponent.SpectrumWebUIApp_Expressions_7534466.dll"
       ]
     },
     "InPwr.CoE.CustomComponent.Utility/1.0.18": {
@@ -27152,7 +27170,7 @@
     "net8.0-windows7.0": [
       "InPwr.CoE.CustomComponent.Mail >= 1.0.17 <= 1.0.17",
       "InPwr.CoE.CustomComponent.SharePoint >= 1.0.3 <= 1.0.3",
-      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.1.1 <= 1.1.1",
+      "InPwr.CoE.CustomComponent.SpectrumWebUIApp >= 1.1.9 <= 1.1.9",
       "InPwr.CoE.CustomComponent.Utility >= 1.0.18 <= 1.0.18",
       "UiPath.DataService.Activities >= 25.9.3 <= 25.9.3",
       "UiPath.DocumentUnderstanding.Activities >= 2.17.4 <= 2.17.4",
@@ -27162,15 +27180,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dev2Mercury\\.nuget\\packages\\": {}
+    "C:\\Users\\Dev5pegasus\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "InPwr.Bill.BillingForecast",
       "projectName": "InPwr.Bill.BillingForecast",
-      "projectPath": "C:\\Users\\Dev2Mercury\\Documents\\UiPath\\InPwr.Bill.BillingForecast\\.local",
-      "packagesPath": "C:\\Users\\Dev2Mercury\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dev2Mercury\\Documents\\UiPath\\InPwr.Bill.BillingForecast\\.local"
+      "projectPath": "C:\\Users\\Dev5pegasus\\Documents\\Repo\\InPwr.Bill.BillingForecast\\.local",
+      "packagesPath": "C:\\Users\\Dev5pegasus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dev5pegasus\\Documents\\Repo\\InPwr.Bill.BillingForecast\\.local"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -27188,7 +27206,7 @@
           "InPwr.CoE.CustomComponent.SpectrumWebUIApp": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.1.1, 1.1.1]"
+            "version": "[1.1.9, 1.1.9]"
           },
           "InPwr.CoE.CustomComponent.Utility": {
             "include": "Runtime",
